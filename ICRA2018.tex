@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ICRA 2018 Submission Manuscript
+% John Romanishin, John Mamish, and Daniela Rus
+% SEPTEMBER 2017
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+     
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  
+
+\IEEEoverridecommandlockouts  % This command is only needed if you
+			      % want to use the \thanks command
+\overrideIEEEmargins
+% See the \addtolength command later in the file to balance the column lengths on the last page of the document
+
+\ifx\pdfoutput\undefined
+% we are running LaTeX, not pdflatex
+\usepackage[dvips]{graphicx}
+\else
+% we are running pdflatex, so convert .eps files to .pdf
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\fi
+
+\usepackage{amsmath, amssymb, mathptmx}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{multirow}
+\usepackage{breakurl}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[bookmarks=true,breaklinks=true,]{hyperref}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\hvectspace}{\hspace{.2cm}}
+
+\title{\LARGE \bf Mblocks Stigmergic Tags and Algorithims}
+
+\author{John W. Romanishin, John Mamish, and Daniela Rus%
+  \thanks{J. W. Romanishin, D. Rus are with the Computer Science
+    and Artificial Intelligence Lab, MIT, Cambridge, MA, 02139
+    {\tt\small \{johnrom|rus\}@csail.mit.edu}.}
+}
+
+\begin{document}
+
+\captionsetup[figure]{labelfont=small, textfont=small}
+\captionsetup[table]{labelfont=small, textfont=small}
+
+\maketitle
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+%%%%%%%%%%%%%%%%%% 
+
+This paper presents the work adding stigmergic tags, Mesh network communications... etc... to the M-Blocks modular robots. The first M-Blocks described
+in~\cite{RomanishinRus-IROS13} could pivot about one axis of rotation only.
+In contrast, the 3D M-blocks can exert on demand both forward and backward
+
+%%%%%%%%%%%%%%%%%%
+\end{abstract}
+%%%%%%%%%%%%%%%%%%
+
+\input{Introduction}
+
+\input{RelatedWork}
+
+\input{Hardware}
+
+\input{Experiments}
+
+\input{Discussion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgments}
+This work is supported by the NSF through grants 1240383 and 1138967.
+%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section*{Supplementary Material}
+\url{http://youtu.be/y27gUFO6mTA}
+
+\bibliographystyle{IEEEtran}
+
+\bibliography{RomanishinGilpinRus-3DMBlocks-ICRA15.bib}
+
+\end{document}
