@@ -49,9 +49,55 @@ Several different Tag technologies are shown in Table~\ref{tab:info}.
   \label{tab:info}    
 \end{table}
 
+More Text
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}
+\begin{axis}[
+	view={120}{40},
+	width=220pt,
+	height=220pt,
+	grid=major,
+	z buffer=sort,
+	xmin=0,xmax=5,
+	ymin=0,ymax=5,
+	zmin=0,zmax=5,
+	enlargelimits=upper,
+	xtick={0,1,...,11},
+	ytick={0,1,...,11},
+	ztick={0,1,...,11},
+	xlabel={$l_1$},
+	ylabel={$l_2$},
+	zlabel={$l_3$},
+	point meta={x+y+z+3},
+	colormap={summap}{
+		color=(black); color=(blue); 
+		color=(black); color=(white) 
+		color=(orange) color=(violet) 
+		color=(red)
+	},
+	scatter/use mapped color={
+		draw=mapped color,fill=mapped color!70},
+	]
+	% `pgfplots_scatter4.dat' contains a large sequence of
+	% the form
+	% l_0   l_1     l_2     
+	% 1     6       -1      
+	% -1    -1      -1      
+	\addplot3[only marks,scatter,mark=cube*,mark size=17] 
+		table {pgfplots_scatter4.dat};
+\end{axis}
+\end{tikzpicture}
 
+%\begin{figure}[H]
+%	\begin{tikzpicture}
+%   	 \node[anchor=south west, inner sep=0] (image) at (0,0) {\includegraphics[width=2 in]{figures/cover.png}};
+%    		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+%		%\node at (0.7,0.5) [align=center, rounded corners, fill=black!10, draw=none,opacity = 0.5] 
+%			%{$\omega = 0$\\$ V_{x} > 0 $\\ $ V_{y} = 0 $};	
+%		\draw[line width=1pt,->,red] (0.3,0.5) -- +(0:0.15);
+%		\end{scope}
+%	\end{tikzpicture}}
+%\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%

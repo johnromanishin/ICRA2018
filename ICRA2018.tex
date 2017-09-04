@@ -5,13 +5,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
      
 \documentclass[letterpaper, 10 pt, conference]{ieeeconf}  
-
 \IEEEoverridecommandlockouts  % This command is only needed if you
 			      % want to use the \thanks command
 \overrideIEEEmargins
 % See the \addtolength command later in the file to balance the column lengths on the last page of the document
-
 \ifx\pdfoutput\undefined
+
+%%%%%%%%%%%%%%%
+%%%      Packages       %%%
+%%%%%%%%%%%%%%%
+
 % we are running LaTeX, not pdflatex
 \usepackage[dvips]{graphicx}
 \else
@@ -30,6 +33,23 @@
 \usepackage[bookmarks=true,breaklinks=true,]{hyperref}
 \newtheorem{theorem}{Theorem}
 
+%%%  	 TIKZ 	  %%%
+
+\usepackage{pgfplots}
+
+\usepackage{tikz-dimline}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,trees}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+decorations.pathreplacing,decorations.pathmorphing,shapes,%
+matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending}
+\definecolor{maroon}{RGB}{111,0,15}
+\definecolor{light_orange}{RGB}{150,100,50}
+
+
+%%%%%%%%%%%%%%%
+%%%      Packages       %%%
+%%%%%%%%%%%%%%%
 \newcommand{\hvectspace}{\hspace{.2cm}}
 
 \title{\LARGE \bf Mblocks Stigmergic Tags and Algorithims}
