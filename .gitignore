@@ -18,6 +18,7 @@ ore latex/pdflatex auxiliary files:
 # *.ps
 # *.eps
 # *.pdf
+ICRA2018.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
 .pdf
