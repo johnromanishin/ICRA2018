@@ -6,11 +6,11 @@
 \subsection{M-Blocks hardware overview}
 \label{sec:3dmblocksOverview}
 
-This work utalizas a fleet of modular robots previously described in []  and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
+This work utilizes a fleet of modular robots previously described in []  and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
 
 \begin{table}[h]
   \caption{Basic info of the m-Blocks modular robots}
-      
+
   \begin{tabular}{ p{3.4cm}  p{1.9cm} }
     \hline
     Actuation Directions & 6 \\
@@ -19,10 +19,10 @@ This work utalizas a fleet of modular robots previously described in []  and [],
     Total Parts  & 216 \\
     Actuated Moving Parts  & 10 \\
     Est. Cost & \$130 \\
-	
+
   \end{tabular}
-  
-    \label{tab:hardwareOverview}      
+
+    \label{tab:hardwareOverview}
 \end{table}
 
 
@@ -33,7 +33,7 @@ Several different Tag technologies are shown in Table~\ref{tab:info}.
 
 \begin{table}[h]
   \caption{Comparison of tagging technologies}
-      
+
   \begin{tabular}{ p{3.4cm}  p{1.9cm}  p{1.9cm} }
     \hline
     & Passive & Size \\
@@ -45,8 +45,8 @@ Several different Tag technologies are shown in Table~\ref{tab:info}.
     BLE Beaconds & 0 & 0 \\
 
     \end{tabular}
-  
-  \label{tab:info}    
+
+  \label{tab:info}
 \end{table}
 
 More Text
@@ -70,9 +70,9 @@ More Text
 	zlabel={$l_3$},
 	point meta={x+y+z+3},
 	colormap={summap}{
-		color=(black); color=(blue); 
-		color=(black); color=(white) 
-		color=(orange) color=(violet) 
+		color=(black); color=(blue);
+		color=(black); color=(white)
+		color=(orange) color=(violet)
 		color=(red)
 	},
 	scatter/use mapped color={
@@ -80,10 +80,10 @@ More Text
 	]
 	% `pgfplots_scatter4.dat' contains a large sequence of
 	% the form
-	% l_0   l_1     l_2     
-	% 1     6       -1      
-	% -1    -1      -1      
-	\addplot3[only marks,scatter,mark=cube*,mark size=17] 
+	% l_0   l_1     l_2
+	% 1     6       -1
+	% -1    -1      -1
+	\addplot3[only marks,scatter,mark=cube*,mark size=17]
 		table {pgfplots_scatter4.dat};
 \end{axis}
 \end{tikzpicture}
@@ -92,8 +92,8 @@ More Text
 %	\begin{tikzpicture}
 %   	 \node[anchor=south west, inner sep=0] (image) at (0,0) {\includegraphics[width=2 in]{figures/cover.png}};
 %    		\begin{scope}[x={(image.south east)},y={(image.north west)}]
-%		%\node at (0.7,0.5) [align=center, rounded corners, fill=black!10, draw=none,opacity = 0.5] 
-%			%{$\omega = 0$\\$ V_{x} > 0 $\\ $ V_{y} = 0 $};	
+%		%\node at (0.7,0.5) [align=center, rounded corners, fill=black!10, draw=none,opacity = 0.5]
+%			%{$\omega = 0$\\$ V_{x} > 0 $\\ $ V_{y} = 0 $};
 %		\draw[line width=1pt,->,red] (0.3,0.5) -- +(0:0.15);
 %		\end{scope}
 %	\end{tikzpicture}}
@@ -119,7 +119,7 @@ More Text
 %
 %\begin{table}[h]
 %  \caption{Comparison of 3D M-Blocks to first generation M-Blocks. $ \dagger$ Pre-assembled ball bearings and assembled printed circuit boards are counted as single parts.}
-%      
+%
 %  \begin{tabular}{ p{3.4cm}  p{1.9cm}  p{1.9cm} }
 %    \hline
 %    & M-Blocks & 3D M-Blocks \\
@@ -133,8 +133,8 @@ More Text
 %    Est. Cost & \$250 & \$130 \\
 %    Maximum Torque & 1.6\,Nm & 2.6\,Nm \\
 %  \end{tabular}
-%  
-%  \label{tab:info}    
+%
+%  \label{tab:info}
 %\end{table}
 %
 %
@@ -176,7 +176,7 @@ More Text
 %
 %  \centering
 %  \includegraphics[width=6in]{Figures/ExplodedViewWithInsets.png}
-% 
+%
 %  \caption{Each 3D M-Block is built around a six-piece injection
 %    molded frame \emph{gray} which supports the central assembly  \emph{lighter
 %    gray, split in half} along the frame's longest diagonal axis on
@@ -231,7 +231,7 @@ More Text
 %Figure~\ref{fig:ExplodedView}).  These gear teeth prevent slippage as
 %two modules pivot relative to one another.  Because the shape of the gear teeth does not
 %protrude past the extents of the frame, it does not hinder
-%the ability of modules to pivot next to adjacent stationary modules.  
+%the ability of modules to pivot next to adjacent stationary modules.
 %
 %Finally, each frame panel holds a face PCB which is used to interface with the
 %surrounding environment.
@@ -254,7 +254,7 @@ More Text
 %band brake. All of the relevant components which form the actuator are
 %illustrated in Figure~\ref{fig:Brake}.
 %
-%\begin{figure}[htb]  
+%\begin{figure}[htb]
 %
 %  \centering
 %  \includegraphics[width=3.25in]{Figures/brake.png}
@@ -266,7 +266,7 @@ More Text
 %    \emph{green}, which is supported by ball bearings \emph{pink}, and which acts as a lever to amplify the force felt at the belt (\emph{blue} and \emph{red}  arrows indicated relative motions for both CW and CCW braking actions).  To activate the brake, the coil \emph{orange} briefly generates either a positive or negative magnetic field
 %    which exerts a corresponding force on the two magnets \emph{red/blue} which drives the linkage. }
 %
-%  \label{fig:Brake}    
+%  \label{fig:Brake}
 %\end{figure}
 %
 %The flywheel assembly consists of a thin brass ring with an outer diameter of
@@ -341,25 +341,25 @@ More Text
 %necessary.  It is formed by a retractable pin which protrudes from the
 %central actuator.  When extended, the pin mates with one of three
 %matching holes in the frame's corner braces (see
-%Figure~\ref{fig:PlaneChanging}). 
+%Figure~\ref{fig:PlaneChanging}).
 %
-%\begin{figure}[htb]  
+%\begin{figure}[htb]
 %
 %  \centering
 %
 %  \begin{subfigure}[b]{.3\linewidth}
 %    \includegraphics[width=1in]{Figures/FlywheelX.png}
-%    \subcaption{X-axis} 
+%    \subcaption{X-axis}
 %  \end{subfigure}
 %  ~
 %  \begin{subfigure}[b]{.3\linewidth}
 %    \includegraphics[width=1in]{Figures/FlywheelY.png}
-%    \subcaption{Y-axis} 
+%    \subcaption{Y-axis}
 %  \end{subfigure}
 %  ~
 %  \begin{subfigure}[b]{.3\linewidth}
 %    \includegraphics[width=1in]{Figures/FlywheelZ.png}
-%    \subcaption{Z-axis} 
+%    \subcaption{Z-axis}
 %  \end{subfigure}
 %
 %
@@ -373,7 +373,7 @@ More Text
 %    For every $2\pi/3$ radians of rotation along this axis, the
 %    flywheel comes into alignment with a new axis of the frame.}
 %
-%  \label{fig:PlaneChanging}    
+%  \label{fig:PlaneChanging}
 %\end{figure}
 %
 %In order to switch planes, the 3D M-Block first spins-up the motor.  Once
@@ -406,7 +406,7 @@ More Text
 %help immobilize the module, attempting to change the plane of the
 %central actuator results in the entire module pivoting about one of
 %its edges.  We plan to refine the magnet arrangement in
-%order to eliminate this problem in the future.   
+%order to eliminate this problem in the future.
 %
 %%%%%
 %%%%%
@@ -507,13 +507,13 @@ More Text
 %The face PCBs are electrically connected to the central assembly by
 %custom slip rings formed by the bearings that support the central
 %assembly.  One bearing is in direct electrical contact with the
-%central assembly and provides a ground connection, while the other is isolated and carries one of the bus lines 
+%central assembly and provides a ground connection, while the other is isolated and carries one of the bus lines
 %to the face PCBs.  We employ a brass pin, which
 %passes through the center of the each bearing to carry 3.3\,V to the
 %face PCBs.  The pin contacts a leaf spring soldered to one of the
 %face PCBs.  Experiments have shown that the
 %bearings present several Ohms of resistance. However, the face PCBs do not
-%require high currents, so this is not problematic.  
+%require high currents, so this is not problematic.
 %When power is flowing into the central assembly during the charging process, the voltage drop
 %across the bearings can be compensated for by an increase of the external
 %charging voltage.
