@@ -4,9 +4,40 @@
 %%%%%%%%%%%%%%%%%%%%
 
 \subsection{M-Blocks hardware overview}
-\label{sec:3dmblocksOverview}
+\label{sec:mblocksOverview}
 
 This work utalizas a fleet of modular robots previously described in []  and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
+
+\subsection{mTags Hardware Overview}
+\label{sec:tagsOverview}
+In order to create a tag where the reader and the tag are both ungendered...
+
+\newcommand{\statcirc}[4]{
+	\fill[red,shift={(#1 cm,#2 cm)}, rotate=#3,] (0,0) circle (#4); 
+	\fill[blue,shift={(#1 cm,#2 cm)},rotate=#3,] (0,0) -- (180:#4) arc (180:0:#4) -- cycle;
+}
+
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+		%illed with second colour (arg#1), if 
+%	}
+
+	 \statcirc{-0.375}{3}{30}{0.4};
+	 \statcirc{3}{0.375}{210}{0.4};
+	 \statcirc{0.375}{-3}{190}{0.4};
+	 \statcirc{-3}{-0.375}{45}{0.4};
+   	 \draw[black,dotted] (0,0) circle (3);
+
+   	 \draw[black,dashed] (0,0) -- (4,0);
+   	 \draw[black,dashed] (0,0) -- (-4,0);
+   	 \draw[black,dashed] (0,0) -- (0,4);
+   	 \draw[black,dashed] (0,0) -- (0,-4);
+	\end{tikzpicture}
+	\caption{tags consist of 4 diametrically magnetized
+	magnes arranged in a $\pi$ /2 4 way symmetric layout}
+	\label{fig:tagDiagram}
+\end{figure}
 
 \begin{table}[h]
   \caption{Basic info of the m-Blocks modular robots}
@@ -15,7 +46,7 @@ This work utalizas a fleet of modular robots previously described in []  and [],
     \hline
     Actuation Directions & 6 \\
     Mass  & 150\,g \\
-    Characterist Dimension & 50\,mm \\
+    Characterist Dimension & 50\,mm \\dra
     Total Parts  & 216 \\
     Actuated Moving Parts  & 10 \\
     Est. Cost & \$130 \\
@@ -50,43 +81,6 @@ Several different Tag technologies are shown in Table~\ref{tab:info}.
 \end{table}
 
 More Text
-
-\begin{tikzpicture}
-\begin{axis}[
-	view={120}{40},
-	width=220pt,
-	height=220pt,
-	grid=major,
-	z buffer=sort,
-	xmin=0,xmax=5,
-	ymin=0,ymax=5,
-	zmin=0,zmax=5,
-	enlargelimits=upper,
-	xtick={0,1,...,11},
-	ytick={0,1,...,11},
-	ztick={0,1,...,11},
-	xlabel={$l_1$},
-	ylabel={$l_2$},
-	zlabel={$l_3$},
-	point meta={x+y+z+3},
-	colormap={summap}{
-		color=(black); color=(blue); 
-		color=(black); color=(white) 
-		color=(orange) color=(violet) 
-		color=(red)
-	},
-	scatter/use mapped color={
-		draw=mapped color,fill=mapped color!70},
-	]
-	% `pgfplots_scatter4.dat' contains a large sequence of
-	% the form
-	% l_0   l_1     l_2     
-	% 1     6       -1      
-	% -1    -1      -1      
-	\addplot3[only marks,scatter,mark=cube*,mark size=17] 
-		table {pgfplots_scatter4.dat};
-\end{axis}
-\end{tikzpicture}
 
 %\begin{figure}[H]
 %	\begin{tikzpicture}
