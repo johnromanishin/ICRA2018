@@ -2,40 +2,32 @@
 \label{sec:Hardware}
 
 %%%%%%%%%%%%%%%%%%%%
+The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances. In this section we breifly describe the M-Blocks hardware, and then describe the mechanical, and electrical aspects of the new \tagNamePlural. 
 
 \subsection{M-Blocks hardware overview}
 \label{sec:mblocksOverview}
 
-This work utalizas a fleet of modular robots previously described in []  and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
+The \tagName were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
 
-\subsection{mTags Hardware Overview}
+\subsection{\tagNamePlural Hardware Overview}
 \label{sec:tagsOverview}
 In order to create a tag where the reader and the tag are both ungendered...
 
-\newcommand{\statcirc}[4]{
-	\fill[red,shift={(#1 cm,#2 cm)}, rotate=#3,] (0,0) circle (#4); 
-	\fill[blue,shift={(#1 cm,#2 cm)},rotate=#3,] (0,0) -- (180:#4) arc (180:0:#4) -- cycle;
-}
-
-
 \begin{figure}[H]
-	\begin{tikzpicture}
-		%illed with second colour (arg#1), if 
-%	}
-
-	 \statcirc{-0.375}{3}{30}{0.4};
-	 \statcirc{3}{0.375}{210}{0.4};
-	 \statcirc{0.375}{-3}{190}{0.4};
-	 \statcirc{-3}{-0.375}{45}{0.4};
-   	 \draw[black,dotted] (0,0) circle (3);
-
-   	 \draw[black,dashed] (0,0) -- (4,0);
-   	 \draw[black,dashed] (0,0) -- (-4,0);
-   	 \draw[black,dashed] (0,0) -- (0,4);
-   	 \draw[black,dashed] (0,0) -- (0,-4);
-	\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{FIGmagnetTag.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\caption{tags consist of 4 diametrically magnetized
 	magnes arranged in a $\pi$ /2 4 way symmetric layout}
+	\label{fig:tagDiagram}
+\end{figure}
+
+\begin{figure}[H]
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\input{FIGmagnetTag.tex}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\caption{tags consist of 4 diametrically magnetized
+		magnes arranged in a $\pi$ /2 4 way symmetric layout}
 	\label{fig:tagDiagram}
 \end{figure}
 

@@ -36,7 +36,7 @@
 %%%  	 TIKZ 	  %%%
 
 \usepackage{pgfplots}
-
+\usetikzlibrary{math} %needed tikz library
 \usepackage{tikz-dimline}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,trees}
@@ -61,6 +61,9 @@ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending
 }
 
 \begin{document}
+	
+\newcommand{\tagName}{mtag }
+\newcommand{\tagNamePlural}{mtags }
 
 \captionsetup[figure]{labelfont=small, textfont=small}
 \captionsetup[table]{labelfont=small, textfont=small}
