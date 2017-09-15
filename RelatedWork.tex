@@ -13,42 +13,36 @@ systems are typically designed to self-reconfigure using complicated
 implementations which approximate simpler models, such as the sliding cube model~\cite{FitchRus-IROS03} or
 the pivoting cube model~\cite{RomanishinRus-IROS13}.
 
-\subsection{Tagging technology overview}
+\subsection{Modular Robots Overview}
+
+\subsection{Location Tagging technology overview}
+
+\begin{table*}[ht]
+	\centering
+	\caption{Comparison of tagging technologies}
+	
+	\begin{tabular}{ |p{1.3cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|  }
+		\hline
+							%1 - EMPTY
+		& RFID 				%2
+		& Light Based		%3
+		& NFC Tags 			%4
+		& Electrical 		%5s
+		& QR Codes 			%6
+		& Barcodes			%7
+		& \tagNamePlural \\ 	%8
+		\hline
+		%%		1			2		3		4		5		6		7		8
+		Cost			& Expensive	& 		& 		& 		& 		& 	  	& Inexpensive \\
+		Size 			&  			& 		&    	&   	&       &     	& Small		  \\
+		Passive 		&  			&		&  		&	 	&		& 		& yes!		  \\
+		Orientation 	&  			& 		&  		&	 	&	  	& 		& yes!		\\
+		Modular Robots 	&  			& yes	&	  	&		&		& 		& 3D M-Blocks\\
+		Range			& 0-10$m$	&		&		&		&		&		& 0-1$mm$	\\
+	\end{tabular}
+	\label{tab:tagTech}    
+\end{table*}
 
 There are several different types of passive tagging technologies designed allow the recognization of tags. These include RFID, NFC, QR-Codes, April Tags, etc... 
 
-%There have been several systems which attempt to implement the sliding
-%cube model~\cite{Hosokawa-ICRA98, Suzuki-IROS07, An-ICRA08}, but these systems
-%have been limited to two dimensions.  Additionally, there are systems
-%which are able to self-reconfigure in three
-%dimensions~\cite{Kurokawa-IJRR08, Kurokawa-IROS98}, but these systems
-%all diverge from the simplicity offered by the sliding and pivoting
-%cube models.  We are not aware of any preexisting three dimensional
-%hardware that is able to reconfigure in a manner that directly mimics
-%the theoretical models.  Furthermore, recent
-%research~\cite{Sacristan-EuroCG2013} has produced a provably correct
-%self-reconfiguration algorithm for two dimensional systems based on
-%the sliding cube model. No such solution in three dimensions has yet been presented for the sliding
-%cube model or for the pivoting cube model. 
-%
-%Many existing modular systems are also dependent on complex,
-%mechanically active connectors which require careful
-%alignment~\cite{ubot, roombots3, Yim-RAM07, WolfeChirikjian-ICRA12}.  In
-%contrast, the M-Blocks use passive magnetic connectors which
-%automatically self-align.  While these magnetic connectors may not be
-%as strong as protruding mechanical latches found in other systems, they
-%are simple to use.  Continuing advancements in advanced connector
-%design, such as solder-based connectors~\cite{NeubertLipson-TR2014} may provide
-%additional options for the M-Blocks in the future.
-%
-%Most existing modular systems are also limited by the inability of the
-%modules to move independently.  Like the M-Blocks, a few other system
-%do not suffer from this drawback, for example
-%$M^{3}$Express~\cite{WolfeChirikjian-ICRA12} whose wheeled modules can
-%drive without being a part of a larger group of modules.  The
-%Cubli~\cite{Cubli} is a recently developed robot which uses
-%torque-producing flywheels to move and balance on its edges.  It can
-%also move independently, but unlike the M-Blocks, Cubli is not
-%designed to operate in large ensembles and cannot climb over and
-%around other modules.
 
