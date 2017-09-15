@@ -1,7 +1,15 @@
 \section{Hardware}
 \label{sec:Hardware}
 
+\newsavebox{\faceDiagram}
+\sbox{\faceDiagram}	{
+	\input{FIGmagnetFace.tex}
+}
 
+\newsavebox{\magnetDigitization}
+\sbox{\magnetDigitization}	{
+	\input{FIGmagnetUPCLOSE.tex}
+}
 
 %%%%%%%%%%%%%%%%%%%%
 The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances. In this section we breifly describe the M-Blocks hardware, and then describe the mechanical, and electrical aspects of the new \tagNamePlural.
@@ -38,10 +46,10 @@ In order to create a tag where the reader and the tag are both ungendered...
 		\coordinate (bigSW) at (2,5);
 		\coordinate (bigSE) at (2,5);
 		
-		\node at (4 cm, 4 cm) {\usebox{\mybox}};
-		\node at (10 cm, 6 cm) {\usebox{\myboxy}};
+		\node at (4 cm, 4 cm) {\usebox{\faceDiagram}};
+		\node at (10 cm, 6 cm) {\usebox{\magnetDigitization}};
 	
-		\node	
+		
 		%\draw (1,1) pic {complexnode} (4,4);
 		
 		\end{tikzpicture}

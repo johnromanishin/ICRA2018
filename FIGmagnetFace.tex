@@ -1,0 +1,44 @@
+\newcommand{\statcirc}[4]{
+	\fill[red,shift={(#1 cm,#2 cm)}, rotate=#3] (0,0) circle (#4); 
+	\fill[blue,shift={(#1 cm,#2 cm)},rotate=#3] (0,0) -- (180:#4) arc (180:0:#4) -- cycle;
+	%	\draw[->,black,shift={(#1 cm,#2 cm)},rotate=#3] (#4, 0)
+}
+
+\newcommand{\drawArrow}[3]{
+	\draw[->,>={Stealth[round]}, line width=0.75mm, black ,shift={(#1 cm,#2 cm)}, rotate=#3] (0,-0.5) -- (0,0.5); 
+}
+
+\newcommand{\drawchip}[3]{
+	\tikzmath
+	{
+		\chipW = 0.35;
+		\chipH = 0.4;
+	}
+	\fill[ black, shift= {(#1 cm, #2 cm)}, rotate = #3 ] (-\chipH,-\chipW) rectangle (\chipH,\chipW);
+	\fill[ orange,shift= {(#1 cm, #2 cm)}, rotate = #3 ] (-0.25,0.25) circle (0.125);
+	
+}
+\begin{tikzpicture}
+{
+	\tikzmath{
+		\offsetAxis = 0.5;
+		\offsetCent = 2.9;
+		\diameter = 0.32;
+	}
+	
+	\drawchip{\offsetAxis}{\offsetCent}{0};
+	\drawchip{-\offsetAxis}{-\offsetCent}{180};
+	\statcirc{-\offsetAxis}{\offsetCent}{30}{\diameter};
+	\drawArrow{-\offsetAxis}{\offsetCent}{30}
+	\statcirc{\offsetCent}{\offsetAxis}{210}{\diameter};
+	\statcirc{\offsetAxis}{-\offsetCent}{190}{\diameter};
+	\statcirc{-\offsetCent}{-\offsetAxis}{45}{\diameter};
+	\draw[gray, dashed] (-\offsetAxis,{\offsetCent + 1}) -- 
+	(-\offsetAxis,{\offsetCent - 1});
+	\draw[black,dotted] (0,0) circle (3);
+	\draw[black,dashed] (0,0) -- (4,0);
+	\draw[black,dashed] (0,0) -- (-4,0);
+	\draw[black,dashed] (0,0) -- (0,4);
+	\draw[black,dashed] (0,0) -- (0,-4);
+};
+\end{tikzpicture}
