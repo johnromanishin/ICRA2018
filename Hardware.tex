@@ -2,11 +2,34 @@
 \label{sec:Hardware}
 
 %%%%%%%%%%%%%%%%%%%%
+The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances. In this section we breifly describe the M-Blocks hardware, and then describe the mechanical, and electrical aspects of the new \tagNamePlural.
 
 \subsection{M-Blocks hardware overview}
-\label{sec:3dmblocksOverview}
+\label{sec:mblocksOverview}
 
-This work utilizes a fleet of modular robots previously described in []  and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
+The \tagName were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
+
+\subsection{\tagNamePlural Hardware Overview}
+\label{sec:tagsOverview}
+In order to create a tag where the reader and the tag are both ungendered...
+
+\begin{figure}[H]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{FIGmagnetTag.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\caption{tags consist of 4 diametrically magnetized
+	magnes arranged in a $\pi$ /2 4 way symmetric layout}
+	\label{fig:tagDiagram}
+\end{figure}
+
+\begin{figure}[H]
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\input{FIGmagnetUPCLOSE.tex}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\caption{tags consist of 4 diametrically magnetized
+		magnes arranged in a $\pi$ /2 4 way symmetric layout}
+	\label{fig:tagDiagram}
+\end{figure}
 
 \begin{table}[h]
   \caption{Basic info of the m-Blocks modular robots}
@@ -15,7 +38,7 @@ This work utilizes a fleet of modular robots previously described in []  and [],
     \hline
     Actuation Directions & 6 \\
     Mass  & 150\,g \\
-    Characterist Dimension & 50\,mm \\
+    Characterist Dimension & 50\,mm \\dra
     Total Parts  & 216 \\
     Actuated Moving Parts  & 10 \\
     Est. Cost & \$130 \\
@@ -51,42 +74,6 @@ Several different Tag technologies are shown in Table~\ref{tab:info}.
 
 More Text
 
-\begin{tikzpicture}
-\begin{axis}[
-	view={120}{40},
-	width=220pt,
-	height=220pt,
-	grid=major,
-	z buffer=sort,
-	xmin=0,xmax=5,
-	ymin=0,ymax=5,
-	zmin=0,zmax=5,
-	enlargelimits=upper,
-	xtick={0,1,...,11},
-	ytick={0,1,...,11},
-	ztick={0,1,...,11},
-	xlabel={$l_1$},
-	ylabel={$l_2$},
-	zlabel={$l_3$},
-	point meta={x+y+z+3},
-	colormap={summap}{
-		color=(black); color=(blue);
-		color=(black); color=(white)
-		color=(orange) color=(violet)
-		color=(red)
-	},
-	scatter/use mapped color={
-		draw=mapped color,fill=mapped color!70},
-	]
-	% `pgfplots_scatter4.dat' contains a large sequence of
-	% the form
-	% l_0   l_1     l_2
-	% 1     6       -1
-	% -1    -1      -1
-	\addplot3[only marks,scatter,mark=cube*,mark size=17]
-		table {pgfplots_scatter4.dat};
-\end{axis}
-\end{tikzpicture}
 
 %\begin{figure}[H]
 %	\begin{tikzpicture}
