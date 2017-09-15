@@ -1,10 +1,14 @@
 \section{Experiments}
 \label{sec:Experiments}
-characterizing the repeatability of one tag
+While the exact performance of the \tagName system will be implementation dependant i.e. different size/shape magnets, encoder ICs, etc... we performed two categories of experimentation to demonstrate that our implementation of the \tagName concept is feasible and useful in the context of modular robots. The first section~\ref{sec:characterize} attempts to characterize the \tagNamePlural in terms of repeatability and accuracy of multiple measurements under varying conditions and to investigate the behavior when tags are misaligned. The second section~\ref{sec:mblocksExperiments} illustrates the use of the \tagNamePlural implemented on a system consisting of 8 active 3D M-Blocks modular robots, in addition to numerous passively tagged modules.
 
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Tag Characterization Experiments}
+\label{sec:characterize}
 
+While the angular resolution of the magnetic angular encoders that we used is very high, 14 bits for the ams5048b used in this work, these readings are only repeatable under ideal conditions. There are many factors which influence the accuracy of readings of the sensors in the context of the \tagNamePlural. We have identified the following factors 1. Alignment of the magnetic sensor relative to the face of the module, 2. relative alignment of the face containing the tag to the face containing the reader. 3. variability of the magnetic field direction in the manufacture of the magnets. 4. Mechanical alignment of the magnets in reference to the tag. 5. Effects of external magnetic fields.
+	Factors 1 and 4 are 
+	
 \begin{figure}[H]
 	\input{FIGhistogram1.tex}
 	\caption{Histogram of one sensor face reading the same tag multiple times}
@@ -20,7 +24,7 @@ We did some stuff, wrote it down here...
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%
-\subsection{Crystalization Experiments}
+\subsection{3D M-Blocks System Experiments}
+\label{sec:mblocksExperiments}
 
-
-We did some stuff, wrote it down here...
+We 

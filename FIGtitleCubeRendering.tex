@@ -1,0 +1,109 @@
+
+\setcounter{x}{0}%
+\setcounter{y}{0}%
+\setcounter{z}{0}%
+
+% The angles of x,y,z-axes
+\newcommand\xaxis{210}
+\newcommand\yaxis{-30}
+\newcommand\zaxis{90}
+
+% The top side of a cube
+\newcommand\topside[3]{
+	\fill[fill=yellow, draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+	shift={(\zaxis:#3)}] (0,0) -- (30:1) -- (0,1) --(150:1)--(0,0);
+}
+
+% The left side of a cube
+\newcommand\leftside[3]{
+	\fill[fill=red, draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+	shift={(\zaxis:#3)}] (0,0) -- (0,-1) -- (210:1) --(150:1)--(0,0);
+}
+
+% The right side of a cube
+\newcommand\rightside[3]{
+	\fill[fill=blue, draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+	shift={(\zaxis:#3)}] (0,0) -- (30:1) -- (-30:1) --(0,-1)--(0,0);
+}
+
+% The cube 
+\newcommand\cube[3]{
+	\topside{#1}{#2}{#3} \leftside{#1}{#2}{#3} \rightside{#1}{#2}{#3}
+}
+
+\newcommand\ArrowNE[3]
+{
+	\node at (#1+0.5, #2+0.5, #3) 
+	{
+		\begin{tikzpicture}
+		\draw[->, thick, >={Stealth[round]}, line width=0.4mm] (0.3,0) -- (-0.3,0);
+		\end{tikzpicture}};
+		
+}
+
+\newcommand\ArrowNW[3]
+{
+	\node at (#1+0.5, #2+0.5, #3) 
+	{
+		\begin{tikzpicture}
+		\draw[->, thick, >={Stealth[round]}, line width=0.4mm] (0,0.3) -- (0,-0.3);
+		\end{tikzpicture}};
+	
+}
+
+\newcommand\ArrowSW[3]
+{
+	\node at (#1+0.5, #2+0.5, #3) 
+	{
+		\begin{tikzpicture}
+		\draw[<-, thick, >={Stealth[round]}, line width=0.4mm] (0.3,0) -- (-0.3,0);
+		\end{tikzpicture}};
+	
+}
+
+\newcommand\ArrowSE[3]
+{
+	\node at (#1+0.5, #2+0.5, #3) 
+	{
+		\begin{tikzpicture}
+		\draw[<-, thick, >={Stealth[round]}, line width=0.4mm] (0,0.3) -- (0,-0.3);
+		\end{tikzpicture}};
+	
+}
+
+% Definition of \planepartition
+% To draw the following plane partition, just write \planepartition{ {a, b, c}, {d,e} }.
+%  a b c
+%  d e
+\newcommand\planepartition[1]{
+	\setcounter{x}{-1}
+	\foreach \a in {#1} {
+		\addtocounter{x}{1}
+		\setcounter{y}{-1}
+		\foreach \b in \a {
+			\addtocounter{y}{1}
+			\setcounter{z}{-1}
+			\foreach \c in {0,...,\b} {
+				\addtocounter{z}{1}
+				\ifthenelse{\c=0}{\setcounter{z}{-1},\addtocounter{y}{0}}{
+					\cube{\value{x}}{\value{y}}{\value{z}}}
+			}
+		}
+	}
+}
+
+
+%%\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
+	%\planepartition{{0,0,1},{1,1,1},{1,0,0},{1,0,1}};
+\foreach \m [count=\y] in {{1,4,3,1,1,1},{1,1,1,1,1},{1,2,1,2,1,1},{2,2,2},{1,0,0}}{
+	\foreach \n [count=\x] in \m {
+		\ifnum \n>0
+		\foreach \z in {1,...,\n}{
+			\draw [fill=blue!30] (\x+1,\y,\z) -- (\x+1,\y+1,\z) -- (\x+1, \y+1, \z-1) -- (\x+1, \y, \z-1) -- cycle;
+			\draw [fill=blue!40] (\x,\y+1,\z) -- (\x+1,\y+1,\z) -- (\x+1, \y+1, \z-1) -- (\x, \y+1, \z-1) -- cycle;
+			\draw [fill=blue!10] (\x,\y,\z)   -- (\x+1,\y,\z)   -- (\x+1, \y+1, \z)   -- (\x, \y+1, \z) -- cycle;  
+		}
+	
+		\fi
+	}
+}   
