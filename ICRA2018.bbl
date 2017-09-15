@@ -40,23 +40,6 @@ T.~Tosun, J.~Davey, C.~Liu, and M.~Yim, ``Design and characterization of the
   ep-face,'' in \emph{IEEE Intl. Conf. on Robotics and Automation (ICRA)},
   2016.
 
-\bibitem{AHMADZADEH201527}
-\BIBentryALTinterwordspacing
-H.~Ahmadzadeh and E.~Masehian, ``Modular robotic systems: Methods and
-  algorithms for abstraction, planning, control, and synchronization,''
-  \emph{Artificial Intelligence}, vol. 223, pp. 27 -- 64, 2015. [Online].
-  Available:
-  \url{http://www.sciencedirect.com/science/article/pii/S0004370215000260}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Neubert2016}
-\BIBentryALTinterwordspacing
-J.~Neubert and H.~Lipson, ``Soldercubes: a self-soldering self-reconfiguring
-  modular robot system,'' \emph{Autonomous Robots}, vol.~40, no.~1, pp.
-  139--158, Jan 2016. [Online]. Available:
-  \url{https://doi.org/10.1007/s10514-015-9441-4}
-\BIBentrySTDinterwordspacing
-
 \bibitem{Gilpin-Thesis06}
 K.~Gilpin, ``Distributed algorithms for self dissasembly for modular robots,''
   M.Eng. and S.B. Thesis, June 2006.
@@ -78,6 +61,16 @@ M.~Yim, W.~Shen, B.~Salemi, D.~Rus, M.~Moll, H.~Lipson, E.~Klavins, and G.~S.
   Self-Reconfigurable Robot Systems: Challenges and Opportunities for the
   Future},'' \emph{Robotics and Automation Magazine}, vol.~14, no.~1, pp.
   43--52, 2007.
+
+\bibitem{Moubarak2012}
+P.~Moubarak and P.~Ben-Tzvi, ``Modular and reconfigurable mobile robotics,''
+  \emph{Robotics and Autonomous Systems}, vol.~60, no.~12, pp. 1648--–1663,
+  Dec 2012.
+
+\bibitem{surveyyim}
+M.~Yim, P.~White, M.~Park, and J.~Sastra, ``Modular self-reconfigurable
+  robots,'' in \emph{Encyclopedia of complexity and systems science}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Springer, 2009, pp. 5618--5631.
 
 \bibitem{ubot}
 Y.~Zhu, J.~Zhao, X.~Cui, X.~Wang, S.~Tang, X.~Zhang, and J.~Yin, ``Design and
