@@ -7,9 +7,10 @@ While the exact performance of the \tagName system will be implementation depend
 \label{sec:characterize}
 
 While the angular resolution of the magnetic angular encoders that we used is very high, 14 bits for the ams5048b used in this work, these readings are only repeatable under ideal conditions. There are many factors which influence the accuracy of readings of the sensors in the context of the \tagNamePlural. We have identified the following factors 1. Alignment of the magnetic sensor relative to the face of the module, 2. relative alignment of the face containing the tag to the face containing the reader. 3. variability of the magnetic field direction in the manufacture of the magnets. 4. Mechanical alignment of the magnets in reference to the tag. 5. Effects of external magnetic fields.
-	Factors 1 and 4 are 
+
+While factors 1 and 4, (mechanical alignment of magnets and sensors) are appear to be a significant factor in our implementation due to the hand-assembly nature of the prototype system, these should be less of a concern in large scale systems which are 
 	
-\begin{figure}[H]
+\begin{figure}[h]
 	\input{FIGhistogram1.tex}
 	\caption{Histogram of one sensor face reading the same tag multiple times}
 	\label{fig:histogram}
@@ -17,14 +18,33 @@ While the angular resolution of the magnetic angular encoders that we used is ve
 
 We did some stuff, wrote it down here...
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\input{FIG3Dhistogram.tex}
 	\caption{Histogram of one sensor face reading the same tag multiple times}
 	\label{fig:histogram}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%
 \subsection{3D M-Blocks System Experiments}
 \label{sec:mblocksExperiments}
-
 We 
+
+\begin{table}[h]
+	\caption{Experimental results for }
+	
+	\begin{tabular}{ p{3.4cm}  p{1.9cm}  p{1.9cm} }
+		\hline
+								& Attempts 	& Successes \\
+		\hline
+		Configuration Discovery	&  -1 		& -50 \\
+		Direction Following		& 0 		& 0  \\
+		command Tags 			&  -1 		& -50 \\
+
+
+		
+	\end{tabular}
+	
+	\label{tab:info}
+\end{table}
+
