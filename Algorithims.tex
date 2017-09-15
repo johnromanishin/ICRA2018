@@ -2,12 +2,91 @@
 \label{sec:Algorithims}
 
 This section describes two different algorhtims... These algorithims are similar to those described in...
-\begin{figure}[H]
-\input{FIGcubes.tex}
+% Three counters
+\newcounter{x}
+\newcounter{y}
+\newcounter{z}
 
-\caption{Mblocks with arrows}
-\label{fig:CubeDiagram}
+\begin{figure}[htb]  
+  \centering
+
+  \begin{subfigure}[b]{.3\linewidth}
+
+
+    \resizebox{1 in}{0.6 in}
+    {	\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
+    	\input{FIGcubes.tex}
+    	\ArrowSW{2}{2}{1}
+    	\ArrowNW{3}{2}{1}
+    	\ArrowNW{3}{1}{1}
+    	\ArrowSW{1}{2}{1}
+    	\ArrowNW{1}{3}{1}
+    	\ArrowNW{1}{4}{1}
+    	\end{tikzpicture}
+    	
+    }
+
+    \subcaption{X-axis} 
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{.3\linewidth}
+
+    \resizebox{1 in}{0.6 in}
+    {
+    {	\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
+    	\input{FIGcubes.tex}
+    	\ArrowSW{2}{2}{1}
+    	\ArrowSW{3}{2}{1}
+    	\ArrowSW{3}{1}{1}
+    	\ArrowNE{1}{2}{1}
+    	\ArrowNW{1}{3}{1}
+    	\ArrowNW{1}{4}{1}
+    	\end{tikzpicture}
+    	
+    }
+	}
+
+    \subcaption{Y-axis} 
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{.3\linewidth}
+    \resizebox{1 in}{0.6 in}
+    {
+    	{	\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
+    		\input{FIGcubes.tex}
+    		\ArrowSW{2}{2}{1}
+    		\ArrowSW{3}{2}{1}
+    		\ArrowSW{3}{1}{1}
+    		\ArrowSW{1}{2}{1}
+    		\ArrowSW{1}{3}{1}
+    		\ArrowSW{1}{4}{1}
+    		\end{tikzpicture}
+    		
+    	}
+    }
+    \subcaption{Z-axis} 
+  \end{subfigure}
+
+
+%%  \subfloat[X-axis]{\includegraphics[width=1.1in]{Figures/FlywheelX.png}}
+%%  \subfloat[Y-axis]{\includegraphics[width=1.1in]{Figures/FlywheelY.png}}
+%%  \subfloat[Z-axis]{\includegraphics[width=1.1in]{Figures/FlywheelZ.png}}
+
+  \caption{The 3D M-Block changes the alignment of its flywheel by
+    rotating the central assembly along a diagonal axis between two
+    opposite corners of the frame (pointing out of the page).
+    For every $2\pi/3$ radians of rotation along this axis, the
+    flywheel comes into alignment with a new axis of the frame.}
+
+  \label{fig:PlaneChanging}    
 \end{figure}
+
+%\begin{figure}[H]
+%\input{FIGcubes.tex}
+%
+%\caption{Mblocks with arrows}
+%\label{fig:CubeDiagram}
+%\end{figure}
 	
 \begin{algorithm}[htbp]
 \hrulefill
