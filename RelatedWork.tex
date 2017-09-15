@@ -1,19 +1,33 @@
 \section{Related Work}
 \label{sec:RelatedWork}
 
-Modular self-reconfigurable robots can been classified based on physical architecture: lattice, chain, or a hybrid of the two~\cite{Yim-RAM07}\cite{Moubarak2012}\cite{surveyyim}.  Many systems currently under development, including U-Bots~\cite{ubot}, Roombots~\cite{roombots3}, and SMORES~\cite{Yim-RAM07}, utilize a hybrid architecture. The fundamental distinction between hybrid or chain modules and strict lattice systems is that hybrid or chain modules have either fewer connector faces than lattice faces, or these connector faces are located in off-lattice positions.  Chain and hybrid systems are typically designed to self-reconfigure using complicated implementations which approximate simpler models, such as the sliding cube model~\cite{FitchRus-IROS03} or the pivoting cube model~\cite{RomanishinRus-IROS13}.
+Many papers that provide a comprehensive overviews of the field of modular robotics including work up to 2007~[cite to do], and several updates more recently ~[cite to do], and ~[cite to do] which provides a good background on connectors. This section of the paper will attempt to investigate two different topics in the related work in a more focues manner, Sec~\label{sec:RWconfiguration} will look at the challenge of configuration discovery in modular robotics systems, and~\label{sec:RWtaggingTech} will compare and contrast different technologies for location specific tagging tagging technologies.
+
 
 \subsection{Modular Robots Overview}
+\label{sec:RWconfiguration}
+	The ability for a modular system to discover the specific configuration of modules at any and all times is one of the most essential tasks for any modular robotic system. However, many of the modular robotic systems proposed to date have either built very limited and error prone methods for solving this problem, or have ommited implementation of such a system entirely. Any \textbf{connection} between modules in a modular system involves a minimium of three unique parameters 1) Some form of Identity or \textbf{ID} of the two modules in question, 2) the connector, or \textbf{face number} for each of the modules, and 3) the \textbf{orientation} of the connection, which in a cubic lattice is one of four possible 90 degree values.
+		
+	Many of the existing systems have faces which are able to pass information locally. This communication be used to discover the face number and the module ID's, but we are not aware of any of these systems which are able to systematically disover the orientation of the connection. Many of these systems seem to rely on using the face-to-face connection combined with inertial measurement sensors in order to construct the 
+	
+	Two of the most problematic aspects of current systems we have identified are the need for both modules involed to be activly . lack of robust connector orientation information
+	Many differnt systems, including the pebbles[cite], smores[cite]... While there are 
+
+	
 
 \subsection{Location Tagging technology overview}
+\label{sec:RWtaggingTech}
 
-\begin{table*}[ht]
+There are several different types of passive tagging technologies designed allow the recognization of tags. These include RFID, NFC, QR-Codes, April Tags, etc... 
+
+
+\begin{table*}[t]
 	\centering
 	\caption{Comparison of attributes for several various tagging technologies}
 	\newcommand{\wdd}{1.8cm}
 	\begin{tabular}{ p{\wdd} |p{\wdd}  p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd}  }
 		\hline
-							%1 - EMPTY
+		%1 - EMPTY
 		& RFID 				%2
 		& Light Based		%3
 		& NFC Tags 			%4
@@ -22,19 +36,17 @@ Modular self-reconfigurable robots can been classified based on physical archite
 		& Barcodes			%7
 		& \tagNamePlural \\ %8
 		\hline
-%%		   				RFID		LIGHT		NFC		ELEC	QR		
-		%%		1			2		3			4		5		6		7		8
-		Description		& Expensive	& 			& 		& 		& 		& 	  	& Inexpensive \\
-		Cost			& Expensive	& 			& 		& 		& 		& 	  	& Inexpensive \\
-		Size 			&  			& 			&    	&   	&       &     	& Small		  \\
-		Passive 		&  			&			&  		&	 	&		& 		& yes!		  \\
-		Orientation 	&  			& 			&  		&	 	&	  	& 		& yes!		\\
-		Modular Robots 	&  			& yes		&	  	&		&		& 		& 3D M-Blocks\\
-		Range			& 0-10$m$	&			&		&		&		&		& 0-1$mm$	\\
-	\end{tabular}
+		%%		   			RFID		LIGHT		NFC		   ELEC					QR		
+		%%		1			2		3			4			5						6			7		8
+		Short Description		& uses radio waves	& 			& 			& 					& 			& 	  	& Measure field direction of permanant magnets \\
+		
+		Cost			& Expensive	& expensive	& 			& 					& 			& 	  	& Inexpensive \\
+		Standard		& 			&  			& Priprietary	& 					& 			& 	  						& Open \\
+		Size 			& significant & minimal & tags  	& minimal	  				&       	&     	& Small		  \\
+		Passive 		& yes		& 			&  			&	 				&			& 		& yes!		  \\
+		Orientation 	& req. 4+ tags 		& possible 	& req. 4+ tags 	&	 				&	  		& 		& yes!		\\
+		Modular Robots 	& [cite]	& yes		&	  		&					& yes, [..]	& 		& 3D M-Blocks\\
+		Range			& 0-10$m$	& variable	& 0-6 mm	& physical contact	& varies	&		& 0-1$mm$	\\
+	\end{tabular}	
 	\label{tab:tagTech}    
 \end{table*}
-
-There are several different types of passive tagging technologies designed allow the recognization of tags. These include RFID, NFC, QR-Codes, April Tags, etc... 
-
-
