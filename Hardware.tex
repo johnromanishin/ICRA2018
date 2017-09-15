@@ -1,6 +1,8 @@
 \section{Hardware}
 \label{sec:Hardware}
 
+
+
 %%%%%%%%%%%%%%%%%%%%
 The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances. In this section we breifly describe the M-Blocks hardware, and then describe the mechanical, and electrical aspects of the new \tagNamePlural.
 
@@ -14,26 +16,58 @@ The \tagName were designed and tested with the M-Blocks modular robots as the te
 In order to create a tag where the reader and the tag are both ungendered...
 
 
+\begin{figure*}[t]
+	%\begin{tikzpicture}[minimum width = 14 cm, minimum height = 6 cm]
+		%\draw (0,0) -- (14,6);
+		
+		\begin{tikzpicture}[]
+		%complexnode/.pic={\usebox{\mybox}}]
 
-
-
-\begin{figure}[b]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\input{FIGmagnetTag.tex}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\caption{tags consist of 4 diametrically magnetized
-	magnes arranged in a $\pi$ /2 4 way symmetric layout}
-	\label{fig:tagDiagram}
-\end{figure}
-
-\begin{figure}[b]
+		\newcommand\xa{2};
+		\newcommand\xb{2};
+		\newcommand\ya{2};
+		\newcommand\yb{2};
+		
+		\coordinate (smallNE) at (2,5);
+		\coordinate (smallSE) at (2,5);
+		\coordinate (smallSW) at (2,5);
+		\coordinate (smallNW) at (2,5);
+		
+		\coordinate (bigNE) at (2,5);
+		\coordinate (bigSE) at (2,5);
+		\coordinate (bigSW) at (2,5);
+		\coordinate (bigSE) at (2,5);
+		
+		\node at (4 cm, 4 cm) {\usebox{\mybox}};
+		\node at (10 cm, 6 cm) {\usebox{\myboxy}};
+	
+		\node	
+		%\draw (1,1) pic {complexnode} (4,4);
+		
+		\end{tikzpicture}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\input{FIGmagnetUPCLOSE.tex}
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\caption{tags consist of 4 diametrically magnetized
-		magnets arranged in a $\pi$/2 4 way symmetric layout}
-	\label{fig:tagDiagram}
-\end{figure}
+	\caption{TEXT GOES HERE $\pi$ /2 4 way symmetric layout}
+	\label{fig:tagDiagram8}
+\end{figure*}
+
+
+%\begin{figure}[b]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	\input{FIGmagnetTag.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	\caption{tags consist of 4 diametrically magnetized
+%	magnes arranged in a $\pi$ /2 4 way symmetric layout}
+%	\label{fig:tagDiagram}
+%\end{figure}
+
+%\begin{figure}[b]
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	\input{FIGmagnetUPCLOSE.tex}
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	\caption{tags consist of 4 diametrically magnetized
+%		magnets arranged in a $\pi$/2 4 way symmetric layout}
+%	\label{fig:tagDiagram}
+%\end{figure}
 
 \begin{table}[b]
   \caption{Basic info of the m-Blocks modular robots}

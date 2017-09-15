@@ -1,3 +1,4 @@
+
 \newcommand{\statcirc}[4]{
 	\fill[red,shift={(#1 cm,#2 cm)}, rotate=#3] (0,0) circle (#4); 
 	\fill[blue,shift={(#1 cm,#2 cm)},rotate=#3] (0,0) -- (180:#4) arc (180:0:#4) -- cycle;
@@ -8,7 +9,7 @@
 	\draw[->,>={Stealth[round]}, line width=0.75mm, black ,shift={(#1 cm,#2 cm)}, rotate=#3] (0,-1) -- (0,1); 
 }
 
-\begin{tikzpicture}
+\begin{tikzpicture}[scale = 0.75]
 \tikzmath{
 	\offsetAxis = 0.5;
 	\offsetCent = 2.9;
@@ -18,7 +19,7 @@
 \foreach \i in {1,...,30}
 {
 	\draw[gray] (0,0) -- (\i * 12-6 : 2.8);
-	\node[circle,draw,inner sep=0pt] at (-{\i * 12}+12: 3) {\i};
+	\node[inner sep=0pt] at (-{\i * 12}+12: 3) {\i};
 }
 \node[circle,draw,inner sep=0pt, fill = green] at (-{18 * 12}+12: 3) {18};
 \statcirc{0}{0}{-204-90}{\diameter};
