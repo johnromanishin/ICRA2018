@@ -14,18 +14,18 @@
 		\chipW = 0.35;
 		\chipH = 0.4;
 	}
-	\fill[ black, shift= {(#1 cm, #2 cm)}, rotate = #3 ] (-\chipH,-\chipW) rectangle (\chipH,\chipW);
-	\fill[ orange,shift= {(#1 cm, #2 cm)}, rotate = #3 ] (-0.25,0.25) circle (0.125);
-	
+	\fill[darkgray, shift= {(#1 cm, #2 cm)}, rotate = #3, rounded corners] (-\chipH,-\chipW) rectangle (\chipH,\chipW);
+	\fill[orange,shift= {(#1 cm, #2 cm)}, rotate = #3 ] (-0.25,0.2) circle (0.1);
 }
 \begin{tikzpicture}
-{
+
 	\tikzmath{
 		\offsetAxis = 0.5;
 		\offsetCent = 2.9;
 		\diameter = 0.32;
 	}
-	
+	\draw node (A) at (-0.5, 2.2) {};
+	\draw node (B) at (0, 2.2) {};
 	\drawchip{\offsetAxis}{\offsetCent}{0};
 	\drawchip{-\offsetAxis}{-\offsetCent}{180};
 	\statcirc{-\offsetAxis}{\offsetCent}{30}{\diameter};
@@ -35,10 +35,13 @@
 	\statcirc{-\offsetCent}{-\offsetAxis}{45}{\diameter};
 	\draw[gray, dashed] (-\offsetAxis,{\offsetCent + 1}) -- 
 	(-\offsetAxis,{\offsetCent - 1});
-	\draw[black,dotted] (0,0) circle (3);
+	\draw[black,dotted] (0,0) circle (2.95
+	);
 	\draw[black,dashed] (0,0) -- (4,0);
 	\draw[black,dashed] (0,0) -- (-4,0);
 	\draw[black,dashed] (0,0) -- (0,4);
 	\draw[black,dashed] (0,0) -- (0,-4);
-};
+	\dimline[line style = {line width = 0.8, arrows = dimline reverse-dimline reverse}] {(A)}{(B)}{x};
+	\dimline[line style = {line width = 0.8}] {(-2.95, 1)}{(0,1)}{R};
+%	\dimline {(1,0)}{(-1,0)}{x};
 \end{tikzpicture}
