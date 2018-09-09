@@ -30,6 +30,7 @@
 \usepackage{multirow}
 \usepackage{breakurl}
 \usepackage{caption}
+\usepackage{booktabs}
 \usepackage{subcaption}
 \usepackage[bookmarks=true,breaklinks=true,]{hyperref}
 
@@ -40,10 +41,11 @@
 \usetikzlibrary{math} %needed tikz library
 \usepackage{tikz-dimline}
 \usepackage{tikz}
-\usetikzlibrary{arrows,shapes,trees}
+\usetikzlibrary{arrows,shapes,trees, fit}
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
 decorations.pathreplacing,decorations.pathmorphing,shapes,%
 matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending}
+
 
 \definecolor{maroon}{RGB}{111,0,15}
 \definecolor{light_orange}{RGB}{150,100,50}
@@ -101,8 +103,6 @@ This paper presents distributed algorithms which utilize a novel type of magneti
 
 \input{RelatedWork}
 
-\input{Approach}
-
 \input{Hardware}
 
 \input{Algorithms}
@@ -120,6 +120,6 @@ This work is supported by the NSF through grants 1240383 and 1138967.
 
 \bibliographystyle{IEEEtran}
 
-\bibliography{bibliography-ICRA18.bib}
+\bibliography{johnromBibliography2018.bib}
 
 \end{document}
