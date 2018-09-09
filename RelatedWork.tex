@@ -11,40 +11,41 @@ Many papers that provide a comprehensive overviews of the field of modular robot
 \begin{table*}[t]
 	\centering
 	\caption{Comparison of attributes for several various tagging technologies}
-	\newcommand{\wdd}{2.15cm}
+	\newcommand{\wdd}{1.9cm}
 	\begin{tabular}{ p{1.7 cm} p{\wdd}  p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd}  }
 		\hline
 		\addlinespace[1ex]
 		%1 - EMPTY
-											& RFID 				& Light Based	& NFC Tags 		& Electrical 		& QR Codes 		& \bf{\tagNamePlural} \\ %8
+											& RFID 				& Optical		& NFC Tags 		& Electrical 		& QR Codes 	& Inductive	& \bf{\tagNamePlural} \\ %8
 		\hline
 
-		\textit{Description}				& uses radio waves	& 				& 				& 					& 	  			& Measure field direction of permanent magnets \\
+		\textit{Description}				& uses radio waves	& 				& 				& 					& 	  		&			& Measure field direction of permanent magnets \\
 
-\addlinespace[1ex]	 \textit{Cost}			& Expensive			& expensive		& 				& 					& 	 			& Inexpensive \\
+\addlinespace[1ex]	 \textit{Cost}			& Expensive			& expensive		& 				& 					& 	 		&			& Inexpensive \\
 		
-\addlinespace[1ex] 	\textit{Standard}		& 					&  				& Proprietary	& 					& 				& Open \\
+\addlinespace[1ex] 	\textit{Standard}		& 					&  				& Proprietary	& 					& 			&			& Open \\
 		
-\addlinespace[1ex] 	\textit{Size} 			& significant 		& minimal 		& tags  		& minimal	  		&       		& Small		  \\
+\addlinespace[1ex] 	\textit{Size} 			& significant 		& minimal 		& tags  		& minimal	  		&       	&			& Small		  \\
 		
-\addlinespace[1ex]	\textit{Passive} 		& yes				& 				&  				&	 				&				& yes!		  \\
+\addlinespace[1ex]	\textit{Passive} 		& yes				& 				&  				&	 				&			&			& yes!		  \\
 		
-\addlinespace[1ex] 	\textit{Orientation} 	& req. 4+ tags 		& possible 		& req. 4+ tags 	&	 				& yes			& yes!		\\
+\addlinespace[1ex] 	\textit{Orientation} 	& req. 4+ tags 		& possible 		& req. 4+ tags 	&	 				& yes		&			& yes!		\\
 		
-\addlinespace[1ex] 	\textit{Modular Robots}	& [cite]			& yes			&	  			&					& yes, [..]		& 3D M-Blocks\\
+\addlinespace[1ex] 	\textit{Modular Robots}	& [cite]			& yes			&	  			& 					& yes, [..]	&	~\cite{TosunDaveyLiuYim-IROS2016}		& 3D M-Blocks\\
 		
-\addlinespace[1ex] 	\textit{Range}			& 0-10$m$			& variable		& 0-6 mm		& physical contact	& varies		& 0-1$mm$	\\
+\addlinespace[1ex] 	\textit{Range}			& 0-10$m$			& variable		& 0-6 mm		& physical contact	& varies	&			& 0-1$mm$	\\
 	\end{tabular}
 	\label{tab:tagTech}
 \end{table*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Modular Robots Overview}
+\subsection{Configuration Discovery Modular Robots Overview}
 \label{sec:RWconfiguration}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+	
+	Work has been done attempting to discover the configuration of groups of modules, including in ~\cite{park2008automatic}
 	The ability for a modular system to discover the specific configuration of modules at any and all times is one of the most essential tasks for any modular robotic system. However, many of the modular robotic systems proposed to date have either built very limited and error prone methods for solving this problem, or have ommited implementation of such a system entirely. Any \textbf{connection} between modules in a modular system involves a minimium of three unique parameters 1) Some form of Identity or \textbf{ID} of the two modules in question, 2) the connector, or \textbf{face number} for each of the modules, and 3) the \textbf{orientation} of the connection, which in a cubic lattice is one of four possible 90 degree values.
 
 	Many of the existing systems have faces which are able to pass information locally. This communication be used to discover the face number and the module ID's, but we are not aware of any of these systems which are able to systematically discover the orientation of the connection. Some systems combine connectivity information determined from face-to-face connections with gravity measurements from accelerometers to construct data structures which represent both module adjacency and relative orientations \cite{Neubert2016}; however, because the gravity field is locally uniform, there are some module arrangments where accelerometer measurements cannot completely determine relative orientation.
