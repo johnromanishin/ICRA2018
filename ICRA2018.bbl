@@ -64,4 +64,10 @@ P.~Moubarak and P.~Ben-Tzvi, ``Modular and reconfigurable mobile robotics,''
   \emph{Robotics and Autonomous Systems}, vol.~60, no.~12, pp.
   1648--â1663, Dec 2012.
 
+\bibitem{sung2015reconfiguration}
+C.~Sung, J.~Bern, J.~Romanishin, and D.~Rus, ``Reconfiguration planning for
+  pivoting cube modular robots,'' in \emph{Robotics and Automation (ICRA), 2015
+  IEEE International Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax
+  IEEE, 2015, pp. 1933--1940.
+
 \end{thebibliography}

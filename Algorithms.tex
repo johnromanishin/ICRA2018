@@ -49,6 +49,29 @@ This section describes two different algorithms... These algorithms are similar 
 \label{sec:algLine}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Motion Planning - Arbitrary Shape to Line}
+\label{ssec:line}
+The goal of this experiment is to reconfigure an arbitrary 3D structure into a line. There are several approaches that could be applied to this, from implementing the full 3D algorithm described in ~\cite{sung2015reconfiguration}, to more simple approaches. These simple approaches could even be mostly distributed, for example, each module could check to see if it is part of the line (By asking through WIFI, or checking some local indicator, e.g. if the module it is attached to has its LED's turned on), and if not pick a direction and move that way. If it gets stuck, it could just detach from the structure and try to randomly attach back and try again.
+
+\begin{figure}[h]  
+	\centering
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=0.9\linewidth]{figures/line_1.png}
+		\subcaption{} 
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=0.9\linewidth]{figures/line_2.png}
+		\subcaption{} 
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=0.9\linewidth]{figures/line_3.png}
+		\subcaption{} 
+	\end{subfigure}
+	
+	\caption{This experiment shows a random 3D configuration of M-Blocks reconfiguring into a line.}
+	
+	\label{fig:line}
+\end{figure}
 
 \begin{algorithm}[ht] 
 	%\hrulefill
@@ -79,6 +102,35 @@ This section describes two different algorithms... These algorithms are similar 
 \label{sec:algLight}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The goal of this experiment is to aggregate a group of modules nearby a light source to form one assembly. Placing the light source in a corner, and providing a \emph{seed} module can help to simplify aggregation, since the modules would know when to stop (When they see the seed module, or connect to a different module that has previously seen the seed module). One possible biological inspiration for this experiment is to imagine that the modules are cells of a plant, and the algorithm is to grow a structure towards the light source as a plant. As far as I know this work would be the first to accomplish this task in 3 dimensions using modular robots.
+
+\begin{figure}[h]  
+	\centering
+	
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=0.9\linewidth]{figures/light_1.png}
+		\subcaption{} 
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=0.9\linewidth]{figures/light_2.png}
+		\subcaption{} 
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=0.9\linewidth]{figures/light_3.png}
+		\subcaption{} 
+	\end{subfigure}
+	
+	\caption{Three frames from an a illustration of the light-seeking experiment. One seed cube \emph{purple} is placed near the light, and the cubes in \emph{yellow} attempt to move towards the light. In the final frame, the modules which are in \emph{green} successfully reached the goal, while modules that are \emph{red} did not manage to join the target structure.}
+	
+	\label{fig:light}
+\end{figure}
+
+\textbf{Light Tracking Current Status}
+\begin{itemize}
+	\item Completely distributed software which can accomplish this task is already complete and running on the modules.
+	\item Code to guide smaller aggregations that aren't at the target is completed, but still has lots of room for optimization.
+\end{itemize}
+
 
 \begin{algorithm}[htbp] 
 	%\hrulefill
