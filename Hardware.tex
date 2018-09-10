@@ -2,7 +2,49 @@
 \label{sec:Hardware}
 
 
+\newsavebox{\faceDiagram}
+\sbox{\faceDiagram}	{
+	\input{FIGmagnetFace.tex}
+}
 
+\newsavebox{\magnetDigitization}
+\sbox{\magnetDigitization}	{
+	\input{FIGmagnetUPCLOSE.tex}
+}
+
+\begin{figure*}[h]
+	%\begin{tikzpicture}[minimum width = 14 cm, minimum height = 6 cm]
+	%\draw (0,0) -- (14,6);
+	
+	\begin{tikzpicture}[]
+	%complexnode/.pic={\usebox{\mybox}}]
+	
+	\newcommand\xa{2};
+	\newcommand\xb{2};
+	\newcommand\ya{2};
+	\newcommand\yb{2};
+	
+	\coordinate (smallNE) at (2,5);
+	\coordinate (smallSE) at (2,5);
+	\coordinate (smallSW) at (2,5);
+	\coordinate (smallNW) at (2,5);
+	
+	\coordinate (bigNE) at (2,5);
+	\coordinate (bigSE) at (2,5);
+	\coordinate (bigSW) at (2,5);
+	\coordinate (bigSE) at (2,5);
+	
+	\node at (4 cm, 4 cm) {\usebox{\faceDiagram}};
+	\node at (10 cm, 6 cm) {\usebox{\magnetDigitization}};
+	
+	
+	%\draw (1,1) pic {complexnode} (4,4);
+	
+	\end{tikzpicture}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\caption{TEXT GOES HERE $\pi$ /2 4 way symmetric layout}
+	\label{fig:tagDiagram8}
+\end{figure*}
 
 Modular self-reconfigurable robots have been classified based on physical architecture: lattice, chain, or a hybrid of the two.~\cite{Yim-RAM07}\cite{Moubarak2012}\cite{surveyyim} Lattice architectures take shape by fully constraining individual modules to one another, and there tend to be several connecting faces in a given configuration due to these constraints. Interpreting relative orientation of the connecting faces is essential to modeling and manipulation of the overall configuration, because changes in shape are achieved via changes in topology, i.e. by explicitly moving modules and changing how they are connected. An inexpensive, precise, orientation-sensitive ID tag would greatly assist in the development of autonomous systems with vast numbers of connecting faces.
 
@@ -14,19 +56,6 @@ The approach that \tagNamePlural take towards this problem is a passive magnetic
 
 The underlying hypothesis is that low cost and lack of RF transmission make magnets an attractive choice for a technology that may have to be implemented hundreds of times in a set of reconfigurable modules. The ability to use several such sensors at close proximity allows several to be used on each connecting face, providing enough data to read configuration as well as identity.
 
-
-
-
-
-\newsavebox{\faceDiagram}
-\sbox{\faceDiagram}	{
-	\input{FIGmagnetFace.tex}
-}
-
-\newsavebox{\magnetDigitization}
-\sbox{\magnetDigitization}	{
-	\input{FIGmagnetUPCLOSE.tex}
-}
 
 %%%%%%%%%%%%%%%%%%%%
 The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances. In this section we breifly describe the M-Blocks hardware, and then describe the mechanical, and electrical aspects of the new \tagNamePlural.
@@ -51,49 +80,8 @@ The \tagName were designed and tested with the M-Blocks modular robots as the te
 In order to create a tag where the reader and the tag are both ungendered...
 
 
-\begin{figure*}[t]
-	%\begin{tikzpicture}[minimum width = 14 cm, minimum height = 6 cm]
-		%\draw (0,0) -- (14,6);
-		
-		\begin{tikzpicture}[]
-		%complexnode/.pic={\usebox{\mybox}}]
 
-		\newcommand\xa{2};
-		\newcommand\xb{2};
-		\newcommand\ya{2};
-		\newcommand\yb{2};
-		
-		\coordinate (smallNE) at (2,5);
-		\coordinate (smallSE) at (2,5);
-		\coordinate (smallSW) at (2,5);
-		\coordinate (smallNW) at (2,5);
-		
-		\coordinate (bigNE) at (2,5);
-		\coordinate (bigSE) at (2,5);
-		\coordinate (bigSW) at (2,5);
-		\coordinate (bigSE) at (2,5);
-		
-		\node at (4 cm, 4 cm) {\usebox{\faceDiagram}};
-		\node at (10 cm, 6 cm) {\usebox{\magnetDigitization}};
-	
-		
-		%\draw (1,1) pic {complexnode} (4,4);
-		
-		\end{tikzpicture}
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\caption{TEXT GOES HERE $\pi$ /2 4 way symmetric layout}
-	\label{fig:tagDiagram8}
-\end{figure*}
-
-
-\begin{figure}[b]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\input{FIGmagnetTag.tex}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\caption{tags consist of 4 diametrically magnetized
-	magnes arranged in a $\pi$ /2 4 way symmetric layout}
-	\label{fig:tagDiagram}
-\end{figure}
+%
 
 %\begin{figure}[b]
 %	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -7,16 +7,16 @@
 	\node[anchor=south west,inner sep=0, minimum width = \linewidth, minimum height = 8.5cm] (emptyBox) at (0,0) {};
 	\begin{scope}[x={(emptyBox.south east)},y={(emptyBox.north west)}]
 	\tikzset{>=latex}
-		\coordinate (leftCenter) at (0.32, 0.75);
-		\coordinate (rightCenter) at (0.7, 0.85);
+		\coordinate (leftCenter) at (0.12, 0.75);
+		\coordinate (rightCenter) at (0.6, 0.85);
 		\coordinate (routePt) at (0.50, 0.75);
 		
 		% Main Board
 		\node [box] (mainBoard) at (leftCenter) {High Level Control Board (ESP8266)};
 		
 		% Kyles Boards...
-		\node [box] at ([shift = ({225:3.5 cm})] mainBoard) (kb) {Motor and Power Board (nRF51422)};
-		\node [box, right = 1.5cm of kb] (db)  {Actuator Control Board};
+	%	\node [box] at ([shift = ({225:3.5 cm})] mainBoard) (kb) {Motor and Power Board (nRF51422)};
+	%	\node [box, right = 1.5cm of kb] (db)  {Actuator Control Board};
 		
 		% Face Boards
 		\node [box] (f0) at (rightCenter) {Face 0 PCB  (IO~Expander)};
@@ -29,29 +29,30 @@
 		\path [line, <->, orange, ultra thick] (mainBoard) -- (routePt)-- (f1);
 		\path [line, <->, orange, ultra thick] (mainBoard) -- (routePt)-- (f5);
 		
-		\path [line, <->, orange, ultra thick] (kb) -- (db);
+	%	\path [line, <->, orange, ultra thick] (kb) -- (db);
+		
 		%% Serial Connections
 		
-		\path [line, <->, blue, ultra thick] (kb) -- (mainBoard);
+	%	\path [line, <->, blue, ultra thick] (kb) -- (mainBoard);
 
 		%% Inputs
 		\node [align = center] (input1) at (0.91, 0.45) {Environmental \\ and \\ Neighbor \\ sensing};
-		\node [align = left] (input2) at (0.16, 0.96) {wifi commands};
+	%	\node [align = left] (input2) at (0.16, 0.96) {wifi commands};
 
-		\node [align = left] (input3) at (0.25, 0.24) {Motor \\ Batteries \\ SMA wire};
-		\node [align = left] (input4) at (0.4, 0.24) {Brake \\ Em coil};
+	%	\node [align = left] (input3) at (0.25, 0.24) {Motor \\ Batteries \\ SMA wire};
+	%	\node [align = left] (input4) at (0.4, 0.24) {Brake \\ Em coil};
 		
-		\draw [dashed,  <->] (kb.south) to [out = 270, in = 180] (input3.west);
-		\draw [dashed,  <->] (input2.south) to [out = 270, in = 235] (mainBoard.west);
-		\draw [dashed,  <->] (input4.east) to [out = 0, in = 325] (db.east);
+%		\draw [dashed,  <->] (kb.south) to [out = 270, in = 180] (input3.west);
+%		\draw [dashed,  <->] (input2.south) to [out = 270, in = 235] (mainBoard.west);
+%		\draw [dashed,  <->] (input4.east) to [out = 0, in = 325] (db.east);
 		
 		\draw [dashed,  ->] (input1.north) to [out = 90, in = 0] (f0.east);
 		\draw [dashed,  ->] (input1.north) to [out = 90, in = 0] (f1.east);
 		\draw [dashed,  ->] (input1.south) to [out = 270, in = 0] (f5.east);
 		
 		% Dashed Boxes
-		\node[container, fit = (mainBoard) (kb) (db) (input4) (input3)] (core) {};
-		\node at (core.south) [below, node distance = 0 and 0] {\textbf{Core}};
+	%	\node[container, fit = (mainBoard) (kb) (db) (input4) (input3)] (core) {};
+	%	\node at (core.south) [below, node distance = 0 and 0] {\textbf{Core}};
 
 		\node[container, fit = (f0) (f5)] (frame) {};
 		\node at (frame.south) [below, node distance = 0 and 0] {\textbf{Frame}};
