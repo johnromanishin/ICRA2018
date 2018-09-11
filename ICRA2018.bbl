@@ -36,21 +36,39 @@ J.~W. Romanishin, K.~Gilpin, S.~Claici, and D.~Rus, ``3d m-blocks:
   International Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
   2015, pp. 1925--1932.
 
-\bibitem{liedke2013collective}
-J.~Liedke, R.~Matthias, L.~Winkler, and H.~W{\"o}rn, ``The collective
-  self-reconfigurable modular organism (cosmo),'' in \emph{Advanced Intelligent
-  Mechatronics (AIM), 2013 IEEE/ASME International Conference on}.\hskip 1em
-  plus 0.5em minus 0.4em\relax IEEE, 2013, pp. 1--6.
+\bibitem{park2008automatic}
+M.~Park, S.~Chitta, A.~Teichman, and M.~Yim, ``Automatic configuration
+  recognition methods in modular robots,'' \emph{The International Journal of
+  Robotics Research}, vol.~27, no. 3-4, pp. 403--421, 2008.
+
+\bibitem{Soldercubes2016}
+\BIBentryALTinterwordspacing
+J.~Neubert and H.~Lipson, ``Soldercubes: a self-soldering self-reconfiguring
+  modular robot system,'' \emph{Autonomous Robots}, vol.~40, no.~1, pp.
+  139--158, Jan 2016. [Online]. Available:
+  \url{https://doi.org/10.1007/s10514-015-9441-4}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ubot-Zhu-2014}
+Y.~Zhu, D.~Bie, S.~Iqbal, X.~Wang, Y.~Gao, and J.~Zhao, ``A simplified approach
+  to realize cellular automata for ubot modular self-reconfigurable robots,''
+  \emph{Journal of Intelligent \& Robotic Systems}, pp. 1--18, 2014.
 
 \bibitem{TosunDaveyLiuYim-IROS2016}
 T.~Tosun, J.~Davey, C.~Liu, and M.~Yim, ``Design and characterization of the
   ep-face,'' in \emph{IEEE Intl. Conf. on Robotics and Automation (ICRA)},
   2016.
 
-\bibitem{OptimalPowerSharing2016}
-C.~Chen, T.~Collins, and W.~Shen, ``A near-optimal dynamic power sharing scheme
-  for self-reconfigurable modular robots,'' in \emph{2016 IEEE International
-  Conference on Robotics and Automation (ICRA)}, May 2016, pp. 5183--5188.
+\bibitem{Yim-RAM07}
+M.~Yim, W.~Shen, B.~Salemi, D.~Rus, M.~Moll, H.~Lipson, E.~Klavins, and G.~S.
+  Chirikjian, ``Modular self-reconfigurable robot systems: Challenges and
+  opportunities for the future,'' \emph{Robotics and Automation Magazine},
+  vol.~14, no.~1, pp. 43--52, 2007.
+
+\bibitem{chennareddy2017modular}
+S.~Chennareddy, A.~Agrawal, and A.~Karuppiah, ``Modular self-reconfigurable
+  robotic systems: A survey on hardware architectures,'' \emph{Journal of
+  Robotics}, vol. 2017, 2017.
 
 \bibitem{AHMADZADEH201527}
 \BIBentryALTinterwordspacing
@@ -61,19 +79,11 @@ H.~Ahmadzadeh and E.~Masehian, ``Modular robotic systems: Methods and
   \url{http://www.sciencedirect.com/science/article/pii/S0004370215000260}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Yim-RAM07}
-M.~Yim, W.~Shen, B.~Salemi, D.~Rus, M.~Moll, H.~Lipson, E.~Klavins, and G.~S.
-  Chirikjian, ``Modular self-reconfigurable robot systems: Challenges and
-  opportunities for the future,'' \emph{Robotics and Automation Magazine},
-  vol.~14, no.~1, pp. 43--52, 2007.
-
-\bibitem{Soldercubes2016}
-\BIBentryALTinterwordspacing
-J.~Neubert and H.~Lipson, ``Soldercubes: a self-soldering self-reconfiguring
-  modular robot system,'' \emph{Autonomous Robots}, vol.~40, no.~1, pp.
-  139--158, Jan 2016. [Online]. Available:
-  \url{https://doi.org/10.1007/s10514-015-9441-4}
-\BIBentrySTDinterwordspacing
+\bibitem{liedke2013collective}
+J.~Liedke, R.~Matthias, L.~Winkler, and H.~W{\"o}rn, ``The collective
+  self-reconfigurable modular organism (cosmo),'' in \emph{Advanced Intelligent
+  Mechatronics (AIM), 2013 IEEE/ASME International Conference on}.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, 2013, pp. 1--6.
 
 \bibitem{Gilpin-Thesis06}
 K.~Gilpin, ``Distributed algorithms for self dissasembly for modular robots,''
@@ -90,20 +100,20 @@ S.~Bonardi, M.~Vespignani, R.~Moeckel, and A.~J. Ijspeert, ``Collaborative
   2013 IEEE/RSJ International Conference on}.\hskip 1em plus 0.5em minus
   0.4em\relax Ieee, 2013, pp. 2406--2412.
 
-\bibitem{park2008automatic}
-M.~Park, S.~Chitta, A.~Teichman, and M.~Yim, ``Automatic configuration
-  recognition methods in modular robots,'' \emph{The International Journal of
-  Robotics Research}, vol.~27, no. 3-4, pp. 403--421, 2008.
-
-\bibitem{ubot-Zhu-2014}
-Y.~Zhu, D.~Bie, S.~Iqbal, X.~Wang, Y.~Gao, and J.~Zhao, ``A simplified approach
-  to realize cellular automata for ubot modular self-reconfigurable robots,''
-  \emph{Journal of Intelligent \& Robotic Systems}, pp. 1--18, 2014.
+\bibitem{OptimalPowerSharing2016}
+C.~Chen, T.~Collins, and W.~Shen, ``A near-optimal dynamic power sharing scheme
+  for self-reconfigurable modular robots,'' in \emph{2016 IEEE International
+  Conference on Robotics and Automation (ICRA)}, May 2016, pp. 5183--5188.
 
 \bibitem{wang2016iros}
 J.~Wang and E.~Olson, ``{AprilTag} 2: Efficient and robust fiducial
   detection,'' in \emph{Proceedings of the {IEEE/RSJ} International Conference
   on Intelligent Robots and Systems {(IROS)}}, October 2016.
+
+\bibitem{abukhalil2013survey}
+T.~Abukhalil, M.~Patil, and T.~Sobh, ``Survey on decentralized modular swarm
+  robots and control interfaces,'' \emph{International Journal of Engineering
+  (IJE)}, vol.~7, no.~2, p.~44, 2013.
 
 \bibitem{Moubarak2012}
 P.~Moubarak and P.~Ben-Tzvi, ``Modular and reconfigurable mobile robotics,''

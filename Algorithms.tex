@@ -2,7 +2,7 @@
 \label{sec:Behaviors}
 
 The novel hardware allows each M-Block module to identify their neighbors, even in the case of electrical failure of the
-neighbor. This allows several algorithims...
+neighbor. This allows several algorithms...
 
 %%% Overview figure...
 
@@ -51,7 +51,7 @@ This section describes two different algorithms... These algorithms are similar 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Motion Planning - Arbitrary Shape to Line}
 \label{ssec:line}
-The goal of this experiment is to reconfigure an arbitrary 3D structure into a line. There are several approaches that could be applied to this, from implementing the full 3D algorithm described in ~\cite{sung2015reconfiguration}, to more simple approaches. These simple approaches could even be mostly distributed, for example, each module could check to see if it is part of the line (By asking through WIFI, or checking some local indicator, e.g. if the module it is attached to has its LED's turned on), and if not pick a direction and move that way. If it gets stuck, it could just detach from the structure and try to randomly attach back and try again.
+The goal of this experiment is to reconfigure an arbitrary 3D structure into a line. There are several approaches that could be applied to this, from implementing the full 3D algorithm described in ~\cite{sung2015reconfiguration}, to more simple approaches. These simple approaches could even be mostly distributed, for example, each module could check to see if it is part of the line (By asking through WIFI, or checking some local indicator, e.g. if the module it is attached to has its LED's turned on), and if not pick a direction and move that way. If it gets stuck, it will try to detach from the structure and try to randomly attach back and try again.
 
 \begin{figure}[h]  
 	\centering

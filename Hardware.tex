@@ -84,7 +84,25 @@ A precise tag with sensitivity to orientation would be equally essential in chai
 
 The ideal connective position sensor would be appropriate in either use case. It would be inexpensive, to help satisfy the ease of scalability in a modular robotics system where there may be hundreds of individual modules. It would also be precise, because individual errors in a repeated sequence of connections would be multiplicative and thus damaging to the concerted operation of a whole configuration of modules. In addition, it would not be enough to merely identify an object or even to detect which connecting faces are adjacent in the lattice or chain, because effective concerted motion between modules may require them to identify how they and their neighbors are oriented with respect to the larger configuration.
 
-The approach that \tagNamePlural take towards this problem is a passive magnetic connector that uses a combination of dipole angles to communicate identity and relative rotational position. In the Mblocks implementation, each face of each cube is encoded with a different combination of dipole angles than every other face of every other cube. Magnetic rotary position sensors read these dipole angle combinations to determine which face is directly adjacent, and they identify the rotational angle of the face as well. All of this occurs using an unpowered array of magnets that provide static EM fields, readable at a hyperlocal distance.
+\begin{table}[b]
+	\caption{Information content in the \TagNamePlural encoding specification. The current system is limited due to practical considerations of the physical dimensions of the  PCBa's in the 3D M-Blocks, but will hopefully be extended into the future extension soon.}
+	
+	\begin{tabular}{ p{2cm}  p{1.5cm}  p{1.5cm}  p{1.5cm}}
+		\hline
+								& \textit{Current System} & Future Extension & Advanced Extended \\
+		\hline
+				\addlinespace[1ex]
+		Magnets  				& 4 			 &	4				&	4	\\
+		Digits 					& 30 			 &	24				&	48	\\
+		No. Of Sensors 			& 2 			 &	4				&	4	\\
+		\textit{Unique Tags} 	& \textbf{900} 	 & 331776			& 	~5,000,000\\
+		
+	\end{tabular}
+	
+	\label{tab:hardwareOverview}
+\end{table}
+
+The approach that \tagNamePlural~take towards this problem is a passive magnetic connector that uses a combination of dipole angles to communicate identity and relative rotational position. In the Mblocks implementation, each face of each cube is encoded with a different combination of dipole angles than every other face of every other cube. Magnetic rotary position sensors read these dipole angle combinations to determine which face is directly adjacent, and they identify the rotational angle of the face as well. All of this occurs using an unpowered array of magnets that provide static EM fields, readable at a hyperlocal distance.
 
 The underlying hypothesis is that low cost and lack of RF transmission make magnets an attractive choice for a technology that may have to be implemented hundreds of times in a set of reconfigurable modules. The ability to use several such sensors at close proximity allows several to be used on each connecting face, providing enough data to read configuration as well as identity.
 
@@ -138,7 +156,7 @@ In order to create a tag where the reader and the tag are both ungendered...
 
   \end{tabular}
 
-    \label{tab:hardwareOverview}
+    \label{tab:hardwareOverviewTable}
 \end{table}
 
 
@@ -160,13 +178,13 @@ through an I/O expander...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{\tagNamePlural Characterization}
-\label{sec:tagsElectronics}
+\label{sec:tagsCharacterize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-
+While the exact performance of the \tagName system that will be be implementation Dependant i.e. different size/shape magnets, encoder ICs, etc... we performed two categories of experimentation to demonstrate that our implementation of the \tagName concept is feasible and useful in the context of modular robots. The first section~\ref{sec:characterize} attempts to characterize the \tagNamePlural in terms of repeatability and accuracy of multiple measurements under varying conditions and to investigate the behavior when tags are misaligned. 
 
 While the angular resolution of the magnetic angular encoders that we used is very high, 14 bits for the ams5048b used in this work, these readings are only repeatable under ideal conditions. There are many factors which influence the accuracy of readings of the sensors in the context of the \tagNamePlural. We have identified the following factors 1. Alignment of the magnetic sensor relative to the face of the module, 2. relative alignment of the face containing the tag to the face containing the reader. 3. variability of the magnetic field direction in the manufacture of the magnets. 4. Mechanical alignment of the magnets in reference to the tag. 5. Effects of external magnetic fields.
 

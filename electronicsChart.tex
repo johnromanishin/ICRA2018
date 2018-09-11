@@ -8,6 +8,7 @@
 	\begin{scope}[x={(emptyBox.south east)},y={(emptyBox.north west)}]
 	\tikzset{>=latex}
 		\coordinate (leftCenter) at (0.12, 0.65);
+		\coordinate (aboveleftCenter) at (0.16, 0.9);
 		\coordinate (rightCenter) at (0.55, 0.8);
 		\coordinate (routePt) at (0.50, 0.75);
 		
@@ -19,7 +20,7 @@
 	%	\node [box, right = 1.5cm of kb] (db)  {Actuator Control Board};
 		
 		% Face Boards
-		\node [box] (f0) at (rightCenter) {Active Module ID 1};
+		\node [box, red, fill = red!10] (f0) at (rightCenter) {Unresponsive Module ID 1};
 		\node [box, below = 1cm of f0] (f1) {Active Module ID 2};
 	%	\node [below = 0.5cm of f1] (f2) {...};
 		\node [box, below = 3cm of f0] (f5) {Active Module ID N};
@@ -27,17 +28,17 @@
 		\node [fill = orange!50, box, left = 1.25cm of f5] (f6) {Passive Modules};
 		
 		%% I2C Connections
-		\path [line, <->, orange, ultra thick] (mainBoard) -- (f0);
+		\path [line, <->, orange, ultra thick, dashed] (mainBoard) -- (f0);
 		\path [line, <->, orange, ultra thick] (mainBoard) -- (f1);
 		\path [line, <->, orange, ultra thick] (mainBoard) -- (f5);
 		
 		%% Magnetic Tag Readings
 		\path [line, <->, purple, ultra thick] (f0) to [bend left = 10] (f1);
 		\path [line, <->, purple, ultra thick] (f1) to [bend left = 10] (f5);
-		\path [line, <->, purple, ultra thick] (f5) -- (f6);
+		\path [line, ->, purple, ultra thick] (f5) -- (f6);
 		
 		%% Light Messages
-		\path [line, <->, blue, ultra thick] (f0) to [bend right = 10] (f1);
+		\path [line, <->, blue, ultra thick, dashed] (f0) to [bend right = 10] (f1);
 		\path [line, <->, blue, ultra thick] (f1) to [bend right = 10] (f5);
 	%	\path [line, <->, blue, ultra thick,  bend right] (f5) -- (f6);
 		
@@ -69,6 +70,22 @@
 
 		\node[container, fit = (f0) (f5)] (frame) {};
 		\node at (frame.south) [below, node distance = 0 and 0] {\textbf{Active Modules}};
+		
+		\tikzmath{\radius = 0.5;}
+		\fill[gray] (aboveleftCenter) + (0, \radius cm) arc (90:270:\radius cm);
+		\fill[yellow] (aboveleftCenter) + (0, -\radius cm) arc (270:450:\radius cm);
+		
+		\path [green, line, ->, ultra thick] (mainBoard.north) -- (0.16, 0.84);
+		% Create a red filled arc, starting 2 below the center, 
+		% with a start angle of 270°, an end angle of 450° and a radius of 2
+%		\fill[red] (center) + (0, -2) arc (270:450:2);
+		
+	%	\node[fill = yellow, above = 1 cm of mainBoard, circle] (light) {lamp};
+	%	\node[fill = gray, left = 0 cm of light, minimum height = 0.5 cm] (bottom) {};
+	%	\node[fill = yellow, above = 1 cm of mainBoard, circle] (light) {lamp};
+		
+
+	%	\node[fill = gray, left = 0 cm of light, minimum height = 0.5 cm] (bottom) {};
 
 %    	\node [box] (planning) {Planning};
 %   	 	\node [box, below of=planning, maroon, inner sep = 0pt] (resources) {Resources};
