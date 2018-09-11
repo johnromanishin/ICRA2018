@@ -8,32 +8,42 @@
 
 Many papers that provide a comprehensive overviews of the field of modular robotics including work up to 2007~[cite to do], and several updates more recently ~[cite to do], and ~[cite to do] which provides a good background on connectors. This section of the paper will attempt to investigate two different topics in the related work in a more focues manner, Sec~\label{sec:RWconfiguration} will look at the challenge of configuration discovery in modular robotics systems, and~\label{sec:RWtaggingTech} will compare and contrast different technologies for location specific tagging tagging technologies.
 
+For modular robots, knowing which neighbors they are connected to and the orientation in which they are connected facilitates solutions to the self-reconfiguration problem \cite{AHMADZADEH201527} \cite{Yim-RAM07}. While some work has left this question unaddressed \cite{Soldercubes2016}, other authors use inter-module communication between modules to implicitly sense adjacent neighbors \cite{liedke2013collective} \cite{Gilpin-Thesis06} \cite{TosunDaveyLiuYim-IROS2016}.  Other systems use RFID tags \cite{Werfel-PhDThesis06} to explicitly sense module adjacency.  None of these methods allow modules to determine their relative rotational orientation to each other, and the majority require power and computational circuitry to determine adjacency, limiting the inclusion of ``passive'' modules in the robot as described by \cite{roombots-Bonardi-2013}.  Our new method for estimating the position of adjacent modules addresses both of these issues.  We introduce \tagNamePlural, arrangements of magnets mounted on the faces of modules.  The orientation of magnets which comprise \tagNamePlural can be measured by commodity encoder sensors, thereby reading information encoded in the orientation of the magnets.
+
+
+Connectors are one of the most significant design challenges in creating practical MSRR systems. Aside from their fundamental requirement of providing robust mechanical links, these connectors have been used in the literature to enable inter-module communication \cite{liedke2013collective} \cite{TosunDaveyLiuYim-IROS2016}, deliver power to modules \cite{OptimalPowerSharing2016}, and determine the presence and relative orientation of adjacent units. While all of these improvements to inter-module connections are extensively explored by other researchers, solutions for gathering information about units are limited, and generally require both units to be active.  This paper focuses on this feature of connectors, looks at an overview of how location and identity information is encoded in connectors, and proposes a new method which the authors believe compares favorably with the existing state of the art.
+
 \begin{table*}[t]
 	\centering
 	\caption{Comparison of attributes for several tagging technologies utalized by MSRR in order to determine the configuration of assemblies of modules.}
-	\newcommand{\wdd}{1.9cm}
+	\newcommand{\wdd}{2.05cm}
 	\begin{tabular}{ p{1.7 cm} p{\wdd}  p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd}  }
 		\hline
 		\addlinespace[1ex]
 		%1 - EMPTY
-											& RFID 				& Optical		& NFC Tags 		& Electrical 		& QR Codes 	& Inductive	& \bf{\tagNamePlural} \\ %8
+											& RFID / NFC		& Optical				& Electrical 		& QR Codes 			& Inductive			& \bf{\tagNamePlural} \\ %8
 		\hline
 
-		\textit{Description}				& uses radio waves	& 				& 				& 					& 	  		&			& Measure field direction of permanent magnets \\
+		\textit{Description}				& Radio waves		& IR or visible light	& 					& 2D optical grid	&					& Measure field direction of permanent magnets \\
 
-\addlinespace[1ex]	 \textit{Cost}			& Expensive			& expensive		& 				& 					& 	 		&			& Inexpensive \\
+\addlinespace[1ex]	\textit{Tag Cost}		& Cheap				& Moderate				& Cheap				& Cheap	 			&					& Inexpensive \\
+
+\addlinespace[1ex]	\textit{Reader Cost}	& Expensive			& Moderate				& Moderate			& 	 				&					& Inexpensive \\
 		
-\addlinespace[1ex] 	\textit{Standard}		& 					&  				& Proprietary	& 					& 			&			& Open \\
+\addlinespace[1ex] 	\textit{Size} 			& significant 		& minimal 				& minimal	  		&       			&					& Small		  \\
+					
+\addlinespace[1ex]	\textit{Passive} 		& yes				& no					& possible	 		& yes				& no				& Yes		  \\
 		
-\addlinespace[1ex] 	\textit{Size} 			& significant 		& minimal 		& tags  		& minimal	  		&       	&			& Small		  \\
+\addlinespace[1ex] 	\textit{Orientation} 	& req. 4+ tags 		& possible 				& possible	 		& yes				& re				& Yes		\\
 		
-\addlinespace[1ex]	\textit{Passive} 		& yes				& 				&  				&	 				&			&			& yes!		  \\
+\addlinespace[1ex] 	\textit{Modular Robots}	& ~\	%RFID	
+											& CK-Bot~\cite{park2008automatic}					%OPTICAL
+											& ~\cite{Soldercubes2016}, ~\cite{ubot-Zhu-2014}	%Electrical
+											& 													%QR Codes 
+											& ~\cite{TosunDaveyLiuYim-IROS2016}					%Inductive
+											& 3D M-Blocks~\cite{Romanishin20153d}	\\ 			%M-Tags
 		
-\addlinespace[1ex] 	\textit{Orientation} 	& req. 4+ tags 		& possible 		& req. 4+ tags 	&	 				& yes		&			& yes!		\\
-		
-\addlinespace[1ex] 	\textit{Modular Robots}	& [cite]			& yes			&	  			& 					& yes, [..]	&	~\cite{TosunDaveyLiuYim-IROS2016}		& 3D M-Blocks\\
-		
-\addlinespace[1ex] 	\textit{Range}			& 0-10$m$			& variable		& 0-6 mm		& physical contact	& varies	&			& 0-1$mm$	\\
+\addlinespace[1ex] 	\textit{Range}			& 0-10$m$			& variable				& 0 mm				& ~10mm +			& ~10mm +			& 0-1$mm$	\\
 	\end{tabular}
 	\label{tab:tagTech}
 \end{table*}

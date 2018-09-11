@@ -29,6 +29,13 @@ J.~W. Romanishin, K.~Gilpin, and D.~Rus, ``M-blocks: Momentum-driven, magnetic
   IEEE/RSJ International Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax
   IEEE, 2013, pp. 4288--4295.
 
+\bibitem{Romanishin20153d}
+J.~W. Romanishin, K.~Gilpin, S.~Claici, and D.~Rus, ``3d m-blocks:
+  Self-reconfiguring robots capable of locomotion via pivoting in three
+  dimensions,'' in \emph{Robotics and Automation (ICRA), 2015 IEEE
+  International Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
+  2015, pp. 1925--1932.
+
 \bibitem{liedke2013collective}
 J.~Liedke, R.~Matthias, L.~Winkler, and H.~W{\"o}rn, ``The collective
   self-reconfigurable modular organism (cosmo),'' in \emph{Advanced Intelligent
@@ -39,6 +46,11 @@ J.~Liedke, R.~Matthias, L.~Winkler, and H.~W{\"o}rn, ``The collective
 T.~Tosun, J.~Davey, C.~Liu, and M.~Yim, ``Design and characterization of the
   ep-face,'' in \emph{IEEE Intl. Conf. on Robotics and Automation (ICRA)},
   2016.
+
+\bibitem{OptimalPowerSharing2016}
+C.~Chen, T.~Collins, and W.~Shen, ``A near-optimal dynamic power sharing scheme
+  for self-reconfigurable modular robots,'' in \emph{2016 IEEE International
+  Conference on Robotics and Automation (ICRA)}, May 2016, pp. 5183--5188.
 
 \bibitem{AHMADZADEH201527}
 \BIBentryALTinterwordspacing
@@ -82,6 +94,11 @@ S.~Bonardi, M.~Vespignani, R.~Moeckel, and A.~J. Ijspeert, ``Collaborative
 M.~Park, S.~Chitta, A.~Teichman, and M.~Yim, ``Automatic configuration
   recognition methods in modular robots,'' \emph{The International Journal of
   Robotics Research}, vol.~27, no. 3-4, pp. 403--421, 2008.
+
+\bibitem{ubot-Zhu-2014}
+Y.~Zhu, D.~Bie, S.~Iqbal, X.~Wang, Y.~Gao, and J.~Zhao, ``A simplified approach
+  to realize cellular automata for ubot modular self-reconfigurable robots,''
+  \emph{Journal of Intelligent \& Robotic Systems}, pp. 1--18, 2014.
 
 \bibitem{wang2016iros}
 J.~Wang and E.~Olson, ``{AprilTag} 2: Efficient and robust fiducial

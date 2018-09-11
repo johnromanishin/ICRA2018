@@ -35,13 +35,16 @@
 	\statcirc{-\offsetCent}{-\offsetAxis}{45}{\diameter};
 	\draw[gray, dashed] (-\offsetAxis,{\offsetCent + 1}) -- 
 	(-\offsetAxis,{\offsetCent - 1});
-	\draw[black,dotted] (0,0) circle (2.95
-	);
+	\draw[black,dotted] (0,0) circle (2.95);
+	
+	% 4 Cross Lines X
 	\draw[black,dashed] (0,0) -- (4,0);
 	\draw[black,dashed] (0,0) -- (-4,0);
 	\draw[black,dashed] (0,0) -- (0,4);
 	\draw[black,dashed] (0,0) -- (0,-4);
+	
+	% Dimensioned Variables
 	\dimline[line style = {line width = 0.8, arrows = dimline reverse-dimline reverse}] {(A)}{(B)}{x};
-	\dimline[line style = {line width = 0.8}] {(-2.95, 1)}{(0,1)}{R};
+	\dimline[line style = {line width = 0.8}] {(0,0)} {++(150:2.95)}{R};
 %	\dimline {(1,0)}{(-1,0)}{x};
 \end{tikzpicture}

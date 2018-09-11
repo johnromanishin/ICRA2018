@@ -12,6 +12,11 @@
 	\input{FIGmagnetUPCLOSE.tex}
 }
 
+\newsavebox{\gridFigure}
+\sbox{\gridFigure}	{
+	\input{gridFigure.tex}
+}
+
 \begin{figure*}[h]
 	%\begin{tikzpicture}[minimum width = 14 cm, minimum height = 6 cm]
 	%\draw (0,0) -- (14,6);
@@ -36,6 +41,7 @@
 	
 	\node at (4 cm, 4 cm) {\usebox{\faceDiagram}};
 	\node at (10 cm, 6 cm) {\usebox{\magnetDigitization}};
+	\node at (14 cm, 1cm) {\usebox{\gridFigure}};
 	
 	
 	%\draw (1,1) pic {complexnode} (4,4);
@@ -120,11 +126,6 @@ In order to create a tag where the reader and the tag are both ungendered...
 The \tagNamePlural are implemented using absolute magnetic encoders from AMS. Each active module has been outfitted with a circuit board that
 includes two AS5048B absolute magnetic encoders, a light sensor, and several LEDs. The circuit boards are driven from the central processor 
 through an I/O expander...
-
-
-
-
-
 
 
 
