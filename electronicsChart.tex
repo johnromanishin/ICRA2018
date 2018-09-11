@@ -4,30 +4,43 @@
 \tikzset{line/.style={draw, thick, -latex'}}
 
 \begin{tikzpicture}[auto]
-	\node[anchor=south west,inner sep=0, minimum width = \linewidth, minimum height = 8.5cm] (emptyBox) at (0,0) {};
+	\node[anchor=south west,inner sep=0, minimum width = \linewidth, minimum height = 7.5cm] (emptyBox) at (0,0) {};
 	\begin{scope}[x={(emptyBox.south east)},y={(emptyBox.north west)}]
 	\tikzset{>=latex}
-		\coordinate (leftCenter) at (0.12, 0.75);
-		\coordinate (rightCenter) at (0.6, 0.85);
+		\coordinate (leftCenter) at (0.12, 0.65);
+		\coordinate (rightCenter) at (0.55, 0.8);
 		\coordinate (routePt) at (0.50, 0.75);
 		
 		% Main Board
-		\node [box] (mainBoard) at (leftCenter) {High Level Control Board (ESP8266)};
+		\node [box, fill = green!50] (mainBoard) at (leftCenter) {Server Module};
 		
 		% Kyles Boards...
 	%	\node [box] at ([shift = ({225:3.5 cm})] mainBoard) (kb) {Motor and Power Board (nRF51422)};
 	%	\node [box, right = 1.5cm of kb] (db)  {Actuator Control Board};
 		
 		% Face Boards
-		\node [box] (f0) at (rightCenter) {Face 0 PCB  (IO~Expander)};
-		\node [box, below = 0.25cm of f0] (f1) {Face 1 PCB   (IO~Expander)};
-		\node [below = 0.75cm of f1] (f2) {...};
-		\node [box, below = 0.75cm of f2] (f5) {Face 5 PCB   (IO~Expander)};
+		\node [box] (f0) at (rightCenter) {Active Module ID 1};
+		\node [box, below = 1cm of f0] (f1) {Active Module ID 2};
+	%	\node [below = 0.5cm of f1] (f2) {...};
+		\node [box, below = 3cm of f0] (f5) {Active Module ID N};
+		
+		\node [fill = orange!50, box, left = 1.25cm of f5] (f6) {Passive Modules};
 		
 		%% I2C Connections
-		\path [line, <->, orange, ultra thick] (mainBoard) -- (routePt)-- (f0);
-		\path [line, <->, orange, ultra thick] (mainBoard) -- (routePt)-- (f1);
-		\path [line, <->, orange, ultra thick] (mainBoard) -- (routePt)-- (f5);
+		\path [line, <->, orange, ultra thick] (mainBoard) -- (f0);
+		\path [line, <->, orange, ultra thick] (mainBoard) -- (f1);
+		\path [line, <->, orange, ultra thick] (mainBoard) -- (f5);
+		
+		%% Magnetic Tag Readings
+		\path [line, <->, purple, ultra thick] (f0) to [bend left = 10] (f1);
+		\path [line, <->, purple, ultra thick] (f1) to [bend left = 10] (f5);
+		\path [line, <->, purple, ultra thick] (f5) -- (f6);
+		
+		%% Light Messages
+		\path [line, <->, blue, ultra thick] (f0) to [bend right = 10] (f1);
+		\path [line, <->, blue, ultra thick] (f1) to [bend right = 10] (f5);
+	%	\path [line, <->, blue, ultra thick,  bend right] (f5) -- (f6);
+		
 		
 	%	\path [line, <->, orange, ultra thick] (kb) -- (db);
 		
@@ -36,7 +49,7 @@
 	%	\path [line, <->, blue, ultra thick] (kb) -- (mainBoard);
 
 		%% Inputs
-		\node [align = center] (input1) at (0.91, 0.45) {Environmental \\ and \\ Neighbor \\ sensing};
+		\node [align = center] (input1) at (0.85, 0.45) {Light \\ and IMU \\ sensing};
 	%	\node [align = left] (input2) at (0.16, 0.96) {wifi commands};
 
 	%	\node [align = left] (input3) at (0.25, 0.24) {Motor \\ Batteries \\ SMA wire};
@@ -55,7 +68,7 @@
 	%	\node at (core.south) [below, node distance = 0 and 0] {\textbf{Core}};
 
 		\node[container, fit = (f0) (f5)] (frame) {};
-		\node at (frame.south) [below, node distance = 0 and 0] {\textbf{Frame}};
+		\node at (frame.south) [below, node distance = 0 and 0] {\textbf{Active Modules}};
 
 %    	\node [box] (planning) {Planning};
 %   	 	\node [box, below of=planning, maroon, inner sep = 0pt] (resources) {Resources};

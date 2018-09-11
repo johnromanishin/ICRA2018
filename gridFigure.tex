@@ -1,6 +1,15 @@
-\begin{tikzpicture}[every node/.style={minimum size=2 cm-\pgflinewidth, outer sep=0pt}]
-    \draw[step=2cm,color=black] (0,0) grid (4,4);
 
-    \node[fill=orange] at (+1,+1) {};
+
+\begin{tikzpicture}[every node/.style={minimum size=1.5 cm-\pgflinewidth, outer sep=0pt}]
+	\tikzmath{
+		\boxSize = 1.5;
+	}
+
+    \draw[step= \boxSize cm,color=black] (0,0) grid (\boxSize*2,\boxSize*2);
+	
+    \node[fill=purple] at (\boxSize*1.5,\boxSize*1.5 ) {\textbf{18}};
+    \node[fill=orange!10] at (\boxSize*0.5,\boxSize*0.5) {1-30};
+    \node[fill=orange!10] at (\boxSize*0.5,\boxSize*1.5) {1-30};
+    \node[fill=orange!10] at (\boxSize*1.5,\boxSize*0.5) {1-30};
    % \node[fill=yellow] at (+0.75,+0.75) {};
 \end{tikzpicture}

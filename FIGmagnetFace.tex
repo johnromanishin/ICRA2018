@@ -1,6 +1,6 @@
 \newcommand{\statcirc}[4]{
-	\fill[red,shift={(#1 cm,#2 cm)}, rotate=#3] (0,0) circle (#4); 
-	\fill[blue,shift={(#1 cm,#2 cm)},rotate=#3] (0,0) -- (180:#4) arc (180:0:#4) -- cycle;
+	\fill[opacity = 0.5, red,shift={(#1 cm,#2 cm)}, rotate=#3] (0,0) circle (#4); 
+	\fill[opacity = 0.5, blue,shift={(#1 cm,#2 cm)},rotate=#3] (0,0) -- (180:#4) arc (180:0:#4) -- cycle;
 	%	\draw[->,black,shift={(#1 cm,#2 cm)},rotate=#3] (#4, 0)
 }
 
@@ -14,7 +14,7 @@
 		\chipW = 0.35;
 		\chipH = 0.4;
 	}
-	\fill[darkgray, shift= {(#1 cm, #2 cm)}, rotate = #3, rounded corners] (-\chipH,-\chipW) rectangle (\chipH,\chipW);
+	\fill[opacity = 0.75, darkgray, shift= {(#1 cm, #2 cm)}, rotate = #3, rounded corners] (-\chipH,-\chipW) rectangle (\chipH,\chipW);
 	\fill[orange,shift= {(#1 cm, #2 cm)}, rotate = #3 ] (-0.25,0.2) circle (0.1);
 }
 \begin{tikzpicture}
@@ -24,15 +24,24 @@
 		\offsetCent = 2.9;
 		\diameter = 0.32;
 	}
-	\draw node (A) at (-0.5, 2.2) {};
-	\draw node (B) at (0, 2.2) {};
+	\draw node (A) at (-0.5, 1.7) {};
+	\draw node (B) at (0, 1.7) {};
 	\drawchip{\offsetAxis}{\offsetCent}{0};
 	\drawchip{-\offsetAxis}{-\offsetCent}{180};
-	\statcirc{-\offsetAxis}{\offsetCent}{30}{\diameter};
-	\drawArrow{-\offsetAxis}{\offsetCent}{30}
-	\statcirc{\offsetCent}{\offsetAxis}{210}{\diameter};
+	
+	%Magnet North
+	\statcirc{-\offsetAxis}{\offsetCent}{70}{\diameter};
+	
+	\drawArrow{-\offsetAxis}{\offsetCent}{70}
+	
+	%Magnet EAST
+	\statcirc{\offsetCent}{\offsetAxis}{20}{\diameter};
+	
+	% Magnet West
 	\statcirc{\offsetAxis}{-\offsetCent}{190}{\diameter};
+	
 	\statcirc{-\offsetCent}{-\offsetAxis}{45}{\diameter};
+	
 	\draw[gray, dashed] (-\offsetAxis,{\offsetCent + 1}) -- 
 	(-\offsetAxis,{\offsetCent - 1});
 	\draw[black,dotted] (0,0) circle (2.95);
@@ -43,8 +52,11 @@
 	\draw[black,dashed] (0,0) -- (0,4);
 	\draw[black,dashed] (0,0) -- (0,-4);
 	
+%	\draw[purple, dotted] ()
 	% Dimensioned Variables
 	\dimline[line style = {line width = 0.8, arrows = dimline reverse-dimline reverse}] {(A)}{(B)}{x};
+	
+	% Arc Radius
 	\dimline[line style = {line width = 0.8}] {(0,0)} {++(150:2.95)}{R};
 %	\dimline {(1,0)}{(-1,0)}{x};
 \end{tikzpicture}
