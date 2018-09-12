@@ -6,31 +6,34 @@
 
 \begin{table*}[t]
 	\centering
-	\caption{Comparison of attributes for several tagging technologies utalized by MSRR in order to determine the configuration of assemblies of modules.}
-	\newcommand{\wdd}{2.05cm}
-	\begin{tabular}{ p{1.7 cm} p{\wdd}  p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd}  }
+	\caption{Comparison of attributes for several tagging technologies utilized by MSRR systems in order to determine the configuration of assemblies of modules.}
+	\newcommand{\wdd}{2.0cm}
+	\begin{tabular}{ p{2.4 cm} p{\wdd}  p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd} p{\wdd}  }
 		\hline
 		\addlinespace[1ex]
 		%1 - EMPTY
-		& RFID / NFC		& Optical				& Electrical 		& QR Codes 			& Inductive			& \bf{\tagNamePlural} \\ %8
+													& RFID / NFC		& Optical				& Electrical 		& QR Codes 			& Inductive				& \bf{\tagNamePlural} 		\\ %8
 		\hline
 		
-		\textit{Description}				& Radio waves		& IR or visible light	& 					& 2D optical grid	&					& Measure field direction of permanent magnets \\
+		\addlinespace[0.5ex]	\textit{Information Storage or transfe medium}	& Radio waves		& IR or visible light	& Direct wired communication	& 2D optical grid	& Inductive				& Permanent Magnet Field	\\
 		
-		\addlinespace[1ex]	\textit{Tag Cost}		& Cheap				& Moderate				& Cheap				& Cheap	 			&					& Inexpensive \\
+		\addlinespace[0.5ex]	\textit{Tag Cost}		& Cheap				& Moderate				& Cheap				& Cheap	 			& Moderate				& Inexpensive 				\\
 		
-		\addlinespace[1ex]	\textit{Reader Cost}	& Expensive			& Moderate				& Moderate			& 	 				&					& Inexpensive \\
+		\addlinespace[0.5ex]	\textit{Reader Cost}	& Expensive			& Moderate				& Moderate			& Expensive 	 	& Moderate				& Moderate 					\\
 		
-		\addlinespace[1ex] 	\textit{Size} 			& significant 		& minimal 				& minimal	  		&       			&					& Small		  \\
+		\addlinespace[0.5ex] 	\textit{Size} 			& significant 		& minimal 				& minimal	  		& small      		& varies				& Small		  				\\
 		
-		\addlinespace[1ex]	\textit{Passive} 		& yes				& no					& possible	 		& yes				& no				& Yes		  \\
+		\addlinespace[0.5ex]	\textit{Passive} 		& yes				& no					& possible	 		& yes				& no					& Yes		  				\\
 		
-		\addlinespace[1ex] 	\textit{Orientation} 	& req. 4+ tags 		& possible 				& possible	 		& yes				& re				& Yes		\\
+		\addlinespace[0.5ex]	\textit{Communication} 	& possible			& yes					& yes	 			& no				& yes					& not yet		  			\\
 		
-		\addlinespace[1ex] 	\textit{Modular Robots}	& ~\	%RFID	
+		\addlinespace[0.5ex] 	\textit{Orientation} 	& needs 4 tags 		& possible 				& possible	 		& yes				& re					& Yes						\\
+		
+		\addlinespace[1ex] 	\textit{MSRR Systems}
+		& ~\cite{StigmergyWerfel2006}	%RFID	
 		& CK-Bot~\cite{park2008automatic}					%OPTICAL
 		& ~\cite{Soldercubes2016}, ~\cite{ubot-Zhu-2014}	%Electrical
-		& 													%QR Codes 
+		& ~\cite{lin2017vision}								%QR Codes 
 		& ~\cite{TosunDaveyLiuYim-IROS2016}					%Inductive
 		& 3D M-Blocks~\cite{Romanishin20153d}	\\ 			%M-Tags
 		
@@ -42,41 +45,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Many papers that provide a comprehensive overviews of the field of modular robotics including work up to 2007~\cite{Yim-RAM07}, and several updates more recently~\cite{chennareddy2017modular}, and which provides a good background on connectors. This section of the paper will attempt to investigate two different topics in the related work in a more focues manner, Sec~\ref{sec:RWconfiguration} will look at the challenge of configuration discovery in modular robotics systems, and~\label{sec:RWtaggingTech} will compare and contrast different technologies for location specific tagging tagging technologies.
-
-For modular robots, knowing which neighbors they are connected to and the orientation in which they are connected facilitates solutions to the self-reconfiguration problem \cite{AHMADZADEH201527} \cite{Yim-RAM07}. While some work has left this question un-addressed \cite{Soldercubes2016}, other authors use inter-module communication between modules to implicitly sense adjacent neighbors \cite{liedke2013collective} \cite{Gilpin-Thesis06} \cite{TosunDaveyLiuYim-IROS2016}.  Other systems use RFID tags \cite{Werfel-PhDThesis06} to explicitly sense module adjacency.  None of these methods allow modules to determine their relative rotational orientation to each other, and the majority require power and computational circuitry to determine adjacency, limiting the inclusion of ``passive'' modules in the robot as described by \cite{roombots-Bonardi-2013}.  Our new method for estimating the position of adjacent modules addresses both of these issues.  We introduce \tagNamePlural, arrangements of magnets mounted on the faces of modules.  The orientation of magnets which comprise \tagNamePlural can be measured by commodity encoder sensors, thereby reading information encoded in the orientation of the magnets.
-
-Connectors are one of the most significant design challenges in creating practical MSRR systems. Aside from their fundamental requirement of providing robust mechanical links, these connectors have been used in the literature to enable inter-module communication \cite{liedke2013collective} \cite{TosunDaveyLiuYim-IROS2016}, deliver power to modules \cite{OptimalPowerSharing2016}, and determine the presence and relative orientation of adjacent units. While all of these improvements to inter-module connections are extensively explored by other researchers, solutions for gathering information about units are limited, and generally require both units to be active.  This paper focuses on this feature of connectors, looks at an overview of how location and identity information is encoded in connectors, and proposes a new method which the authors believe compares favorably with the existing state of the art.
+Many papers provide a comprehensive overviews of the MSRR field including the seminal article published in 2007~\cite{Yim-RAM07} in addition to several ore recent updates, including~\cite{chennareddy2017modular} which focuses on the hardware systems, and ~\cite{abukhalil2013survey} which focuses on algorithmic developments. This section of the paper will attempt to investigate two different topics in the related work in a more focused manner, Subsection~\ref{ssec:RWconfiguration} will look at the challenge of configuration discovery in modular robotics systems, Finally Subsection~\ref{ssec:RW-Algorithmic} touches on some of the work implementing similar behaviors to those described in this work.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Configuration Discovery Modular Robots Overview}
-\label{sec:RWconfiguration}
+\subsection{Configuration Discovery in MSRR Systems}
+\label{ssec:RWconfiguration}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Connectors are one of the most significant design challenges in creating practical MSRR systems. Aside from their fundamental requirement of providing robust mechanical links, these connectors have been used in the literature to enable inter-module communication \cite{liedke2013collective}, \cite{TosunDaveyLiuYim-IROS2016}, deliver power to modules \cite{OptimalPowerSharing2016}, and determine the presence and relative orientation of adjacent units. While all of these improvements to inter-module connections are extensively explored by other researchers, solutions for gathering information about units are limited, and generally require both units to be active.  This paper focuses on this feature of connectors, looks at an overview of how location and identity information is encoded in connectors, and proposes a new method which the authors believe compares favorably with the existing state of the art.
 	
-	Work has been done attempting to discover the configuration of groups of modules, including in ~\cite{park2008automatic}
-	The ability for a modular system to discover the specific configuration of modules at any and all times is one of the most essential tasks for any modular robotic system. However, many of the modular robotic systems proposed to date have either built very limited and error prone methods for solving this problem, or have omitted implementation of such a system entirely. Any \textbf{connection} between modules in a modular system involves a minimum of three unique parameters 1) Some form of Identity or \textbf{ID} of the two modules in question, 2) the connector, or \textbf{face number} for each of the modules, and 3) the \textbf{orientation} of the connection, which in a cubic lattice is one of four possible 90 degree values.
+Work has been done attempting to discover the configuration of groups of modules, including in ~\cite{park2008automatic}
+The ability for a modular system to discover the specific configuration of modules at any and all times is one of the most essential tasks for any modular robotic system. However, many of the modular robotic systems proposed to date have either built very limited and error prone methods for solving this problem, or have omitted implementation of such a system entirely. Any \textbf{connection} between modules in a modular system involves a minimum of three unique parameters 1) Some form of Identity or \textbf{ID} of the two modules in question, 2) the connector, or \textbf{face number} for each of the modules, and 3) the \textbf{orientation} of the connection, which in a cubic lattice is one of four possible 90 degree values.
 
-	Many of the existing systems have faces which are able to pass information locally. This communication be used to discover the face number and the module ID's, but we are not aware of any of these systems which are able to systematically discover the orientation of the connection. Some systems combine connectivity information determined from face-to-face connections with gravity measurements from accelerometers to construct data structures which represent both module adjacency and relative orientations \cite{Soldercubes2016}; however, because the gravity field is locally uniform, there are some module arrangements where accelerometer measurements cannot completely determine relative orientation.
+Many of the existing systems have faces which are able to pass information locally. This communication be used to discover the face number and the module ID's, but we are not aware of any of these systems which are able to systematically discover the orientation of the connection. Some systems combine connectivity information determined from face-to-face connections with gravity measurements from accelerometers to construct data structures which represent both module adjacency and relative orientations \cite{Soldercubes2016}; however, because the gravity field is locally uniform, there are some module arrangements where accelerometer measurements cannot completely determine relative orientation.
 
-	Two of the most problematic aspects of current systems we have identified are the need for both modules involved to be actively. A lack of robust connector orientation information, and the large expense and complexity associated with implementing many multiples of these systems.
+Two of the most problematic aspects of current systems we have identified are the need for both modules involved to be actively. A lack of robust connector orientation information, and the large expense and complexity associated with implementing many multiples of these systems.
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Location Tagging technology overview}
-\label{sec:RWtaggingTech}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-There are several different types of passive tagging technologies designed allow a reader to extract unique identification numbers from tags. These include RFID, NFC, QR-Codes, April Tags~\cite{wang2016iros}. This section will provide a brief discussion of the characteristics of each of these technologies, and their suitability to working in the context of cm module scale MSRR systems. Table~\ref{tab:tagTech} provides an over and a (subjective) comparison between several of these technologies, and a listing of several example multi-robot systems which utilize this approach for broadly similar configuration detection roles.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Relevant MSRR algorithmic work}
-\label{sec:RW-Algorithmic}
+\label{ssec:RW-Algorithmic}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-There have been many algorithms designed to control MSRR systems. Much of this work has focused on the movement model abstraction called the Sliding Cube Model, ... and ... . However most of these works are not able to actually run on any real-world systems, and assume and abstract away various capabilities that real-world modules would face. For example. There are many works introducing various algorithms and control strategies, and we are not claiming that those presented in "behaviors" are in any unique. This~\cite{abukhalil2013survey}  work from 2014, provides an overview of some of the existing academic work involving decentralized control strategies.
+While there are many simulated algorithms to accomplish similar behaviors, much of these works and assume and abstract away various challenges that real-world modules would face. There are many works introducing various algorithms and control strategies, and we are not claiming that those presented in "behaviors" are in any way unique. This work from 2014~\cite{abukhalil2013survey}, provides an overview of some of the existing academic work involving decentralized control strategies. Light tracking behaviors can be traced to the canonical Braitenberg vehicles~\cite{braitenberg1986vehicles}, in addition to several papers detailing control strategies for MSRR~\cite{claici2017distributed}.
+
+
+%	For modular robots, knowing which neighbors each module is connected to and the relative angle of that connection is indispensable for MSRR systems. While systems have left this problem un-addressed, most MSRR systems have some method to determine the configuration. Some connections also implement inter-module communication between modules using the same hardware used for configuration detection. Other systems use passive methods like RFID tags, e.g.\cite{Werfel-PhDThesis06} to sense module adjacency. 
+%inclusion of ``passive'' modules in the robot as described by \cite{roombots-Bonardi-2013}. 
+% Other systems use RFID tags \cite{Werfel-PhDThesis06} to explicitly sense module adjacency.
+% implicitly sense adjacent neighbors \cite{liedke2013collective} \cite{Gilpin-Thesis06} \cite{TosunDaveyLiuYim-IROS2016}. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Location Tagging technology overview}
+%\label{ssec:RWtaggingTech}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%There are several different types of passive tagging technologies designed allow a reader to extract unique identification numbers from tags. These include RFID, NFC, QR-Codes, April Tags~\cite{wang2016iros}. This section will provide a brief discussion of the characteristics of each of these technologies, and their suitability to working in the context of cm module scale MSRR systems. Table~\ref{tab:tagTech} provides an over and a (subjective) comparison between several of these technologies, and a listing of several example multi-robot systems which utilize this approach for broadly similar configuration detection roles.

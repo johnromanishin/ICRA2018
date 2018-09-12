@@ -24,15 +24,17 @@ We performed two set of experiments involving, the first involving only reading 
 "virtual" or "stigmergic" arrows utilizing the globally unique connector faces embedded in active modules.
 
 \begin{table}[h]
-	\caption{Experimental results for }
+	\caption{Experimental results Table}
 	
-	\begin{tabular}{ p{3.4cm}  p{1.9cm}  p{1.9cm} }
+	\begin{tabular}{ p{2.2cm}  p{1.2cm}  p{1.2cm} p{1.2cm}}
 		\hline
-								& Attempts 	& Successes \\
+							& runs 	& Success & moves \\
 		\hline
-		Configuration Discovery	&  -1 		& -50 \\
-		Direction Following		& 0 		& 0  \\
-		command Tags 			&  -1 		& -50 \\		
+		Line Formation		&  1 		& 5/8 		& 6\\
+		Light Aggregation 	&  1 		& 4/12 		& 20\\		
+		Path Following		&  1 		& 1/1 		& 2 \\
+		Extended Path		&	0		&0			& 0\\
+
 	\end{tabular}
 	
 	\label{tab:info}
@@ -40,20 +42,15 @@ We performed two set of experiments involving, the first involving only reading 
 
 \begin{figure}[h]  
 	\centering
-	\begin{subfigure}[b]{0.48\linewidth}
-		\includegraphics[width=0.95\linewidth]{figures/arrows1.png}
-		\subcaption{} 
-	\end{subfigure}
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 		\includegraphics[width=0.95\linewidth]{figures/arrows2.png}
 		\subcaption{} 
 	\end{subfigure}
-	
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 		\includegraphics[width=0.95\linewidth]{figures/arrows3.png}
 		\subcaption{} 
 	\end{subfigure}
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 		\includegraphics[width=0.95\linewidth]{figures/arrows4.png}
 		\subcaption{} 
 	\end{subfigure}
@@ -65,10 +62,12 @@ We performed two set of experiments involving, the first involving only reading 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{line formation experiments}
+\subsection{Line formation experiments}
 \label{sec:mblocksExperimentsLine}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+These experiments involved several attempts to convert arbitrary generated 3D structures with a few constraints (no holes, and no modules connected by three or more connection faces) into a single horizontal line involving between 8 and 12 modules.
 
 \begin{figure}[h]  
 	\centering
@@ -103,69 +102,64 @@ We performed two set of experiments involving, the first involving only reading 
 	\label{fig:lineExperiment}
 \end{figure}
 
-These experiments involved several attempts to convert arbitrary generated 3D structures with a few constraints (no holes, and no modules connected by three or more connection faces) into a single horizontal line involving between 8 and 12 modules.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%
 \subsection{Light guided aggregation experiments}
 \label{sec:mblocksExperimentsLight}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+These experiments essentially attempt to implement the photo-taxis Braitenberg behavior for a group of M-Blocks modules. There is a single light source, and a special target module, which when modules aggregate to it, the modules share its location through wireless and light signals for additional modules to connect to it - essentially forming a single "crystal" of aggregated modules. In these experiment modules are gradually released into a confined (0.5m x 0.5 m) bounded foam-padded location, and move until they either run out of battery or connect to the designated aggregate.
+
+%\newcommand{\figureWidth}{0.32\linewidth}
 \begin{figure}[h]  
 	\centering
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 		
 		\begin{tikzpicture}[]	
 			\node[opacity = 0.95] at (0,0) {\includegraphics[width = \linewidth]{figures/1-000.png}};
-			\node[opacity = 0.5, fill = white, rounded corners] at (-1,-0.75) {t = 000 s};
+			\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.5) {t = 000 s};
 		\end{tikzpicture}
-
-	%	\subcaption{} 
+		
 	\end{subfigure}
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 		
 		\begin{tikzpicture}[]	
 		\node[opacity = 0.95] at (0,0) {\includegraphics[width = \linewidth]{figures/2-120.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-1,-0.75) {t = 120 s};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.5) {t = 120 s};
 		\end{tikzpicture}
 		
 	\end{subfigure}
-
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 
 		\begin{tikzpicture}[]	
 		\node[opacity = 0.95] at (0,0) {\includegraphics[width = \linewidth]{figures/3-220.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-1,-0.75) {t = 220 s};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.5) {t = 220 s};
 		\end{tikzpicture}
 		
 	\end{subfigure}
-	\begin{subfigure}[b]{0.48\linewidth}
+
+	\begin{subfigure}[b]{0.32\linewidth}
 		\begin{tikzpicture}[]	
 		\node[opacity = 0.95] at (0,0) {\includegraphics[width = \linewidth]{figures/4-320.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-1,-0.75) {t = 320 s};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.5) {t = 320 s};
 		\end{tikzpicture}
-	%	\subcaption{} 
 	\end{subfigure}
-
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 		\begin{tikzpicture}[]	
 		\node[opacity = 0.95] at (0,0) {\includegraphics[width = \linewidth]{figures/5-500.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-1,-0.75) {t = 500 s};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.5) {t = 500 s};
 		\end{tikzpicture} 
 	\end{subfigure}
-	\begin{subfigure}[b]{0.48\linewidth}
+	\begin{subfigure}[b]{0.32\linewidth}
 		\begin{tikzpicture}[]	
 		\node[opacity = 0.95] at (0,0) {\includegraphics[width = \linewidth]{figures/6-600.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-1,-0.75) {t = 600 s};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.5) {t = 600 s};
 		\end{tikzpicture}
 	\end{subfigure}
 	
-	\caption{This experiment shows a random 3D tracking light.}
+	\caption{This experiment illustrates the light guided aggregation behavior.}
 	
 	\label{fig:LightExperiment}
 \end{figure}
-
-These experiments essentially attempt to implement the photo-taxis Braitenberg behavior for a group of M-Blocks modules. There is a single light source, and a special target module, which when modules aggregate to it, the modules share its location through wireless and light signals for additional modules to connect to it - essentially forming a single "crystal" of aggregated modules. In these experiment modules are gradually released into a confined (0.5m x 0.5 m) bounded foam-padded location, and move until they either run out of battery or connect to the designated aggregate.

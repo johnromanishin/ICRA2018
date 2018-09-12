@@ -1,89 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Hardware}
 \label{sec:Hardware}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\newsavebox{\faceDiagram}
-\sbox{\faceDiagram}	{
-	\input{FIGmagnetFace.tex}
-}
-
-\newsavebox{\magnetDigitization}
-\sbox{\magnetDigitization}	{
-	\input{FIGmagnetUPCLOSE.tex}
-}
-
-\newsavebox{\gridFigure}
-\sbox{\gridFigure}	{
-	\input{gridFigure.tex}
-}
-
-\begin{figure*}[h]
-	%\begin{tikzpicture}[minimum width = 14 cm, minimum height = 6 cm]
-	%\draw (0,0) -- (14,6);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[th]
 	
-	\begin{tikzpicture}[]
-	%complexnode/.pic={\usebox{\mybox}}]
+	\input{mtagsBigFigure.tex}
 	
-	\newcommand\xa{2};
-	\newcommand\xb{2};
-	\newcommand\ya{2};
-	\newcommand\yb{2};
-	
-	\coordinate (smallNE) at (2,5);
-	\coordinate (smallSE) at (2,5);
-	\coordinate (smallSW) at (2,5);
-	\coordinate (smallNW) at (2,5);
-	
-	\coordinate (bigNE) at (2,5);
-	\coordinate (bigSE) at (2,5);
-	\coordinate (bigSW) at (2,5);
-	\coordinate (bigSE) at (2,5);
-	
-	\node[opacity = 0.95] at (4.25 cm, 4 cm) {\includegraphics[width = 8 cm]{figures/face.png}};
-	\node at (4 cm, 4 cm) {\usebox{\faceDiagram}};
-	\node at (11 cm, 6 cm) {\usebox{\magnetDigitization}};
-	\node at (15 cm, 2cm) {\usebox{\gridFigure}};
-	
-	%\node[fill=orange] at (3,3) {\textbf{18}};
-	
-	\tikzmath{
-		\smallBoxX = 0.5;
-		\smallBoxY = 2.9;
-	}
-
-	% Small Box around Magnet
-	%\node[draw, purple, dotted, minimum size = 1.25 cm, rounded corners, thick] at (3.65cm , 7cm) {};
-	
-	\path[draw, purple, dotted, minimum size = 1.25 cm, rounded corners, ultra thick]
-	(3, 6.25) --
-	++(1.25, 0) --
-	++(0, 1.25) --
-	++(-1.25, 0) --
-	cycle {};
-	
-	\node (a) at (13.5, 6){};
-	\node (b) at (15.75, 3.5){};
-	\draw[>={Stealth[round]}, purple,dashed, ultra thick, bend right, rounded corners = 1 cm, ->] (a) -- (15.75,6) -- (b);
-	\draw[purple,dashed, thin] (3.5cm, 6.25cm + 1.25cm) -- ++(10: 5cm);
-	\draw[purple,dashed, thin] (3.5cm, 6.25cm ) -- ++(332: 5.45cm);
-	
-	% Large Purple box
-	\node[draw, purple, dotted, minimum size = 4.8 cm, rounded corners,ultra thick] at (11cm , 6cm) {};
-	
-	%\draw (1,1) pic {complexnode} (4,4);
-	
-	\end{tikzpicture}
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\caption{Figure illustrating the \TagNamePlural. A tag consists of four permanent magnets placed according to two dimensions, (R) is the circle diameter, and x is the offset from the y axis. The right half of this figure shows a photo of one of the m-blocks superimposed with the magnets. The absolute angle of the magnet, relative to a line extending from the center of the face, is then digitized by an absolute magnetic encoder (black rectangle with orange dot) placed $x$ units to the right. These values are }
-	\label{fig:tagDiagram8}
+	\caption{Figure illustrating the \TagNamePlural. A tag consists of four permanent magnets placed according to two dimensions, (R) is the circle diameter, and x is the offset from the y axis. The right half of this figure shows a photo of one of the m-blocks superimposed with the magnets. The absolute angle of the magnet, relative to a line extending from the center of the face, is then digitized by an absolute magnetic encoder (black rectangle with orange dot) placed $x$ units to the right. }
+	\label{fig:tagDiagram}
 \end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The ideal neighbor connectivity sensing solution would be inexpensive, robust and passive in order to help satisfy the ease of scalability in a modular robotics system where there may be hundreds or thousands of individual modules. It should also be precise, because individual errors in a repeated sequence of connections would be multiplicative and thus damaging to the concerted operation of a whole configuration of modules. In addition, it would not be enough to merely identify an object or even to detect which connecting faces are adjacent in the lattice or chain, because effective concerted motion between modules may require them to identify how they and their neighbors are oriented with respect to the larger configuration.
 
-Modular self-reconfigurable robots have been classified based on physical architecture: lattice, chain, or a hybrid of the two.~\cite{Yim-RAM07}\cite{Moubarak2012}\cite{surveyyim} Lattice architectures take shape by fully constraining individual modules to one another, and there tend to be several connecting faces in a given configuration due to these constraints. Interpreting relative orientation of the connecting faces is essential to modeling and manipulation of the overall configuration, because changes in shape are achieved via changes in topology, i.e. by explicitly moving modules and changing how they are connected. An inexpensive, precise, orientation-sensitive ID tag would greatly assist in the development of autonomous systems with vast numbers of connecting faces.
+ Our new method for estimating the position of adjacent modules addresses both of these issues, and is illustrated with in Figure~\ref{fig:tagDiagram8}.  We introduce \tagNamePlural, arrangements of magnets mounted on the faces of modules.  The orientation of magnets which comprise \tagNamePlural can be measured by simple absolute magnetic encoder ICs, thereby reading information encoded in the orientation of the magnets.
 
-A precise tag with sensitivity to orientation would be equally essential in chain architectures. Articulation of joints in a chain architecture allows module position to be oriented outside the constraints of lattice points. Moves in a non-grid-oriented space like this one, especially moves that articulate at multiple joints or propagate through multiple modules, require that the orientation between module faces be clearly defined in order to sustain a model of the total configuration.
-
-The ideal connective position sensor would be appropriate in either use case. It would be inexpensive, to help satisfy the ease of scalability in a modular robotics system where there may be hundreds of individual modules. It would also be precise, because individual errors in a repeated sequence of connections would be multiplicative and thus damaging to the concerted operation of a whole configuration of modules. In addition, it would not be enough to merely identify an object or even to detect which connecting faces are adjacent in the lattice or chain, because effective concerted motion between modules may require them to identify how they and their neighbors are oriented with respect to the larger configuration.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[b]
 	\caption{Information content in the \TagNamePlural encoding specification. The current system is limited due to practical considerations of the physical dimensions of the  PCBa's in the 3D M-Blocks, but will hopefully be extended into the future extension soon.}
 	
@@ -101,47 +39,15 @@ The ideal connective position sensor would be appropriate in either use case. It
 	
 	\label{tab:hardwareOverview}
 \end{table}
-
-The approach that \tagNamePlural~take towards this problem is a passive magnetic connector that uses a combination of dipole angles to communicate identity and relative rotational position. In the Mblocks implementation, each face of each cube is encoded with a different combination of dipole angles than every other face of every other cube. Magnetic rotary position sensors read these dipole angle combinations to determine which face is directly adjacent, and they identify the rotational angle of the face as well. All of this occurs using an unpowered array of magnets that provide static EM fields, readable at a hyperlocal distance.
-
-The underlying hypothesis is that low cost and lack of RF transmission make magnets an attractive choice for a technology that may have to be implemented hundreds of times in a set of reconfigurable modules. The ability to use several such sensors at close proximity allows several to be used on each connecting face, providing enough data to read configuration as well as identity.
-
-
-%%%%%%%%%%%%%%%%%%%%
-The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances. In this section we breifly describe the M-Blocks hardware, and then describe the mechanical, and electrical aspects of the new \tagNamePlural.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{M-Blocks hardware overview}
-\label{sec:mblocksOverview}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The \tagName were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances and [], called the 3d M-Blocks. Characteristics of the M-Blocks at a glance can be seen in Table~\ref{tab:hardwareOverview}
+The approach that \tagNamePlural~take towards this problem is a passive magnetic connector that uses a combination of dipole angles to communicate identity and relative rotational position. In this implementation, each face of each cube is encoded with a different combination of magnetic angles than every other face of every other cube. Magnetic rotary position sensors read these dipole angle combinations to determine which face is directly adjacent, and they identify the rotational angle of the face as well. All of this occurs using an un-powered array of magnets that provide static EM fields, readable at a hyperlocal distance.
 
+The underlying hypothesis is that low cost and lack of RF transmission make magnets an attractive choice for a technology that may have to be implemented hundreds of times in a set of reconfigurable modules. The ability to use several such sensors at close proximity allows several to be used on each connecting face, providing enough data to read configuration as well as identity. The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\tagNamePlural Mechanical Specification}
-\label{sec:tagsOverview}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-In order to create a tag where the reader and the tag are both ungendered...
-
-
-
-%
-
-%\begin{figure}[b]
-%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	\input{FIGmagnetUPCLOSE.tex}
-%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	\caption{tags consist of 4 diametrically magnetized
-%		magnets arranged in a $\pi$/2 4 way symmetric layout}
-%	\label{fig:tagDiagram}
-%\end{figure}
-
 \begin{table}[b]
   \caption{Basic info of the m-Blocks modular robots}
 
@@ -158,22 +64,12 @@ In order to create a tag where the reader and the tag are both ungendered...
 
     \label{tab:hardwareOverviewTable}
 \end{table}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\tagNamePlural Electronics System}
-\label{sec:tagsElectronics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The \tagNamePlural are implemented using absolute magnetic encoders from AMS. Each active module has been outfitted with a circuit board that
+The \tagNamePlural are implemented using absolute magnetic encoders from Austrian Micro Systems. Each active module has been outfitted with a circuit board that
 includes two AS5048B absolute magnetic encoders, a light sensor, and several LEDs. The circuit boards are driven from the central processor 
-through an I/O expander...
-
-
-
-
+through an I2C I/O expander.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,467 +78,25 @@ through an I/O expander...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
 While the exact performance of the \tagName system that will be be implementation Dependant i.e. different size/shape magnets, encoder ICs, etc... we performed two categories of experimentation to demonstrate that our implementation of the \tagName concept is feasible and useful in the context of modular robots. The first section~\ref{sec:characterize} attempts to characterize the \tagNamePlural in terms of repeatability and accuracy of multiple measurements under varying conditions and to investigate the behavior when tags are misaligned. 
 
 While the angular resolution of the magnetic angular encoders that we used is very high, 14 bits for the ams5048b used in this work, these readings are only repeatable under ideal conditions. There are many factors which influence the accuracy of readings of the sensors in the context of the \tagNamePlural. We have identified the following factors 1. Alignment of the magnetic sensor relative to the face of the module, 2. relative alignment of the face containing the tag to the face containing the reader. 3. variability of the magnetic field direction in the manufacture of the magnets. 4. Mechanical alignment of the magnets in reference to the tag. 5. Effects of external magnetic fields.
 
-While factors 1 and 4, (mechanical alignment of magnets and sensors) are appear to be a significant factor in our implementation due to the hand-assembly nature of the prototype system, these should be less of a concern in large scale systems which are 
+While factors 1 and 4, (mechanical alignment of magnets and sensors) are appear to be a significant factor in our implementation due to the hand-assembly nature of the prototype system, these should be less of a concern in large scale systems which are properly manufactured.
 
 \begin{figure}[h]
 	\input{FIGhistogram1.tex}
-	\caption{Histogram of one sensor face reading the same tag multiple times}
-	\label{fig:histogram}
-\end{figure}
-
-We did some stuff, wrote it down here...
-
-\begin{figure}[h]
-	\input{FIG3Dhistogram.tex}
-	\caption{Histogram of one sensor face reading the same tag multiple times}
+	\caption{Histogram of one sensor face reading the same tag multiple times. The Boundary lines represents tags that will not be read correctly.}
 	\label{fig:histogram}
 \end{figure}
 
 
-
-
-
-
-
-
-
-
-
-
-
-%\begin{figure}[H]
-%	\begin{tikzpicture}
-%   	 \node[anchor=south west, inner sep=0] (image) at (0,0) {\includegraphics[width=2 in]{figures/cover.png}};
-%    		\begin{scope}[x={(image.south east)},y={(image.north west)}]
-%		%\node at (0.7,0.5) [align=center, rounded corners, fill=black!10, draw=none,opacity = 0.5]
-%			%{$\omega = 0$\\$ V_{x} > 0 $\\ $ V_{y} = 0 $};
-%		\draw[line width=1pt,->,red] (0.3,0.5) -- +(0:0.15);
-%		\end{scope}
-%	\end{tikzpicture}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{figure}[h]
+%	\input{FIG3Dhistogram.tex}
+%	\caption{Histogram of one sensor face reading the same tag multiple times}
+%	\label{fig:histogram}
 %\end{figure}
-
-
-%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%
-%%%%%%Old Text%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%
-
-%
-%We have constructed four active 3D M-Blocks modules, as well as many
-%passive modules. Although the modules share the basic shape and
-%magnetic bonding mechanism as the previous one-dimensional system, almost % Mechanism? System? Interface? unsure what word here
-%every part has been completely redesigned.  The significant changes  % As or like?
-%include the plane changing mechanism, edge gear teeth, and simplified
-%secondary magnet arrangement.  The basic parameters of the new module,
-%and how they compare with the previous
-%version, are shown in Table~\ref{tab:info}.
-%
-%\begin{table}[h]
-%  \caption{Comparison of 3D M-Blocks to first generation M-Blocks. $ \dagger$ Pre-assembled ball bearings and assembled printed circuit boards are counted as single parts.}
-%
-%  \begin{tabular}{ p{3.4cm}  p{1.9cm}  p{1.9cm} }
-%    \hline
-%    & M-Blocks & 3D M-Blocks \\
-%    \hline
-%    Actuation Directions & 1 & 6 \\
-%    Mass & 143\,g & 150\,g \\
-%    Flywheel Moment of Inertia & 5.7\,E-6\,$\text{kgm}^2$ & 8.4\,E-6\,$\text{kgm}^2$ \\
-%    Total Parts $ \dagger$ & 178 & 216 \\
-%    Actuated Moving Parts  & 8 & 10 \\
-%    Unique Parts & 30 & 46 \\
-%    Est. Cost & \$250 & \$130 \\
-%    Maximum Torque & 1.6\,Nm & 2.6\,Nm \\
-%  \end{tabular}
-%
-%  \label{tab:info}
-%\end{table}
-%
-%
-%The goal of redesigning the M-Blocks was to extend their functionally
-%to three dimensions while maintaining robustness and keeping the
-%components as simple and mass-producible as possible. In order to
-%extend the original M-Blocks concept to three planes, we first
-%considered three separate, mutually orthogonal inertial actuators,
-%similar to the design for Cubli~\cite{Cubli}.  However it proved
-%difficult to fit three separate sets of flywheels, motors, and brakes
-%inside the 50\,mm modules while maintaining a torque density sufficient to perform lattice % changed from torque - to moment - of - inertia ratio
-%reconfiguration. Despite the added complexity of having to change planes, the advantage in power of a larger single
-%flywheel proved to be the better solution.
-%
-%The redesign has focused on replacing complex actuators with simple
-%ones while also attempting to utilize under-actuation where
-%possible. For example, the flywheel brake in the 3D M-Blocks is built
-%from a coil, two magnets, and a simple linkage.  In contrast, the
-%original M-Blocks employed a hobby-style servo motor which was large
-%and prone to failure.  Additionally, the orientation of the flywheel
-%with respect to the module's frame is now controlled
-%by the primary inertial actuator and a locking mechanism instead of an additional motor.
-%
-%While the 3D M-Blocks have more parts and more mass than their
-%predecessors, they are capable of producing a higher maximum torque,
-%controlled by more robust and capable electronics, and require less expensive machining.  The modules have proven to be robust,
-%undergoing hundreds of reconfiguration movements without degradation,
-%and surviving many falls of up to one meter in height.  The remainder
-%of this section will describe the mechanical structure of the modules,
-%the design of the inertial actuator, the operation of the plane
-%changing mechanism, and the details of the electronics which control
-%the modules.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Overall Module Design}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\begin{figure*}[t*]
-%
-%  \centering
-%  \includegraphics[width=6in]{Figures/ExplodedViewWithInsets.png}
-%
-%  \caption{Each 3D M-Block is built around a six-piece injection
-%    molded frame \emph{gray} which supports the central assembly  \emph{lighter
-%    gray, split in half} along the frame's longest diagonal axis on
-%    two ball bearings  \emph{pink}. The molded frame holds eight magnets colored red and
-%blue to represent their magnetic
-%polarities. The central assembly holds batteries
-%     \emph{yellow} and circuit boards  \emph{green} as well as the flywheel
-%     \emph{purple}. The flywheel represents the inertial actuator.  For
-%    clarity, the brake assembly is not shown in the exploded-view, it
-%    can be seen in the bottom-left inset picture.  The top-right inset
-%    picture shows the main PCB.}
-%
-%  \label{fig:ExplodedView}
-%\end{figure*}
-%
-%
-%The 3D M-Blocks consist of four primary mechanical assemblies: a frame
-%(1) which holds the central assembly (2) which in turn supports the
-%flywheel (3) and the braking mechanism (4).  In addition, the central
-%assembly holds the four batteries which power the module and two of
-%the printed circuit boards (PCBs) which control it.  The exploded
-%view in Figure~\ref{fig:ExplodedView} shows the frame, central
-%actuator, flywheel, batteries, and control PCBs.  The two insets in
-%Figure~\ref{fig:ExplodedView} show actual photos of the finalized
-%central assembly with all components including the braking system.  The braking mechanism is omitted from the exploded view
-%because it is shown in better detail in Figure~\ref{fig:Brake}.
-%
-%At the core of the central assembly is a brushless motor and flywheel
-%which, together with the braking mechanism, generate the torques
-%required for all module movements and central assembly plane changes.
-%The entire central assembly is supported by two ball
-%bearings on a diagonal rotational axis which extends through two
-%opposite corners of the cubic frame.  As the central actuator rotates
-%about this diagonal axis, the flywheel aligns with each of the
-%module's coordinate axes.
-%
-%%%%%%%%%%%%%%%%%%%
-%\subsection{Frame}
-%\label{sec:Frame}
-%%%%%%%%%%%%%%%%%%%
-%
-%The 50\,mm cubic frame is built from six identical injection-molded
-%panels which snap together.  Each panel contains two functional edges which contain two diametrically
-%magnetized cylindrical magnets. Furthermore, each panel holds eight smaller
-%alignment magnets in the faces.  The details of this magnetic interface configuration are described in
-%~\cite{RomanishinRus-IROS13}. This magnetic interface
-%allows neighboring modules to pivot about the cylindrical magnets in
-%their common edges, and to form face to face bonds.
-%
-%In the 3D M-Blocks, we have added 15\,mm wide sections of gear teeth
-%along each module's edges (shown in black in
-%Figure~\ref{fig:ExplodedView}).  These gear teeth prevent slippage as
-%two modules pivot relative to one another.  Because the shape of the gear teeth does not
-%protrude past the extents of the frame, it does not hinder
-%the ability of modules to pivot next to adjacent stationary modules.
-%
-%Finally, each frame panel holds a face PCB which is used to interface with the
-%surrounding environment.
-%
-%Each of the eight corners of the frame contains an aluminum corner
-%brace.  These braces are cut from sheet metal and die-formed so that
-%they can be rigidly attached to the three adjacent panels.  In addition to
-%adding strength to the frame, two of these corner braces provide rigid
-%mounting points for ball bearings which connect the central assembly
-%to the frame.  Three additional corner braces contain specialized
-%mating holes and magnets which are a part of the plane changing
-%mechanism detailed in Section~\ref{sec:PlaneChanging}.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Inertial Actuator Design}
-%\label{sec:FlywheelAndBraking}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%The inertial actuator consists of a flywheel and a self-tightening
-%band brake. All of the relevant components which form the actuator are
-%illustrated in Figure~\ref{fig:Brake}.
-%
-%\begin{figure}[htb]
-%
-%  \centering
-%  \includegraphics[width=3.25in]{Figures/brake.png}
-%
-%  \caption{The inertial actuator operates by quickly decelerating a
-%    spinning flywheel \emph{purple} with a neoprene belt \emph{dark gray} that
-%    wraps around the flywheel and which is anchored in two
-%    arms \emph{yellow}.  The belt is tightened by a linkage
-%    \emph{green}, which is supported by ball bearings \emph{pink}, and which acts as a lever to amplify the force felt at the belt (\emph{blue} and \emph{red}  arrows indicated relative motions for both CW and CCW braking actions).  To activate the brake, the coil \emph{orange} briefly generates either a positive or negative magnetic field
-%    which exerts a corresponding force on the two magnets \emph{red/blue} which drives the linkage. }
-%
-%  \label{fig:Brake}
-%\end{figure}
-%
-%The flywheel assembly consists of a thin brass ring with an outer diameter of
-%38.0\,mm, inner diameter of 34.0\,mm and a thickness of 10.5\,mm into which the motor's rotor is press-fit.
-%This flywheel-rotor assembly is then connected by two bearings, one on
-%either side of the stator, to the surrounding frame such that the
-%flywheel is completely supported and not cantilevered.  This design
-%allows for the motor and flywheel to have a thin profile while
-%maintaining a stiff attachment to the frame.  The downside to this
-%approach is that the three wires which power the stator must fit
-%through the center of the bearings, thereby complicating the assembly
-%process.
-%
-%Once the flywheel is spinning, the 3D M-Blocks use a direct drive
-%electromagnetic coil actuator as shown in Figure~\ref{fig:Brake} to activate
-%the brake.  We chose this approach for its fast linear response
-%(10\,ms), adequate force (3\,N), bidirectionality, low cost, robustness,
-%and size.
-%
-%To exert a torque on the 3D M-Block, the motor first accelerates the flywheel
-%to a set speed.  With the motor coasting, the module energizes the
-%pancake-shaped coil with 280 turns of \#30 AWG wire to create a magnetic
-%field.  This magnetic field exerts forces on the two ring magnets and associated keeper, with one of the magnets attracted towards the center of the coil and the
-%other repelled.  The resulting force is transferred and magnified by a ratio of two to one by the
-%four-bar linkage to the belt-holder arms. The two belt-holder arms
-%are each attached in a one-way lever configuration to their respective
-%elements in the four-bar linkage, thus allowing for bi-directional
-%motion, despite the physical constraints of the belt-arms. With one
-%of the belt holder arms pulling on its end of the belt, the mechanism
-%tightens the belt around the flywheel.  The other end of the belt is
-%immobilized by a mechanical hard stop.
-%
-%The current flowing through the coil is always polarized such that the end
-%of the belt which is pulled causes the belt to constrict in the same
-%direction that the motor is spinning.  As the belt comes into contact
-%with the flywheel, the friction between the two surfaces causes the
-%belt to self-tighten and completely arrest the flywheel in a matter of
-%milliseconds.
-%
-%This system represents a complete redesign from the previous
-%iteration.  The redesign was necessary in order to fit the inertial
-%actuator within the spherical constraint imposed on the design.  As
-%part of the redesign, the flywheel has been made larger, thicker, and,
-%as a result, has a higher moment of inertia which allows
-%for larger peak torques to be applied to the module.  The flexible
-%neoprene belt used for braking is now 25\% wider and 30\%
-%longer, which increases its surface area, resulting in
-%increased stopping power with less belt wear.
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Plane Changing Mechanism}
-%\label{sec:PlaneChanging}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%The central assembly in each 3D M-Block can be thought of as a sphere
-%rotating inside of a cube (the frame). In order to fully
-%constrain the two assemblies together three points of contact are
-%required. Two of these points are formed by ball bearings attaching
-%the central assembly to the frame through an axis aligned between two
-%opposing corners of the frame (along the longest diagonal).  This
-%diagonal axis is offset $35\pi/180$\,radians from that of the
-%flywheel's axis of rotation.  This diagonal axis extends through two
-%opposite corners of the cubic frame.  As the central actuator rotates
-%every $2\pi/3$\,radians about this diagonal axis, the flywheel aligns
-%with a different set of the module's faces.  That is, if the flywheel
-%is initially aligned with the module's x-axis, rotating the central
-%actuator by $2\pi/3$\,radians, in one direction or another, will bring the
-%central actuator into alignment with the module's y- or z-axis.
-%
-%To lock the central assembly into place, a third connection point is
-%necessary.  It is formed by a retractable pin which protrudes from the
-%central actuator.  When extended, the pin mates with one of three
-%matching holes in the frame's corner braces (see
-%Figure~\ref{fig:PlaneChanging}).
-%
-%\begin{figure}[htb]
-%
-%  \centering
-%
-%  \begin{subfigure}[b]{.3\linewidth}
-%    \includegraphics[width=1in]{Figures/FlywheelX.png}
-%    \subcaption{X-axis}
-%  \end{subfigure}
-%  ~
-%  \begin{subfigure}[b]{.3\linewidth}
-%    \includegraphics[width=1in]{Figures/FlywheelY.png}
-%    \subcaption{Y-axis}
-%  \end{subfigure}
-%  ~
-%  \begin{subfigure}[b]{.3\linewidth}
-%    \includegraphics[width=1in]{Figures/FlywheelZ.png}
-%    \subcaption{Z-axis}
-%  \end{subfigure}
-%
-%
-%%%  \subfloat[X-axis]{\includegraphics[width=1.1in]{Figures/FlywheelX.png}}
-%%%  \subfloat[Y-axis]{\includegraphics[width=1.1in]{Figures/FlywheelY.png}}
-%%%  \subfloat[Z-axis]{\includegraphics[width=1.1in]{Figures/FlywheelZ.png}}
-%
-%  \caption{The 3D M-Block changes the alignment of its flywheel by
-%    rotating the central assembly along a diagonal axis between two
-%    opposite corners of the frame (pointing out of the page).
-%    For every $2\pi/3$ radians of rotation along this axis, the
-%    flywheel comes into alignment with a new axis of the frame.}
-%
-
-%  \label{fig:PlaneChanging}
-%\end{figure}
-%
-%In order to switch planes, the 3D M-Block first spins-up the motor.  Once
-%the flywheel has reached a constant speed, the pin is retracted, which allows the central assembly to spin freely on its diagonal
-%rotation axis.  A torque is then generated by electronically braking
-%the motor.  The component of this torque aligned with the diagonal axis, causes the central assembly to rotate and align with a new plane. Magnets, one embedded in
-%the central assembly, and one next to each of the pin alignment holes
-%in the frame, provide mechanical detents to assist with fine alignment
-%between the central assembly and the frame.  Once the pin is aligned
-%with one of the mating holes, it is then extended to lock the central
-%assembly into place.
-%
-%
-%%%%%
-%%%%%
-%%%%%
-%%%%%
-%%%%%
-%
-%During experiments with the 3D M-Blocks, we found that the central
-%actuator sometimes stopped rotating about the diagonal axis at points
-%which left the pin misaligned with the mating holes in the corners of
-%the frame.  To combat this, we added additional repulsive magnets near
-%one of the bearings which complement the attractive force already
-%provided by the magnets near the pin mating holes.  While this change
-%greatly reduced the frequency with which the central actuator ends up
-%misaligned with the frame, it has also made it difficult for a module
-%to change the plane of its central assembly if the module is not
-%magnetically attached to a larger lattice.  Without additional mass to
-%help immobilize the module, attempting to change the plane of the
-%central actuator results in the entire module pivoting about one of
-%its edges.  We plan to refine the magnet arrangement in
-%order to eliminate this problem in the future.
-%
-%%%%%
-%%%%%
-%%%%%
-%%%%%
-%%%%%
-%
-%The retractable pin is controlled by a shape memory alloy (SMA) wire
-%which contracts when heated.  The particular SMA wire is a 100\,mm long,
-%0.25\,mm diameter FLEXINOL, which is contained within a heat-resistant,
-%insulating PEEK plastic tube.  This tube insulates the wire from the
-%metal structure of the central assembly, and it also allows the wire
-%to bend a complete $\pi$\,radians in order to fit the necessary length of
-%wire within a constrained area.  One end of the SMA wire is
-%electrically connected to a constant current driver on the main
-%circuit board.  The other end of the wire is crimped into the
-%retractable pin, which touches the central aluminum frame, and
-%provides an electrical ground.  A strong (425\,N/m) spring provides the
-%necessary restoring force to extend the pin when the SMA is not being
-%heated.  As such, the SMA only consumes current when the pin is being
-%held in the retracted position.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Electronics}
-%\label{sec:Electronics}
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%The electronics, which control each 3D M-Block, are divided across eight
-%different PCBs.  The core functionality comes from a main PCB attached
-%to one side of the central actuator.  The main PCB holds a Nordic
-%nRF51422 (nRF) microprocessor with an on-chip 2.4\,GHz radio.  The
-%radio is capable of supporting both low-energy Bluetooth Smart (which
-%we use for centralized control) and the ANT protocol (which we plan to
-%use for module-to-module communication).  The nRF is connected via a
-%two-wire bus to a 6-axis inertial measurement unit (IMU), the
-%MPU-6050, produced by Invensense.  The IMU allows the nRF to determine
-%the central actuator's orientation as it rotates.
-%
-%The central brushless motor control is managed by a dedicated Allegro
-%MicroSystems A4960 which frees the main processor for higher-level
-%tasks.  While the A4960 handles the low-level motor control,
-%closed-loop speed regulation requires supervision from the nRF.  The
-%A4960 can apply an electronic braking torque to the motor in order to
-%decelerate it more slowly than the mechanical brake.
-%
-%The main PCB also includes circuitry to control the shape memory alloy
-%(SMA) wire, which retracts the pin. The pin locks the central actuator
-%into alignment with each of the 3D M-Block's coordinate planes.  The
-%circuitry is based on a high-current LED driver and a low-side current
-%sense amplifier. It is capable of driving a maximum of 1.5\,A through
-%the SMA wire, but due to the relatively slow thermal response of the
-%SMA, we modulate the current on and off to achieve sufficient force
-%without overheating the SMA wire.  When retracting the pin, we apply
-%an average of 1.2\,A for 2\,s, but once retracted, we have found
-%that we only need to apply an average of 700\,mA to hold the pin
-%stationary.
-%
-%Finally, the main PCB includes charging and balancing circuitry for
-%the four 125\,mAh lithium-polymer batteries which power each 3D M-Block.
-%The batteries are connected in series in order to supply sufficient
-%voltage to drive the motor at speeds over 20,000\,RPM.  Charging is
-%enabled by connecting the M-Block to a 5\,V, 500\,mA source (e.g. a USB
-%port).  An on-board, current-limited boost converter controls the
-%voltage and current delivered to the batteries.  If the nRF detects
-%that one battery's voltage is exceeding that of the others, it
-%switches in an additional resistive load across that battery thereby
-%reducing its charge rate and keeping all batteries balanced.
-%
-%A battery protection IC independently monitors each battery's voltage
-%and current drain and disconnects all batteries if it detects a fault
-%condition.  The main PCB also includes additional reverse-voltage,
-%over-current, over-temperature, and electrostatic discharge protection
-%devices in recognition of the fact that the M-Blocks must remain
-%robust when being deployed outside of the laboratory environment.
-%
-%To complement the main PCB, there is a daughter PCB attached to the
-%opposite side of the central actuator.  The two PCBs communicate
-%over the aforementioned two-wire bus with the nRF acting as the bus
-%master.  In addition to providing the connection point for two of the
-%four batteries, the daughter PCB holds the circuitry which drives
-%current through the mechanical braking coil.  The braking circuitry is
-%controlled by an STMicroelectronics STM32F051 microprocessor which is
-%a slave on the two-wire bus.  The braking circuitry is based on an
-%op-amp which linearizes a current-controlling PMOS device in order to
-%provide continuous current control from 0 to 4\,A.
-%
-%The main and daughter PCBs are complemented by six face PCBs, which are
-%embedded into each face of the frame.  At the moment, the face
-%PCBs provide convenient electrical contacts through which to
-%charge the batteries.  In the near future, Atmel ATtiny1634 processors
-%on each of the face PCBs will enable infrared communication between
-%neighboring M-Blocks.  There is also a footprint for a second IMU on
-%the face PCBs so that the central actuator will be able to determine
-%its position relative to that of the surrounding frame.  Like the
-%processor on the daughter PCB, the Atmel processors will be slaves on
-%the same two-wire communication bus.
-%
-%The face PCBs are electrically connected to the central assembly by
-%custom slip rings formed by the bearings that support the central
-%assembly.  One bearing is in direct electrical contact with the
-%central assembly and provides a ground connection, while the other is isolated and carries one of the bus lines
-%to the face PCBs.  We employ a brass pin, which
-%passes through the center of the each bearing to carry 3.3\,V to the
-%face PCBs.  The pin contacts a leaf spring soldered to one of the
-%face PCBs.  Experiments have shown that the
-%bearings present several Ohms of resistance. However, the face PCBs do not
-%require high currents, so this is not problematic.
-%When power is flowing into the central assembly during the charging process, the voltage drop
-%across the bearings can be compensated for by an increase of the external
-%charging voltage.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

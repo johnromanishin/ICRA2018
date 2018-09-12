@@ -1,0 +1,145 @@
+\newsavebox{\faceDiagram}
+	\sbox{\faceDiagram}	{
+		\input{FIGmagnetFace.tex}
+	}
+	
+	\newsavebox{\magnetDigitization}
+	\sbox{\magnetDigitization}	{
+		\input{FIGmagnetUPCLOSE.tex}
+	}
+	
+	\newsavebox{\gridFigure}
+	\sbox{\gridFigure}	{
+		\input{gridFigure.tex}
+	}
+	%\begin{tikzpicture}[minimum width = 14 cm, minimum height = 6 cm]
+	%\draw (0,0) -- (14,6);
+	
+	\begin{tikzpicture}[]
+	%complexnode/.pic={\usebox{\mybox}}]
+	
+	\newcommand\xa{2};
+	\newcommand\xb{2};
+	\newcommand\ya{2};
+	\newcommand\yb{2};
+	
+	\coordinate (smallNE) at (2,5);
+	\coordinate (smallSE) at (2,5);
+	\coordinate (smallSW) at (2,5);
+	\coordinate (smallNW) at (2,5);
+	
+	\coordinate (bigNE) at (2,5);
+	\coordinate (bigSE) at (2,5);
+	\coordinate (bigSW) at (2,5);
+	\coordinate (bigSE) at (2,5);
+	
+	\node[opacity = 0.95] at (3.15 cm, 2.85 cm) {\includegraphics[width = 5.9 cm]{figures/face.png}};
+	\node at (3 cm, 3 cm) {\usebox{\faceDiagram}};
+	\node at (10 cm, 3 cm) {\usebox{\magnetDigitization}};
+	\node at (15.5 cm, 2cm) {\usebox{\gridFigure}};
+	
+	%\node[fill=orange] at (3,3) {\textbf{18}};
+	
+	\tikzmath{
+		\smallBoxX = 0.5;
+		\smallBoxY = 2.9;
+	}
+
+	% Small Box around Magnet
+	%\node[draw, purple, dotted, minimum size = 1.25 cm, rounded corners, thick] at (3.65cm , 7cm) {};
+	
+	\path[draw, purple, dotted, minimum size = 1.25 cm, rounded corners, ultra thick]
+	(3*0.7, 6.25*0.7) --
+	++(1.25, 0) --
+	++(0, 1.25) --
+	++(-1.25, 0) --
+	cycle {};
+	
+	\node (a) at (12.5, 3){};
+	\node (b) at (15.75, 2.5){};
+	
+	\draw[>={Stealth[round]}, purple,dashed, ultra thick, bend right, rounded corners = 1 cm, ->] (a) -- (15.75,6) -- (b);
+	
+	\draw[purple,dashed, thin] (2.7cm, 4.35cm + 1.25cm) -- ++(358: 4.8cm);
+	\draw[purple,dashed, thin] (2.7cm, 4.35cm ) -- ++(323: 5.9cm);
+	
+	% Large Purple box
+	\node[draw, purple, dotted, minimum size = 5 cm, rounded corners,ultra thick] at (10cm , 3cm) {};
+	
+	\node[] at (10cm , 0.2cm) {Discretizing Angle};
+	%\draw (1,1) pic {complexnode} (4,4);
+	
+	\end{tikzpicture}
+	
+	
+	
+	
+%	\newsavebox{\faceDiagram}
+%	\sbox{\faceDiagram}	{
+%		\input{FIGmagnetFace.tex}
+%	}
+%	
+%	\newsavebox{\magnetDigitization}
+%	\sbox{\magnetDigitization}	{
+%		\input{FIGmagnetUPCLOSE.tex}
+%	}
+%	
+%	\newsavebox{\gridFigure}
+%	\sbox{\gridFigure}	{
+%		\input{gridFigure.tex}
+%	}
+%	%\begin{tikzpicture}[minimum width = 14 cm, minimum height = 6 cm]
+%	%\draw (0,0) -- (14,6);
+%	
+%	\begin{tikzpicture}[]
+%	%complexnode/.pic={\usebox{\mybox}}]
+%	
+%	\newcommand\xa{2};
+%	\newcommand\xb{2};
+%	\newcommand\ya{2};
+%	\newcommand\yb{2};
+%	
+%	\coordinate (smallNE) at (2,5);
+%	\coordinate (smallSE) at (2,5);
+%	\coordinate (smallSW) at (2,5);
+%	\coordinate (smallNW) at (2,5);
+%	
+%	\coordinate (bigNE) at (2,5);
+%	\coordinate (bigSE) at (2,5);
+%	\coordinate (bigSW) at (2,5);
+%	\coordinate (bigSE) at (2,5);
+%	
+%	\node[opacity = 0.95] at (4.25 cm, 4 cm) {\includegraphics[width = 8 cm]{figures/face.png}};
+%	\node at (4 cm, 4 cm) {\usebox{\faceDiagram}};
+%	\node at (11 cm, 6 cm) {\usebox{\magnetDigitization}};
+%	\node at (15 cm, 2cm) {\usebox{\gridFigure}};
+%	
+%	%\node[fill=orange] at (3,3) {\textbf{18}};
+%	
+%	\tikzmath{
+%		\smallBoxX = 0.5;
+%		\smallBoxY = 2.9;
+%	}
+%	
+%	% Small Box around Magnet
+%	%\node[draw, purple, dotted, minimum size = 1.25 cm, rounded corners, thick] at (3.65cm , 7cm) {};
+%	
+%	\path[draw, purple, dotted, minimum size = 1.25 cm, rounded corners, ultra thick]
+%	(3, 6.25) --
+%	++(1.25, 0) --
+%	++(0, 1.25) --
+%	++(-1.25, 0) --
+%	cycle {};
+%	
+%	\node (a) at (13.5, 6){};
+%	\node (b) at (15.75, 3.5){};
+%	\draw[>={Stealth[round]}, purple,dashed, ultra thick, bend right, rounded corners = 1 cm, ->] (a) -- (15.75,6) -- (b);
+%	\draw[purple,dashed, thin] (3.5cm, 6.25cm + 1.25cm) -- ++(10: 5cm);
+%	\draw[purple,dashed, thin] (3.5cm, 6.25cm ) -- ++(332: 5.45cm);
+%	
+%	% Large Purple box
+%	\node[draw, purple, dotted, minimum size = 4.8 cm, rounded corners,ultra thick] at (11cm , 6cm) {};
+%	
+%	%\draw (1,1) pic {complexnode} (4,4);
+%	
+%	\end{tikzpicture}

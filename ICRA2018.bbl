@@ -36,6 +36,10 @@ J.~W. Romanishin, K.~Gilpin, S.~Claici, and D.~Rus, ``3d m-blocks:
   International Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
   2015, pp. 1925--1932.
 
+\bibitem{StigmergyWerfel2006}
+J.~Werfel and R.~Nagpal, ``Extended stigmergy in collective construction,''
+  \emph{IEEE Intelligent Systems}, vol.~21, no.~2, pp. 20--28, March 2006.
+
 \bibitem{park2008automatic}
 M.~Park, S.~Chitta, A.~Teichman, and M.~Yim, ``Automatic configuration
   recognition methods in modular robots,'' \emph{The International Journal of
@@ -54,6 +58,12 @@ Y.~Zhu, D.~Bie, S.~Iqbal, X.~Wang, Y.~Gao, and J.~Zhao, ``A simplified approach
   to realize cellular automata for ubot modular self-reconfigurable robots,''
   \emph{Journal of Intelligent \& Robotic Systems}, pp. 1--18, 2014.
 
+\bibitem{lin2017vision}
+K.~Lin, J.~Rojas, and Y.~Guan, ``A vision-based scheme for kinematic model
+  construction of re-configurable modular robots,'' in \emph{Intelligent Robots
+  and Systems (IROS), 2017 IEEE/RSJ International Conference on}.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, 2017, pp. 2751--2757.
+
 \bibitem{TosunDaveyLiuYim-IROS2016}
 T.~Tosun, J.~Davey, C.~Liu, and M.~Yim, ``Design and characterization of the
   ep-face,'' in \emph{IEEE Intl. Conf. on Robotics and Automation (ICRA)},
@@ -70,14 +80,10 @@ S.~Chennareddy, A.~Agrawal, and A.~Karuppiah, ``Modular self-reconfigurable
   robotic systems: A survey on hardware architectures,'' \emph{Journal of
   Robotics}, vol. 2017, 2017.
 
-\bibitem{AHMADZADEH201527}
-\BIBentryALTinterwordspacing
-H.~Ahmadzadeh and E.~Masehian, ``Modular robotic systems: Methods and
-  algorithms for abstraction, planning, control, and synchronization,''
-  \emph{Artificial Intelligence}, vol. 223, pp. 27 -- 64, 2015. [Online].
-  Available:
-  \url{http://www.sciencedirect.com/science/article/pii/S0004370215000260}
-\BIBentrySTDinterwordspacing
+\bibitem{abukhalil2013survey}
+T.~Abukhalil, M.~Patil, and T.~Sobh, ``Survey on decentralized modular swarm
+  robots and control interfaces,'' \emph{International Journal of Engineering
+  (IJE)}, vol.~7, no.~2, p.~44, 2013.
 
 \bibitem{liedke2013collective}
 J.~Liedke, R.~Matthias, L.~Winkler, and H.~W{\"o}rn, ``The collective
@@ -85,40 +91,20 @@ J.~Liedke, R.~Matthias, L.~Winkler, and H.~W{\"o}rn, ``The collective
   Mechatronics (AIM), 2013 IEEE/ASME International Conference on}.\hskip 1em
   plus 0.5em minus 0.4em\relax IEEE, 2013, pp. 1--6.
 
-\bibitem{Gilpin-Thesis06}
-K.~Gilpin, ``Distributed algorithms for self dissasembly for modular robots,''
-  M.Eng. and S.B. Thesis, June 2006.
-
-\bibitem{Werfel-PhDThesis06}
-J.~Werfel, ``Anthills built to order: Automating construction with artificial
-  swarms,'' Ph.D. dissertation, Massachusetts Institute of Technology, 2006.
-
-\bibitem{roombots-Bonardi-2013}
-S.~Bonardi, M.~Vespignani, R.~Moeckel, and A.~J. Ijspeert, ``Collaborative
-  manipulation and transport of passive pieces using the self-reconfigurable
-  modular robots roombots,'' in \emph{Intelligent Robots and Systems (IROS),
-  2013 IEEE/RSJ International Conference on}.\hskip 1em plus 0.5em minus
-  0.4em\relax Ieee, 2013, pp. 2406--2412.
-
 \bibitem{OptimalPowerSharing2016}
 C.~Chen, T.~Collins, and W.~Shen, ``A near-optimal dynamic power sharing scheme
   for self-reconfigurable modular robots,'' in \emph{2016 IEEE International
   Conference on Robotics and Automation (ICRA)}, May 2016, pp. 5183--5188.
 
-\bibitem{wang2016iros}
-J.~Wang and E.~Olson, ``{AprilTag} 2: Efficient and robust fiducial
-  detection,'' in \emph{Proceedings of the {IEEE/RSJ} International Conference
-  on Intelligent Robots and Systems {(IROS)}}, October 2016.
+\bibitem{braitenberg1986vehicles}
+V.~Braitenberg, \emph{Vehicles: Experiments in synthetic psychology}.\hskip 1em
+  plus 0.5em minus 0.4em\relax MIT press, 1986.
 
-\bibitem{abukhalil2013survey}
-T.~Abukhalil, M.~Patil, and T.~Sobh, ``Survey on decentralized modular swarm
-  robots and control interfaces,'' \emph{International Journal of Engineering
-  (IJE)}, vol.~7, no.~2, p.~44, 2013.
-
-\bibitem{Moubarak2012}
-P.~Moubarak and P.~Ben-Tzvi, ``Modular and reconfigurable mobile robotics,''
-  \emph{Robotics and Autonomous Systems}, vol.~60, no.~12, pp.
-  1648--â1663, Dec 2012.
+\bibitem{claici2017distributed}
+S.~Claici, J.~Romanishin, J.~I. Lipton, S.~Bonardi, K.~W. Gilpin, and D.~Rus,
+  ``Distributed aggregation for modular robots in the pivoting cube model,'' in
+  \emph{Robotics and Automation (ICRA), 2017 IEEE International Conference
+  on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2017, pp. 1489--1496.
 
 \bibitem{sung2015reconfiguration}
 C.~Sung, J.~Bern, J.~Romanishin, and D.~Rus, ``Reconfiguration planning for

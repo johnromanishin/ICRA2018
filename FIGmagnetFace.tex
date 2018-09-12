@@ -20,12 +20,13 @@
 \begin{tikzpicture}
 
 	\tikzmath{
-		\offsetAxis = 0.5;
-		\offsetCent = 2.9;
-		\diameter = 0.32;
+		\offsetAxis = 0.4;
+		\offsetCent = 2.9*0.75;
+		\diameter = 0.3;
+		\scaleFactor = 0.75;
 	}
-	\draw node (A) at (-0.5, 1.7) {};
-	\draw node (B) at (0, 1.7) {};
+	\draw node (A) at (-0.58*\scaleFactor, 1.7*\scaleFactor) {};
+	\draw node (B) at (0, 1.7*\scaleFactor) {};
 	\drawchip{\offsetAxis}{\offsetCent}{0};
 	\drawchip{-\offsetAxis}{-\offsetCent}{180};
 	
@@ -44,19 +45,19 @@
 	
 	\draw[gray, dashed] (-\offsetAxis,{\offsetCent + 1}) -- 
 	(-\offsetAxis,{\offsetCent - 1});
-	\draw[black,dotted] (0,0) circle (2.95);
+	\draw[black,dotted, thick] (0,0) circle (2.95*\scaleFactor);
 	
 	% 4 Cross Lines X
-	\draw[black,dashed] (0,0) -- (4,0);
-	\draw[black,dashed] (0,0) -- (-4,0);
-	\draw[black,dashed] (0,0) -- (0,4);
-	\draw[black,dashed] (0,0) -- (0,-4);
+	\draw[black,dashed] (0,0) -- (3,0);
+	\draw[black,dashed] (0,0) -- (-3,0);
+	\draw[black,dashed] (0,0) -- (0,3);
+	\draw[black,dashed] (0,0) -- (0,-3);
 	
 %	\draw[purple, dotted] ()
 	% Dimensioned Variables
 	\dimline[line style = {line width = 0.8, arrows = dimline reverse-dimline reverse}] {(A)}{(B)}{x};
 	
 	% Arc Radius
-	\dimline[line style = {line width = 0.8}] {(0,0)} {++(150:2.95)}{R};
+	\dimline[line style = {line width = 0.8}] {(0,0)} {++(150:2.95*\scaleFactor)}{R};
 %	\dimline {(1,0)}{(-1,0)}{x};
 \end{tikzpicture}
