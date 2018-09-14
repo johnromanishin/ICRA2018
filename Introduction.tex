@@ -10,9 +10,13 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 	\begin{subfigure}[b]{1.6 in}
 		%	\resizebox{.48\linewidth}{0.6 in}
 		%	{
-		\includegraphics[width=.9\linewidth]{Figures/mTagsCover.png}
+		\begin{tikzpicture}[]	
+		\node at (0,0) {\includegraphics[width=.9\linewidth]{Figures/mTagsCover.png}};
+		\node[opacity = 0.95, fill = white, rounded corners] at (-1.45,-1) {(a)};
+		\end{tikzpicture}
+		
 		%	}
-		\subcaption{}
+		%\subcaption{}
 	\end{subfigure}
 	~
 	\begin{subfigure}[b]{1.5 in}
@@ -21,13 +25,13 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 		\resizebox{1.5 in}{1.25 in}
 		{
 			\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
-			
-			\input{FIGtitleCubeRendering.tex}
-			
+
+			\input{FIGtitleCubeRendering.tex};
+
 			\end{tikzpicture}
 		}
 		
-		\subcaption{}
+	%	\subcaption{}
 	\end{subfigure}
 	
 %	\centering
@@ -35,18 +39,21 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 
 		%	{
 		\centering
-		\includegraphics[width=.92\linewidth]{figures/ActualLine_3.png}
+		\begin{tikzpicture}[]	
+		\node at (0,0) {\includegraphics[width=.92\linewidth]{figures/ActualLine_3.png}};
+		\node[opacity = 0.95, fill = white, rounded corners] at (-3.5,-2) {(c)};
+		\end{tikzpicture}
 		%	}
 
 	\end{subfigure}
 	
 	
-	\caption{This figure shows a sample of several largely decentralized behaviors implemented with a lattice based MSRR system and described in this work. (a) Shows a photo of an active module connected to a passive module which contains a Magnetic Fiducial  (b) Demonstrates an abstraction of these embedded commands as "arrows" which a module that is attempting to follow a path would move along. In this example, the module shown in \emph{orange} would arrive at the \emph{green} module after successfully implementing the path following behavior. (c) Shows a screen-shot from a group of modules implementing the behavior to turn into a single line, with the modules lighted in green, forming the desired line.}
+	\caption{This figure shows a sample of several behaviors implemented with the 3D M-Blocks robots. (a) Shows a photo of an active module connected to a passive module which contains a Magnetic Fiducial. (b) Demonstrates an abstraction of these embedded commands as "arrows" which a module that is attempting to follow a path would move along. In this example, the module shown in \emph{orange} would arrive at the \emph{green} module after successfully implementing the path following behavior. (c) Shows a screen-shot from a group of modules implementing the behavior to turn into a single line, with the modules lighted in green, forming the desired line.}
 	
 	\label{fig:intro}
 \end{figure}
 
-The conceptually simplest framework for controlling thousands or millions of individual modular robots is to have a centralized authority which dictates every move to each robot. However these systems suffer from practical problems maintaining the required number of communication links and a general lack of robustness to disturbances. One approach is to develop ingrained "behaviors" or simple decentralized algorithms which each module can implement independently in the (potentially temporary) absence of centralized commutations. When developing these behaviors, the type of sensor feedback, and potential availability and type of local communication are important to determining the possible complexity of possible behaviors. This work focuses on modules which have information only about their direct neighbors,global input from a stimulus source(i.e. Light), knowledge about gravity, and occasional wireless communication. The behaviors that we introduce are as follows:
+The conceptually simplest framework for controlling thousands or millions of individual modular robots is to have a centralized authority which dictates every move to each robot. However these systems suffer from practical problems maintaining the required number of communication links and a general lack of robustness to disturbances. One approach is to develop embedded "behaviors" or simple decentralized algorithms which each module can implement independently in the (potentially temporary) absence of centralized commutations. When developing these behaviors, the type of sensor feedback, and potential availability and type of local communication are important to determining the possible complexity of possible behaviors. This work focuses on modules which have information only about their direct neighbors, global input from a stimulus source (i.e. Light), knowledge about gravity, and occasional wireless communication. The behaviors that we introduce are as follows:
 
 \begin{itemize}
 	\item \textit{Path following}: The goal of this behavior is guide mobile modules to follow paths described by fiducials embedded in in adjacent modules' lattice connection points. This behavior requires that  each module can determine from each of its neighbor connection interfaces a desired direction relative to its current absolute location that the module should move towards. The simplest implementation of this path following behavior involves passive hard-coded "arrow tags" in a lattice of passive modules, similar to arrows embedded along a road, as in Figure~\ref{fig:intro}a-b. Path following behavior is then extended to modules which have connection face identities which are globally uniquely defined, and which contain some embedded "direction" or ability to determine the relative connection angle. Modules can then receive a mapping of ID numbers and "directions", and then can follow a virtually created path along a configuration of modules. A path could be defined along the surface of a large partially assembled aggregate of modules to guide modules to desired attachment points, similar to how optimization technique following gradient descent paths to reach a goal.
