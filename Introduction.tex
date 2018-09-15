@@ -3,7 +3,18 @@
 \label{sec:Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to create general purpose robotic systems of arbitrary complexity in an autonomous way. MSRR systems generally can be thought of as consisting of individual \textbf{modules}, which connect to either other active modules or passive modular elements, through standardized \textbf{connectors} to create a specific \textbf{configuration} in order to accomplish a designated task. Much of the work in the MSRR field has focused either on the preliminary development of novel hardware systems, or general purpose algorithms on simulated systems. Few MSRR systems remain under active development long enough in order to develop practical algorithms that can accomplish tasks while operating under the constraints of actual existing hardware. This paper is focused on implementing and analyzing three separate practical partially decentralized "behaviors" with a set of 3D M-Block modules.
+Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to create general purpose robotic systems of arbitrary complexity in an autonomous way. MSRR systems generally can be thought of as consisting of individual \emph{modules}, which connect to either other active modules or passive modular elements, through standardized \emph{connectors} to create a specific \emph{configuration} in order to accomplish a designated task. Much of the work in the MSRR field has focused either on the preliminary development of novel hardware systems, or general purpose algorithms on simulated systems. Few MSRR systems remain under active development long enough in order to develop practical algorithms that can accomplish tasks while operating under the constraints of actual existing hardware. This paper is focused on implementing and analyzing three separate practical partially decentralized "behaviors" with a set of 3D M-Block modules.
+
+\newsavebox{\arrows}
+\sbox{\arrows}
+{
+	\resizebox{1.4 in}{!}
+	{
+	\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
+		\input{FIGtitleCubeRendering.tex};
+	\end{tikzpicture}
+	}
+}
 
 \begin{figure}[t]
 	\centering
@@ -19,22 +30,30 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 		%\subcaption{}
 	\end{subfigure}
 	~
-	\begin{subfigure}[b]{1.5 in}
-		
-		
-		\resizebox{1.5 in}{1.25 in}
-		{
-			\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
-
-			\input{FIGtitleCubeRendering.tex};
-
-			\end{tikzpicture}
-		}
-		
-	%	\subcaption{}
+%	\begin{subfigure}[b]{1.5 in}
+%		
+%		
+%		\resizebox{1.5 in}{1.25 in}
+%		{
+%			\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
+%
+%			\input{FIGtitleCubeRendering.tex};
+%
+%			\end{tikzpicture}
+%		}
+%		
+%	%	\subcaption{}
+%	\end{subfigure}
+	\begin{subfigure}[b]{0.48\linewidth}
+	%	\resizebox{\linewidth}{!}
+	%	{
+		\begin{tikzpicture}[]
+			\node at (0 cm, 0cm) {\usebox{\arrows}};
+			\node[opacity = 0.95, fill = white, rounded corners] at (-1.5,-1.25) {(b)};
+		\end{tikzpicture}
+	%	}
 	\end{subfigure}
-	
-%	\centering
+
 	\begin{subfigure}[b]{\linewidth}
 
 		%	{
@@ -48,7 +67,7 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 	\end{subfigure}
 	
 	
-	\caption{This figure shows a sample of several behaviors implemented with the 3D M-Blocks robots. (a) Shows a photo of an active module connected to a passive module which contains a Magnetic Fiducial. (b) Demonstrates an abstraction of these embedded commands as "arrows" which a module that is attempting to follow a path would move along. In this example, the module shown in \emph{orange} would arrive at the \emph{green} module after successfully implementing the path following behavior. (c) Shows a screen-shot from a group of modules implementing the behavior to turn into a single line, with the modules lighted in green, forming the desired line.}
+	\caption{This figure shows a sample of several behaviors implemented with the 3D M-Blocks robots. (a) Shows a photo of an active module connected to a passive module which contains a Magnetic Fiducial. (b) Demonstrates an abstraction of these embedded commands as "arrows" which a module that is attempting to follow a path would move along. In this example, the module shown in \emph{orange} would arrive at the \emph{green} module after successfully implementing the path following behavior. (c) Shows several modules implementing the line formation behavior.}
 	
 	\label{fig:intro}
 \end{figure}
@@ -57,13 +76,15 @@ The conceptually simplest framework for controlling thousands or millions of ind
 
 \begin{itemize}
 	\item \textit{Path following}: The goal of this behavior is guide mobile modules to follow paths described by fiducials embedded in in adjacent modules' lattice connection points. This behavior requires that  each module can determine from each of its neighbor connection interfaces a desired direction relative to its current absolute location that the module should move towards. The simplest implementation of this path following behavior involves passive hard-coded "arrow tags" in a lattice of passive modules, similar to arrows embedded along a road, as in Figure~\ref{fig:intro}a-b. Path following behavior is then extended to modules which have connection face identities which are globally uniquely defined, and which contain some embedded "direction" or ability to determine the relative connection angle. Modules can then receive a mapping of ID numbers and "directions", and then can follow a virtually created path along a configuration of modules. A path could be defined along the surface of a large partially assembled aggregate of modules to guide modules to desired attachment points, similar to how optimization technique following gradient descent paths to reach a goal.
+	
 	\item \textit{Line formation}: This behavior attempts to turn any arbitrary three-dimensional configuration of modules into a single horizontal line, ready to turn into a new shape on demand. This behavior can be implemented in several ways, but in this work each modules uses knowledge of its direct neighbors, and very simple communication between the faces of adjacent modules. These communications can be as simple as a binary "connect here" or "keep moving," light based symbol or can incorporate the path following behavior to optimize the movement efficiency (i.e. assembly speed) for a group of modules.
+	
 	\item \textit{Light gradient}: This goal of this behavior is to implement essentially a Braitenberg phototaxis~\ behavior for modular robots, i.e. aggregating robots towards or away from a light source. In implementation of the behavior presented in this work, the modules begin un-connected to a lattice and continue to move towards light until they reach a specific "goal" structure defined by a specific aggregate of modules, which ensures that aggregation of many modules doesn't lead to smaller scattered groups of modules.
 \end{itemize}
 
 This work is implemented and experimentally validated through a set of 12 3D M-Block modular robots; which are one of the few MSRR systems capable of three-dimensional reconfiguration according to a generalized 3D lattice reconfiguration model. These ~50mm cubic modules use pulses of angular momentum and temporary magnetic hinges in order to implement lattice reconfiguration according to the Pivoting Cube Model (PCM). The M-Blocks were originally presented as two-dimensional system in 2013~\cite{RomanishinRus-IROS13} and extended to three dimensions in 2015~\cite{Romanishin20153d}. In order to facilitate the implementation of the three previously described behaviors, the 3D M-Blocks are further extended in this work to include a novel type of magnetic bar-code like tag to detect information about their neighbors. This new tag, called the \tagNamePlural, provides globally unique identification codes for each face of a collection of modules. \textit{\TagNamePlural} include relative orientation of the connection (e.g. North, south east, west) between the reading module and are implemented through a standardized configuration of passively embedded inexpensive permanent magnets which can easily be placed into any modular connection interface. These tags are completely passive, so a system of modules can still accurately determine its global configuration even if large numbers of the modules are inactive, either because they are passive, or due to individual module failure.
 
-The remainder of the paper is organized as follows: Section~\ref{sec:RelatedWork} gives an overview of related work that pertains to modular robots with a focus on how existing MSRR systems identify and encode physical configuration information through their connectors. Next, Section~\ref{sec:Hardware} presents the technical details of the proposed \tagNamePlural~system for determining neighbor connection information and then attempts to characterize their functionality and discusses current limitations and potential future extensions. Next, Section ~\ref{sec:Behaviors} presents the detailed algorithms which implement the three behaviors, (1) Path following: (2) Line formation and (3) Light Aggregation, while Section~\ref{sec:Experiments} presents and analyzes experiments implementing these three algorithms. Finally, Section~\ref{sec:Discussion} attempts to help illustrate several of the challenges and requirements for eventually applying these behaviors to future systems with millions of modules.
+%The remainder of the paper is organized as follows: Section~\ref{sec:RelatedWork} gives an overview of related work that pertains to modular robots with a focus on how existing %MSRR systems identify and encode physical configuration information through their connectors. Next, Section~\ref{sec:Hardware} presents the technical details of the proposed %\tagNamePlural~system for determining neighbor connection information and then attempts to characterize their functionality and discusses current limitations and potential %future extensions. Next, Section ~\ref{sec:Behaviors} presents the detailed algorithms which implement the three behaviors, (1) Path following: (2) Line formation and (3) Light %Aggregation, while Section~\ref{sec:Experiments} presents and analyzes experiments implementing these three algorithms. Finally, Section~\ref{sec:Discussion} attempts to help %illustrate several of the challenges and requirements for eventually applying these behaviors to future systems with millions of modules.
 
 
 %\begin{figure}[htb]
