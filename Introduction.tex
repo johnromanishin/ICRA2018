@@ -30,20 +30,6 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 		%\subcaption{}
 	\end{subfigure}
 	~
-%	\begin{subfigure}[b]{1.5 in}
-%		
-%		
-%		\resizebox{1.5 in}{1.25 in}
-%		{
-%			\begin{tikzpicture}[x=(220:1cm), y=(-40:1cm), z=(90:0.707cm)]
-%
-%			\input{FIGtitleCubeRendering.tex};
-%
-%			\end{tikzpicture}
-%		}
-%		
-%	%	\subcaption{}
-%	\end{subfigure}
 	\begin{subfigure}[b]{0.48\linewidth}
 	%	\resizebox{\linewidth}{!}
 	%	{
@@ -55,14 +41,11 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 	\end{subfigure}
 
 	\begin{subfigure}[b]{\linewidth}
-
-		%	{
 		\centering
 		\begin{tikzpicture}[]	
-		\node at (0,0) {\includegraphics[width=.92\linewidth]{figures/ActualLine_3.png}};
-		\node[opacity = 0.95, fill = white, rounded corners] at (-3.5,-2) {(c)};
+		\node at (0,0) {\includegraphics[width=.96\linewidth]{figures/ActualLine_3_small.png}};
+		\node[opacity = 0.95, fill = white, rounded corners] at (-3.5,-1.75) {(c)};
 		\end{tikzpicture}
-		%	}
 
 	\end{subfigure}
 	
@@ -72,17 +55,16 @@ Modular Self-Reconfigurable Robots (MSRR) have been proposed as one method to cr
 	\label{fig:intro}
 \end{figure}
 
-The conceptually simplest framework for controlling thousands or millions of individual modular robots is to have a centralized authority which dictates every move to each robot. However these systems suffer from practical problems maintaining the required number of communication links and a general lack of robustness to disturbances. One approach is to develop embedded "behaviors" or simple decentralized algorithms which each module can implement independently in the (potentially temporary) absence of centralized commutations. When developing these behaviors, the type of sensor feedback, and potential availability and type of local communication are important to determining the possible complexity of possible behaviors. This work focuses on modules which have information only about their direct neighbors, global input from a stimulus source (i.e. Light), knowledge about gravity, and occasional wireless communication. The behaviors that we introduce are as follows:
+The conceptually simplest framework for controlling thousands or millions of individual modular robots is to have a centralized authority which dictates every move to each robot. However these systems suffer from practical problems maintaining the required number of communication links and a general lack of robustness to disturbances. One approach is to develop embedded "behaviors" or simple decentralized algorithms which each module can implement independently in the (potentially temporary) absence of centralized commutations. When developing these behaviors, the type of sensor feedback, and potential availability and type of local communication are important to determining the possible complexity of these behaviors. This work focuses on modules which have information only about their direct neighbors, global input from a stimulus source (i.e. visible light), knowledge about gravity, and occasional wireless communication with a higher level controller. The behaviors that we introduce include (1) Path following, (2) Line formation, and (3) Light guided aggregation. The ability for MSRR systems to delegate most of the detailed movements to be autonomously handled by individual modules based on local interactions, while still able to assert control when necessary improves the scalability of the system. While there have been similar proposed decentralized control strategies, several of which are discussed in Section~\ref{ssec:RW-Algorithmic}, this work focuses on defining and adapting these behaviors for an existing robotic platform.
 
+This work is implemented and experimentally validated through a set of twelve 3D M-Block modular robots; which are one of the few MSRR systems capable of three-dimensional reconfiguration according to a generalized 3D lattice reconfiguration model. These 50~mm cubic modules use pulses of angular momentum and temporary magnetic hinges in order to implement lattice reconfiguration according to the Pivoting Cube Model (PCM). The M-Blocks were introduced for 2D movement in 2013~\cite{RomanishinRus-IROS13} and extended to three dimensions in 2015~\cite{Romanishin20153d}. In order to facilitate the implementation of new primitive behaviors, the 3D M-Blocks are further extended in this work to include a novel type of magnetic fiducial which allows modules to detect information about their neighbors. These new fiducial tags, called \tagNamePlural, provides globally unique identification codes for each face of a collection of modules. \TagNamePlural include relative orientation of the connection between the reading module, and are completely passive, allowing the system to accurately determine its global configuration even when various modules are either disabled or simple passive elements.
+
+Specifically this paper presents the following technical contributions:
 \begin{itemize}
-	\item \textit{Path following}: The goal of this behavior is guide mobile modules to follow paths described by fiducials embedded in in adjacent modules' lattice connection points. This behavior requires that  each module can determine from each of its neighbor connection interfaces a desired direction relative to its current absolute location that the module should move towards. The simplest implementation of this path following behavior involves passive hard-coded "arrow tags" in a lattice of passive modules, similar to arrows embedded along a road, as in Figure~\ref{fig:intro}a-b. Path following behavior is then extended to modules which have connection face identities which are globally uniquely defined, and which contain some embedded "direction" or ability to determine the relative connection angle. Modules can then receive a mapping of ID numbers and "directions", and then can follow a virtually created path along a configuration of modules. A path could be defined along the surface of a large partially assembled aggregate of modules to guide modules to desired attachment points, similar to how optimization technique following gradient descent paths to reach a goal.
-	
-	\item \textit{Line formation}: This behavior attempts to turn any arbitrary three-dimensional configuration of modules into a single horizontal line, ready to turn into a new shape on demand. This behavior can be implemented in several ways, but in this work each modules uses knowledge of its direct neighbors, and very simple communication between the faces of adjacent modules. These communications can be as simple as a binary "connect here" or "keep moving," light based symbol or can incorporate the path following behavior to optimize the movement efficiency (i.e. assembly speed) for a group of modules.
-	
-	\item \textit{Light gradient}: This goal of this behavior is to implement essentially a Braitenberg phototaxis~\ behavior for modular robots, i.e. aggregating robots towards or away from a light source. In implementation of the behavior presented in this work, the modules begin un-connected to a lattice and continue to move towards light until they reach a specific "goal" structure defined by a specific aggregate of modules, which ensures that aggregation of many modules doesn't lead to smaller scattered groups of modules.
+	\item Developed and characterized a new type of magnetic fiducial (\TagNamePlural) specifically designed to address the task of neighbor identification for MSRR. (Section~\ref{sec:Hardware})
+	\item Defined three separate primitive MSRR behaviors (distributed algorithms), tailored for the 3D M-Block hardware system. (Section~\ref{sec:Behaviors})
+	\item Experimentally validated these behaviors on a system of twelve 3D M-Block modules. (Section~\ref{sec:Experiments})
 \end{itemize}
-
-This work is implemented and experimentally validated through a set of 12 3D M-Block modular robots; which are one of the few MSRR systems capable of three-dimensional reconfiguration according to a generalized 3D lattice reconfiguration model. These ~50mm cubic modules use pulses of angular momentum and temporary magnetic hinges in order to implement lattice reconfiguration according to the Pivoting Cube Model (PCM). The M-Blocks were originally presented as two-dimensional system in 2013~\cite{RomanishinRus-IROS13} and extended to three dimensions in 2015~\cite{Romanishin20153d}. In order to facilitate the implementation of the three previously described behaviors, the 3D M-Blocks are further extended in this work to include a novel type of magnetic bar-code like tag to detect information about their neighbors. This new tag, called the \tagNamePlural, provides globally unique identification codes for each face of a collection of modules. \textit{\TagNamePlural} include relative orientation of the connection (e.g. North, south east, west) between the reading module and are implemented through a standardized configuration of passively embedded inexpensive permanent magnets which can easily be placed into any modular connection interface. These tags are completely passive, so a system of modules can still accurately determine its global configuration even if large numbers of the modules are inactive, either because they are passive, or due to individual module failure.
 
 %The remainder of the paper is organized as follows: Section~\ref{sec:RelatedWork} gives an overview of related work that pertains to modular robots with a focus on how existing %MSRR systems identify and encode physical configuration information through their connectors. Next, Section~\ref{sec:Hardware} presents the technical details of the proposed %\tagNamePlural~system for determining neighbor connection information and then attempts to characterize their functionality and discusses current limitations and potential %future extensions. Next, Section ~\ref{sec:Behaviors} presents the detailed algorithms which implement the three behaviors, (1) Path following: (2) Line formation and (3) Light %Aggregation, while Section~\ref{sec:Experiments} presents and analyzes experiments implementing these three algorithms. Finally, Section~\ref{sec:Discussion} attempts to help %illustrate several of the challenges and requirements for eventually applying these behaviors to future systems with millions of modules.
 

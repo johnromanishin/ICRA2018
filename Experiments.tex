@@ -1,7 +1,7 @@
 \section{Experiments}
 \label{sec:Experiments}
 
-These experiments were implemented on a set of 12 Modified 3D M-Block modules. The control system which is running the experiments is described in Figure~\ref{fig:electroncsChart}.
+These algorithms and the resulting behaviors were implemented on a set of 12 Modified 3D M-Block modules. The control system which is running the experiments is described in Figure~\ref{fig:electroncsChart}.
 
 \begin{figure}[ht]
 
@@ -12,7 +12,22 @@ These experiments were implemented on a set of 12 Modified 3D M-Block modules. T
 	\label{fig:electroncsChart}
 \end{figure}
 
-
+\begin{table}[h]
+	\caption{Experimental results Table. The numbers marked with * are preliminary and will be refined after more review of the experimental data.}
+	
+	\begin{tabular}{ p{2.2cm}  p{1.2cm}  p{1.2cm} p{1.2cm}}
+		\hline
+		& experiments& Success & moves \\
+		\hline
+		Line Formation		&  6 		& *42/59		& *85\\
+		Light Aggregation 	&  *1 		& *4/12 		& *20\\		
+		Path Following		&  5 		& *1/1 		& *2 \\
+		Extended Path		&  2		& *4/8		& *13\\
+		
+	\end{tabular}
+	
+	\label{tab:info}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,49 +35,35 @@ These experiments were implemented on a set of 12 Modified 3D M-Block modules. T
 \label{sec:mblocksExperimentsArrow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This experiment tested the ability of the Modules to identify and follow the "arrows" embedded in in a set of passive modules. The experiment consisted of a single module 
-implementing the algorithm in... 
-
-\begin{table}[h]
-	\caption{Experimental results Table}
-	
-	\begin{tabular}{ p{2.2cm}  p{1.2cm}  p{1.2cm} p{1.2cm}}
-		\hline
-							& runs 	& Success & moves \\
-		\hline
-		Line Formation		&  1 		& 5/8 		& 6\\
-		Light Aggregation 	&  1 		& 4/12 		& 20\\		
-		Path Following		&  1 		& 1/1 		& 2 \\
-		Extended Path		&	0		&0			& 0\\
-
-	\end{tabular}
-	
-	\label{tab:info}
-\end{table}
+This experiment tested the ability of the Modules to identify and follow the "arrows" embedded in in a set of passive and temporarily disabled active modules. The experiment consisted of a single module following the algorithm presented in Section~\ref{Behaviors}.
 
 \begin{figure}[h]  
 	\centering
-	\begin{subfigure}[b]{0.32\linewidth}
+	\begin{subfigure}[b]{0.23\linewidth}
 		\begin{tikzpicture}[]	
-		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.95\linewidth]{figures/arrows2.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.75) {t = 0 s};
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_1.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 2 s};
 		\end{tikzpicture}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.32\linewidth}
+	\begin{subfigure}[b]{0.23\linewidth}
 		\begin{tikzpicture}[]	
-		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.95\linewidth]{figures/arrows3.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.75) {t = 50 s};
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_2.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 31 s};
 		\end{tikzpicture}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.32\linewidth}
+	\begin{subfigure}[b]{0.23\linewidth}
 		\begin{tikzpicture}[]	
-		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.95\linewidth]{figures/arrows4.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-0.5,-0.75) {t = 120 s};
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_3.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 66 s};
 		\end{tikzpicture}
 	\end{subfigure}
-	
-	\caption{This experiment the cube following a very simple embedded arrow path.}
-	
+	\begin{subfigure}[b]{0.23\linewidth}
+		\begin{tikzpicture}[]	
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_4.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 135 s};
+		\end{tikzpicture}
+	\end{subfigure}
+	\caption{This experiment the cube following a very simple embedded arrow path. The module performing the experiment is preloaded with the angles for the tags with unique ID numbers, and apply these offsets in order to follow the path to the goal location (Upper right).}
 	\label{fig:arrowExperiment}
 \end{figure}
 
@@ -73,7 +74,8 @@ implementing the algorithm in...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-These experiments involved several attempts to convert arbitrary generated 3D structures with a few constraints (no holes, and no modules connected by three or more connection faces) into a single horizontal line involving between 8 and 12 modules.
+These experiments aimed to arbitrary 3D structures with constraints (no holes, and no modules connected by three or more connection faces) into a single horizontal line involving between 5 and 12 modules. These experiments were run with the aid a centralized WiFi server - whose function is to identify which module is the "seed" for the line. The server receives WiFi  status messages from the modules which includes their neighbors. The server attempts to find the longest existing line in the structure, and then picks one of the module closest to the center of that line, and sends a message to that module indicating that it is part of the line. 
+
 
 \begin{figure}[h]  
 	\centering
@@ -115,7 +117,7 @@ These experiments involved several attempts to convert arbitrary generated 3D st
 		\end{tikzpicture}
 	\end{subfigure}
 	
-	\caption{This experiment shows a random 3D configuration of M-Blocks reconfiguring into a line.}
+	\caption{This experiment shows an arbitrary 3D configuration of M-Blocks reconfiguring into a line.}
 	
 	\label{fig:lineExperiment}
 \end{figure}
@@ -128,7 +130,7 @@ These experiments involved several attempts to convert arbitrary generated 3D st
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-These experiments essentially attempt to implement the photo-taxis Braitenberg behavior for a group of M-Blocks modules. There is a single light source, and a special target module, which when modules aggregate to it, the modules share its location through wireless and light signals for additional modules to connect to it - essentially forming a single "crystal" of aggregated modules. In these experiment modules are gradually released into a confined (0.5m x 0.5 m) bounded foam-padded location, and move until they either run out of battery or connect to the designated aggregate.
+These experiments implement the photo-taxis Braitenberg behavior for a group of M-Blocks modules. There is a single light source, and a special target module, which when modules aggregate to it, the modules share its location through wireless and light signals for additional modules to connect to it - essentially forming a single "crystal" of aggregated modules. In these experiment modules are gradually released into a confined (0.5m x 0.5 m) bounded foam-padded location, and move until they either run out of battery or connect to the designated aggregate.
 
 %\newcommand{\figureWidth}{0.32\linewidth}
 \begin{figure}[h]  

@@ -23,10 +23,11 @@
 \usepackage{epstopdf}
 \fi
 
+
+
 \usepackage{amsmath, amssymb, mathptmx}
-%\usepackage{algorithmic}
-%\usepackage{algorithm}
-\usepackage[linesnumbered, ruled]{algorithm2e}
+\usepackage[algo2e,linesnumbered, ruled]{algorithm2e}
+\usepackage{algorithm}
 \usepackage{multirow}
 \usepackage{breakurl}
 \usepackage{caption}
@@ -41,8 +42,8 @@
 \usetikzlibrary{math} %needed tikz library
 \usepackage{tikz-dimline}
 \usepackage{tikz}
-\usetikzlibrary{arrows,shapes,trees, fit}
-\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+%\usetikzlibrary{arrows,shapes,trees, fit}
+\usetikzlibrary{arrows,shapes,trees, fit,calc,trees,positioning,arrows,chains,shapes.geometric,%
 decorations.pathreplacing,decorations.pathmorphing,shapes,%
 matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending}
 
@@ -56,7 +57,7 @@ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending
 \newcommand{\hvectspace}{\hspace{.2cm}}
 
 %% Old Version \title{\LARGE \bf \TagNamePlural: Location specific tag}
-\title{Three Experimentally Validated MSRR Behaviors Utilizing Magnetic Bar-codes with the 3D M-Blocks System}
+\title{Three Experimentally Validated MSRR Behaviors Utilizing Magnetic Fiducial Tags with the 3D M-Blocks System}
 
 \author{John W. Romanishin, John Mamish, and Daniela Rus
   \thanks{J. W. Romanishin, D. Rus are with the Computer Science
@@ -70,14 +71,15 @@ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending
 	\newcounter{y}
 	\newcounter{z}
 	
-\newcommand{\tagName}{MFTag }
-\newcommand{\TagName}{MFTag }
-\newcommand{\tagNamePlural}{MFTags }
-\newcommand{\TagNamePlural}{MFTags }
+\newcommand{\tagName}{MFTag}
+\newcommand{\TagName}{MFTag}
+\newcommand{\tagNamePlural}{MFTags}
+\newcommand{\TagNamePlural}{MFTags}
 
 
 \captionsetup[figure]{labelfont=small, textfont=small}
 \captionsetup[table]{labelfont=small, textfont=small}
+%\captionsetup[algorithm]{labelfont=small, textfont=small}
 
 \maketitle
 \thispagestyle{empty}
@@ -87,8 +89,9 @@ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending
 \begin{abstract}
 %%%%%%%%%%%%%%%%%% 
 
-This paper presents experimentally validated algorithms demonstrating three fundamental behaviors for lattice based Modular Self-Reconfigurable Robotic~(MSRR) modules utilizing a novel passive magnetic fiducial system to facilitate neighbor identification. For envisioned MSRR systems exceeding thousands of modules, centralized control of each robot movement will likely prove to be intractable from a computational and communication standpoint. An approach where individual modules can autonomously follow simple behaviors, while periodically accepting input from a centralized source promises to be simpler and more robust. This work presents three fundamental behaviors demonstrated with a system of 12 Robotic Modules. These behaviors include: (1) \textit{Path following}:modules guided to follow a three dimensional path based on passive magnetic fiducial tags (2) \textit{Line formation}:modules turning from arbitrary 3D structures into a line following a mostly decentralized control algorithm, and (3) \textit{Light gradient aggregation}:the formation of a large group of modules guided by a global stimulus i.e. visible light. These behaviors are implemented on 3D Mblocks robotic modules, original described in~\cite{RomanishinRus-IROS13} and~\cite{Romanishin20153d} which have been outfitted with magnetic identification tags and electronics to read the tags embedded in each connection point in order to implement these behaviors. 
+This paper presents experimentally validated algorithms demonstrating three fundamental behaviors for lattice based Modular Self-Reconfigurable Robotic~(MSRR) modules utilizing a novel passive magnetic fiducial system to facilitate neighbor identification. For envisioned MSRR systems exceeding thousands of modules, centralized control of each robot movement will likely prove to be intractable from a computational and communication standpoint. An approach where individual modules can autonomously follow simple behaviors, while periodically accepting input from a centralized source promises to more scalable and robust. This work presents three behaviors demonstrated with a system of twelve 3D M-Blocks robotic modules. The behaviors presented in this paper include: (1)~\textit{Path following}: modules follow a three dimensional path based on magnetic fiducial tags embedded in neighbors, (2)~\textit{Line formation}: modules turning from arbitrary 3D structures into a line following a mostly decentralized control algorithm, and (3)~\textit{Light gradient aggregation}: the formation of a large group of modules guided by a global stimulus i.e. visible light.
 
+%, original described in~\cite{RomanishinRus-IROS13} and~\cite{Romanishin20153d}
 %Using these tags, modules can accurately read passively stored information representing neighboring modules or messages hard-coded into the tags. These capabilities allow the algorithms which implement the described behaviors to be mostly decentralized and therefore robust to unreliable centralized communication.
 %%%%%%%%%%%%%%%%%%
 \end{abstract}
@@ -108,7 +111,7 @@ This paper presents experimentally validated algorithms demonstrating three fund
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgments}
-This work is supported by the NSF through grants 1240383 and 1138967, and the NDSEG fellowship.
+This work is supported by the NSF through grants 1240383 and 1138967 and the NDSEG fellowship.
 
 %%%%%%%%%%%%%%%%%%%%%%%%% 
 \section*{Supplementary Material}
