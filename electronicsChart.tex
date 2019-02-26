@@ -7,7 +7,7 @@
 	\node[anchor=south west,inner sep=0, minimum width = \linewidth, minimum height = 7.5cm] (emptyBox) at (0,0) {};
 	\begin{scope}[x={(emptyBox.south east)},y={(emptyBox.north west)}]
 	\tikzset{>=latex}
-		\coordinate (leftCenter) at (0.12, 0.65);
+		\coordinate (leftCenter) at (0.12, 0.55);
 		\coordinate (aboveleftCenter) at (0.16, 0.9);
 		\coordinate (rightCenter) at (0.55, 0.8);
 		\coordinate (routePt) at (0.50, 0.75);
@@ -71,7 +71,7 @@
 		\node[container, fit = (f0) (f5)] (frame) {};
 		\node at (frame.south) [below, node distance = 0 and 0] {\textbf{Active Modules}};
 		
-		\tikzmath{\radius = 0.5;}
+		\tikzmath{\radius = 0.4;}
 		\fill[gray] (aboveleftCenter) + (0, \radius cm) arc (90:270:\radius cm);
 		\fill[yellow] (aboveleftCenter) + (0, -\radius cm) arc (270:450:\radius cm);
 		
