@@ -5,50 +5,49 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section introduces the new magnetic fiducial tags (MFTags) which are implemented on the 3D M-Block Modules, originally presented in~\cite{RomanishinRus-IROS13} and extended to 3D in~\cite{Romanishin20153d}. Basic information regarding 3D M-Blocks is presented in Table~\ref{tab:hardwareOverviewTable}. These modules can pivot on a cubic lattice using pulses of angular momentum from an internal reaction wheel according to the pivoting cube model, but were not able to effectively determine their neighbor connectivity or communicate through their faces. 
+This section introduces the new magnetic fiducial tags (MFTags) which are implemented on the 3D M-Block Modules, originally presented in~\cite{RomanishinRus-IROS13} and extended to 3D in~\cite{Romanishin20153d}. Basic information regarding 3D M-Blocks is presented in Table~\ref{tab:hardwareOverviewTable}. These modules can pivot on a cubic lattice using pulses of angular momentum from an internal reaction wheel according to the pivoting cube model, but were previously not able to effectively determine their neighbor connectivity or communicate through their faces. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[h]
-	\caption{Basic info of the m-Blocks modular robots}
-	
-	\begin{tabular}{ p{3.4cm}  p{1.9cm} }
+	\caption{Basic characterics of the 3D M-Blocks robotic platform modules.}
+	\centering
+	\begin{tabular}{ p{3.5cm}  p{2cm} }
 		\hline
 		Actuation Directions & 6 \\
 		Mass  & 163\,g \\
-		Characterist Dimension & 50\,mm \\dra
+		Characterist Dimension & 50\,mm \\
 		Total Parts  & 216 \\
-		Actuated Moving Parts  & 10 \\
+		Number fabricated  & 16 \\
 	%	Est. Cost & \$230 \\
 	\end{tabular}
-	
 	\label{tab:hardwareOverviewTable}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In order to include this functionality this section introduces the \TagNamePlural, which is a new fiducial tag system which allows modules to detect information about their neighbors. The important design criteria taken into consideration while designing \TagNamePlural include the following:
+In order to include neighbor detection and connection orientation functionality this section introduces the \TagNamePlural, which is a new fiducial tag system which allows modules to detect information about their neighbors. The important design criteria taken into consideration while designing \TagNamePlural~include the following:
 \begin{itemize}
-	\item Passive - information can be read even when the module is inactive.
-	\item Inexpensive - necessary for scaling systems of beyond 1000 of modules.
-	\item Unique identities - needs to provide accurate location for large systems.
-	\item Orientation - the tag needs to reliably determine the 90-degree angle relative to the reader.
+	\item \emph{Passive} - information can be read even when the module is inactive.
+	\item \emph{Inexpensive} - necessary for scaling systems of beyond 1000 of modules.
+	\item \emph{Unique identities} - needs to provide accurate location for large systems.
+	\item \emph{Detect orientation} - the tag needs to reliably determine the 90-degree angle of the tag relative to the reader.
 \end{itemize} 
 
-Our new method for estimating the position of adjacent modules addresses both of these issues, and is illustrated with in Figure~\ref{fig:tagDiagram8}. \TagNamePlural are essentially arrangements of magnets mounted on the faces of modules.  The orientation of magnets which comprise \tagNamePlural can be measured by simple absolute magnetic encoder ICs, thereby reading information encoded in the orientation of the magnets.
+Our new method for estimating the position of adjacent modules addresses both of these issues, and is illustrated with in Figure~\ref{fig:tagDiagram}. \TagNamePlural~are essentially arrangements of magnets mounted on the faces of modules.  The orientation of magnets which comprise \tagNamePlural~can be measured by simple absolute magnetic encoder ICs, thereby reading information encoded in the orientation of the magnets.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[b]
-	\caption{Information content in the \TagNamePlural encoding specification. The current system is limited due to practical considerations of the physical dimensions of the  PCBa's in the 3D M-Blocks, but will hopefully be extended into the future extension soon.}
+	\caption{Information content in the \TagNamePlural~encoding specification. The current system is limited to 2 angle sensors due to practical considerations of the physical dimensions of the  PCBa's in the 3D M-Blocks. Extending to four sensors would increase the number of unique tags by over 300 times.}
 	
-	\begin{tabular}{ p{2cm}  p{1.5cm}  p{1.5cm}  p{1.5cm}}
+	\begin{tabular}{ p{1.6cm}  p{1.8cm}  p{1.9cm}  p{1.5cm}}
 		\hline
-								& \textit{Current System} & Future Extension & Advanced Extended \\
+								& \textit{Current system} & Future extension & Extended \\
 		\hline
 				\addlinespace[1ex]
 		Magnets  				& 4 			 &	4				&	4	\\
 		Digits 					& 30 			 &	24				&	48	\\
-		No. Of Sensors 			& 2 			 &	4				&	4	\\
+		\# Of Sensors 			& 2 			 &	4				&	4	\\
 		\textit{Unique Tags} 	& \textbf{900} 	 & 331776			& 	~5,000,000\\
 		
 	\end{tabular}
@@ -60,7 +59,7 @@ Our new method for estimating the position of adjacent modules addresses both of
 
 The approach that \tagNamePlural~take towards this problem is a passive magnetic connector that uses a combination of dipole angles to communicate identity and relative rotational position. In this implementation, each face of each cube is encoded with a different combination of magnetic angles than every other face of every other cube. Magnetic rotary position sensors read these dipole angle combinations to determine which face is directly adjacent, and they identify the rotational angle of the face as well. All of this occurs using an un-powered array of magnets that provide static EM fields, readable at a hyperlocal distance.
 
-The underlying hypothesis is that low cost and lack of RF transmission make magnets an attractive choice for a technology that may have to be implemented hundreds of times in a set of reconfigurable modules. The ability to use several such sensors at close proximity allows several to be used on each connecting face, providing enough data to read configuration as well as identity. The \tagNamePlural were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances.
+The underlying hypothesis is that low cost and lack of RF transmission make magnets an attractive choice for a technology that may have to be implemented hundreds of times in a set of reconfigurable modules. The ability to use several such sensors at close proximity allows several to be used on each connecting face, providing enough data to read configuration as well as identity. The \tagNamePlural~were designed and tested with the M-Blocks modular robots as the test bed, although nothing precludes their use in other circumstances.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,9 +73,7 @@ The underlying hypothesis is that low cost and lack of RF transmission make magn
 	\label{fig:tagDiagram}
 \end{figure*}
 
-The \tagNamePlural are implemented using absolute magnetic encoders from Austrian Micro Systems. Each active module has been outfitted with a circuit board that
-includes two AS5048B absolute magnetic encoders, a light sensor, and several LEDs. The circuit boards are driven from the central processor 
-through an I2C I/O expander.
+The \tagNamePlural~are implemented using absolute magnetic encoders from Austrian Micro Systems. Each active module has been outfitted with a circuit board that includes two Austrian Microsystems AS5048B absolute magnetic encoders, a light sensor, and several LEDs. The circuit boards are driven from the central processor through an I2C I/O expander.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,13 +82,11 @@ through an I2C I/O expander.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-While the exact performance of the \tagName system that will be be implementation Dependant i.e. different size/shape magnets, encoder ICs, etc. We performed experimentation to demonstrate that our implementation of the \tagName concept is feasible and useful in the context of modular robots. this section attempts to characterize the \tagNamePlural in terms of repeatability and accuracy of multiple measurements under varying conditions and to investigate the behavior when tags are misaligned. 
-
-While the angular resolution of the magnetic angular encoders that we used is very high, 14 bits for the ams5048b used in this work, these readings are only repeatable under ideal conditions. There are many factors which influence the accuracy of readings of the sensors in the context of the \tagNamePlural. We have identified the following factors 1. Alignment of the magnetic sensor relative to the face of the module, 2. relative alignment of the face containing the tag to the face containing the reader. 3. variability of the magnetic field direction in the manufacture of the magnets. 4. Mechanical alignment of the magnets in reference to the tag. 5. Effects of external magnetic fields. While factors 1 and 4, (mechanical alignment of magnets and sensors) are appear to be a significant factor in our implementation due to the hand-assembly nature of the prototype system, these should be less of a concern in large scale systems which are properly manufactured.
+While the exact performance of the \tagName~system that will be be implementation dependant i.e. different size/shape magnets, sensor ICs, etc. We performed an experiment shown in Figure(fig:histogram) to demonstrate that our implementation of the \tagName~concept is feasible and useful in the context of modular robots. While the angular resolution of the magnetic angular encoders that we used is very high, 14 bits for the AS5048b used in this work, these readings are only repeatable under ideal conditions. There are many factors which influence the accuracy of readings of the sensors in the context of the \tagNamePlural. We have identified the following factors that contribute to reading errors: (1) relative alignment of the face containing the tag to the face containing the reader. (2) Alignment of the magnetic sensor relative to the face of the module. (3) variability of the magnetic field direction in the manufacture of the magnets. (4) Mechanical alignment of the magnets in reference to the tag. (5) Effects of external magnetic fields. While factors 2 and 4, (mechanical alignment of magnets and sensors) are appear to be a significant factor in the errors seen in this system, we think that much of this error is due to the hand-assembly nature of this prototype system. In larger scale systems properly manufactured systems factors 2-4 should be significantly reduced.
 
 \begin{figure}[h]
 	\input{FIGhistogram1.tex}
-	\caption{Histogram of one sensor face reading the same tag multiple times. The Boundary lines represents tags that will not be read correctly.}
+	\caption{Histogram showing one sensor face reading the same tag multiple times. The Boundary lines represents tags that will were mis-read.}
 	\label{fig:histogram}
 \end{figure}
 
