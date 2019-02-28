@@ -3,9 +3,9 @@
 
 The three behaviors described in Section~\ref{sec:Introduction} are described and presented in pseudocode in this section. These algorithms were designed for a system which meet the following assumptions:
 \begin{itemize}
-	\item 3-Dimensional cubic lattice movement according to either Pivoting Cube Model or Sliding Cube Model.
+	\item 3D cubic lattice movement according to either Pivoting Cube Model or Sliding Cube Model.
 	\item Each module can detect a unique ID number and a relative orientation for each connector face.
-	\item Are able to send simple messages through their connecting faces to other modules.
+	\item Modules are able to send simple messages through their connecting faces to other modules.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,7 +27,7 @@ The goal of this behavior is guide mobile modules to follow paths described by f
 	\SetAlgoLined
 %	\KwData{M-Blocks 3D}
 	initialization\;
-	\While{Connected to Valid module}
+	\While{Connected to valid module}
 	{
 		determine arrow direction\;
 		\eIf{Flywheel plane is aligned with arrow}
@@ -38,17 +38,11 @@ The goal of this behavior is guide mobile modules to follow paths described by f
 			Attempt to align flywheel with correct plane\;
 		}
 	}
-	\caption{This algorithm attempts to drive a cube in the direction of the embedded direction defined by the \tagName on its neighbor cubes}
+	\caption{This algorithm attempts to drive a cube in the direction of the embedded direction defined by the \tagNamePlural.}
 \end{algorithm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{3D Line Formation Behavior}
 \label{ssec:algline}
@@ -56,8 +50,7 @@ The goal of this behavior is guide mobile modules to follow paths described by f
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The goal of this algorithm is to reconfigure an arbitrary 3D configuration of modules into a line using a decentralized algorithm. Before the algorithm begins 
-a centralized or specially selected module selects and notifies a single module that it is the "seed" module for the line.  In contrast to centralized line formation algorithms as in~\cite{sung2015reconfiguration}, this work implements the simple algorithm described in Algorithm~\ref{algorithmLine}. This behavior can be implemented in several ways, but in this work each modules uses knowledge of its direct neighbors, and very simple communication between the faces of adjacent modules. These communications can be as simple as a binary "connect here" or "keep moving," light based symbol or can incorporate the path following behavior to optimize the movement efficiency (i.e. assembly speed) for a group of modules.
+The goal of this algorithm is to reconfigure an arbitrary 3D configuration of modules into a line using a decentralized algorithm. Initially a centralized or specially selected module selects to be the "seed" module for the line.  In contrast to centralized line formation algorithms as in~\cite{sung2015reconfiguration}, this work implements the algorithm described in Algorithm~\ref{algorithmLine}. This behavior can be implemented in several ways, but in this work each modules uses knowledge of its direct neighbors, and very simple communication between the faces of adjacent modules. These communications are implemented as as a binary "connect here" or "keep moving," using visible light sensors and LED's on the modules' faces. Future versions could  incorporate the path following behavior to optimize the movement efficiency (i.e. assembly speed) for a group of modules.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{algorithm}{0}
@@ -69,8 +62,8 @@ a centralized or specially selected module selects and notifies a single module 
 	Initialization\;
 	\While{line seed not selected by Server}
 	{
-		Modules send wireless information about neighbors\;
-		Server searches for longest line\;
+		Modules send wireless information about their neighbors\;
+		server searches for longest existing line\;
 	}
 	\While{Not part of line}
 	{
@@ -83,7 +76,7 @@ a centralized or specially selected module selects and notifies a single module 
 			Attempt to align flywheel with correct plane\;
 		}
 	}
-	\caption{This algorithm attempts to turn an arbitrary 3D shape configuration of modules into a line. The algorithm runs in a decentralized manner except for the initial step which uses a "Server" block which tells which module is the start of the line. }
+	\caption{This algorithm attempts to turn a 3D shape configuration of modules into a line. The algorithm runs in a decentralized manner except for the initial step which uses a centralized "Server" block which communicated through WiFi which module is the "seed" of the line. }
 \end{algorithm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -96,7 +89,7 @@ a centralized or specially selected module selects and notifies a single module 
 \label{sec:algLight}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This goal of this behavior is to implement essentially a Braitenberg phototaxis~\ behavior for lattice based modular robots, i.e. aggregating robots towards a light source. The algorithm assumes modules begin un-connected to a lattice and continue to move towards light until they reach a specific "goal" structure defined by a specific aggregate of modules, which ensures that there is only a single successful aggregate. The modules move until they connect to a module that indicates it is part of the goal unit through some simple form of neighbor to neighbor communication, i.e. the face is lighted. With the exception of some method for selecting a single seed module, this algorithm is entirely distributed, and only depends on local information. This algorithm is based on the work from Claici et. al in~\cite{claici2017distributed}, but is refined in this work to account for some of the nuances of the actual hardware system.
+This goal of this behavior is to implement essentially a Braitenberg phototaxis behavior for lattice based modular robots, i.e. aggregating robots towards a light source. The algorithm assumes modules begin not connected to a lattice and continue to move towards light until they reach a specific "goal" structure defined by a specific aggregate of modules, which ensures that there is only a single successful aggregate. The modules move until they connect to a module that indicates it is part of the goal unit through some simple form of neighbor to neighbor communication, i.e. the face is lighted. With the exception of some method for selecting a single seed module, this algorithm is entirely distributed, and only depends on local information. This algorithm is based on the work from Claici et. al in~\cite{claici2017distributed}, but is refined in this work to account for some of the nuances of the actual hardware system.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,7 +122,7 @@ This goal of this behavior is to implement essentially a Braitenberg phototaxis~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The goal of this experiment is to aggregate a group of modules nearby a light source to form one assembly. Placing the light source in a corner, and providing a \emph{seed} module can help to simplify aggregation, since the modules would know when to stop (When they see the seed module, or connect to a different module that has previously seen the seed module). One possible biological inspiration for this experiment is to imagine that the modules are cells of a plant, and the algorithm is to grow a structure towards the light source as a plant. As far as I know this work would be the first to accomplish this task in 3 dimensions using modular robots.
+The experiments are implemented by placing a light source in a corner of a rectangular arena, and providing a \emph{seed} module  to designate the correct location to connect to. One possible biological inspiration for this experiment is to imagine that the modules are cells of a plant, and the algorithm is to grow a structure towards the light source as a plant. As far as we know this work would be the first to accomplish this task in 3 dimensions using modular robots.
 
 
 
