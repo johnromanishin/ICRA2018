@@ -15,7 +15,7 @@ These algorithms and the resulting behaviors were implemented on a set of twelve
 \begin{table}[h]
 	\caption{Experimental results for informal experiments testing the three behaviors. See the supplementary materials for the original videos of the experiments.}
 	
-	\begin{tabular}{ p{2.2cm}  p{1.8cm}  p{1.4cm} p{1.3cm} }
+	\begin{tabular}{ p{2.4cm}  p{1.8cm}  p{1.4cm} p{1.3cm} }
 		\hline
 								& Path Following& Aggregation 	& Line		\\
 		\hline
@@ -43,35 +43,50 @@ These algorithms and the resulting behaviors were implemented on a set of twelve
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This experiment tested the ability of the Modules to identify and follow the "arrows" embedded in in a set of passive and temporarily disabled active modules. The experiment consisted of a single module following the algorithm presented in Section~\ref{Behaviors}.
+This experiment tested the ability of the Modules to identify and follow the "arrows" embedded in in a set of passive and temporarily disabled active modules. The experiment consisted of a single module following the algorithm presented in Section~\ref{sec:algArrow}.
 
 \begin{figure}[h]  
 	\centering
-	\begin{subfigure}[b]{0.23\linewidth}
+	\begin{subfigure}[b]{0.30\linewidth}
 		\begin{tikzpicture}[]	
-		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_1.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 2 s};
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_0.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 0 s};
 		\end{tikzpicture}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.23\linewidth}
+	\begin{subfigure}[b]{0.30\linewidth}
 		\begin{tikzpicture}[]	
-		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_2.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 31 s};
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_227.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 227 s};
 		\end{tikzpicture}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.23\linewidth}
+	\begin{subfigure}[b]{0.30\linewidth}
 		\begin{tikzpicture}[]	
-		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_3.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 66 s};
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_421.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 421 s};
 		\end{tikzpicture}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.23\linewidth}
+
+	\begin{subfigure}[b]{0.30\linewidth}
 		\begin{tikzpicture}[]	
-		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_4.png}};
-		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 135 s};
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_660.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 660 s};
 		\end{tikzpicture}
 	\end{subfigure}
-	\caption{In this experiment the module moves according to \tagNamePlural~embedded in passive modules. The module performing the experiment is preloaded with the angles for the tags with unique ID numbers, and apply these offsets in order to follow the path to the goal location.}
+	\begin{subfigure}[b]{0.30\linewidth}
+		\begin{tikzpicture}[]	
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_686.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 686 s};
+		\end{tikzpicture}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.30\linewidth}
+		\begin{tikzpicture}[]	
+		\node[opacity = 0.95] at (0,0) {\includegraphics[width=0.97\linewidth]{figures/arrows_720.png}};
+		\node[opacity = 0.5, fill = white, rounded corners] at (-0.25,-0.5) {t = 720 s};
+		\end{tikzpicture}
+	\end{subfigure}
+%	\caption{In this experiment the module moves according to \tagNamePlural~embedded in passive modules. The module performing the experiment is preloaded with the angles for the tags with unique ID numbers, and apply these offsets in order to follow the path to the goal location.}
+	\caption{In this experiment the module moves according to \tagNamePlural~embedded in passive modules. The module moves along the path until it connects to a module which has a LED turned on (the goal location).}
+	
 	\label{fig:arrowExperiment}
 \end{figure}
 
