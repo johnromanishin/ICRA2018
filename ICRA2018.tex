@@ -57,7 +57,7 @@ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending
 \newcommand{\hvectspace}{\hspace{.2cm}}
 
 %% Old Version \title{\LARGE \bf \TagNamePlural: Location specific tag}
-\title{Three Experimentally Validated MSRR Behaviors Utilizing Magnetic Fiducial Tags with the 3D M-Blocks System}
+\title{Decentralized Control for 3D M-Blocks for Path Following, Line Formation, and Light Gradient Aggregation}
 
 \author{John W. Romanishin, John Mamish, and Daniela Rus
   \thanks{J. W. Romanishin, D. Rus are with the Computer Science
@@ -89,7 +89,9 @@ matrix,shapes.symbols,plotmarks,decorations.markings,shadows,arrows.meta,bending
 \begin{abstract}
 %%%%%%%%%%%%%%%%%% 
 
-This paper presents experimentally validated algorithms demonstrating three fundamental behaviors for lattice based Modular Self-Reconfigurable Robotic~(MSRR) modules utilizing a novel passive magnetic fiducial system to facilitate neighbor identification. For envisioned MSRR systems exceeding thousands of modules, centralized control of each robot movement will likely prove to be intractable from a computational and communication standpoint. An approach where individual modules can autonomously follow simple behaviors, while periodically accepting input from a centralized source promises to more scalable and robust. This work presents three behaviors demonstrated with a system of twelve 3D M-Blocks robotic modules. The behaviors presented in this paper include: (1)~\textit{Path following}: modules follow a three dimensional path based on magnetic fiducial tags embedded in neighbors, (2)~\textit{Line formation}: modules turning from 3D structures into a line following a partially decentralized control algorithm, and (3)~\textit{Light gradient aggregation}: the formation of a group of modules guided by a global stimulus i.e. visible light.
+This paper presents a decentralized control framework for lattice-based Modular Self-Reconfigurable Robots (MSRR) which utilizes a novel magnetic fiducial system to facilitate neighbor identification and to enable algorithms which promise scalable functionality for systems with many modules. In this system individual modules autonomously follow simple behaviors while periodically accepting input from a centralized controller. This system is demonstrated with three initial behaviors: (1) \textit{Path following}: modules follow a three dimensional path based on magnetic fiducial tags embedded in their neighbors, (2) \textit{Line formation}: modules transform from a 3D structure into a line following a partially decentralized control algorithm, and (3) \textit{Light gradient aggregation}: the formation of a group of modules guided by a global stimulus (i.e. visible light). This paper provides details of the neighbor identification system, introduces the three behaviors and presents the results of physical experiments performed with a system of twelve 3D M-block robotic modules. 
+
+%This paper presents experimentally validated algorithms demonstrating three fundamental behaviors for lattice based Modular Self-Reconfigurable Robotic~(MSRR) modules utilizing a novel passive magnetic fiducial system to facilitate neighbor identification. For envisioned MSRR systems exceeding thousands of modules, centralized control of each robot movement will likely prove to be intractable from a computational and communication standpoint. An approach where individual modules can autonomously follow simple behaviors, while periodically accepting input from a centralized source promises to more scalable and robust. This work presents three behaviors demonstrated with a system of twelve 3D M-Blocks robotic modules. The behaviors presented in this paper include: (1)~\textit{Path following}: modules follow a three dimensional path based on magnetic fiducial tags embedded in neighbors, (2)~\textit{Line formation}: modules turning from 3D structures into a line following a partially decentralized control algorithm, and (3)~\textit{Light gradient aggregation}: the formation of a group of modules guided by a global stimulus i.e. visible light.
 
 %, original described in~\cite{RomanishinRus-IROS13} and~\cite{Romanishin20153d}
 %Using these tags, modules can accurately read passively stored information representing neighboring modules or messages hard-coded into the tags. These capabilities allow the algorithms which implement the described behaviors to be mostly decentralized and therefore robust to unreliable centralized communication.
@@ -110,8 +112,8 @@ This paper presents experimentally validated algorithms demonstrating three fund
 \input{Discussion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Acknowledgments}
-This work is supported by Amazon Robotics, the NSF through grants 1240383 and 1138967 and the NDSEG fellowship.
+\section*{Acknowledgements}
+This work has been generously supported by Amazon Robotics, the NSF through grant number 1644558 and the NDSEG fellowship.
 
 %%%%%%%%%%%%%%%%%%%%%%%%% 
 \section*{Supplementary Material}

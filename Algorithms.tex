@@ -27,10 +27,10 @@ The goal of this behavior is guide mobile modules to follow paths described by f
 	\SetAlgoLined
 %	\KwData{M-Blocks 3D}
 	initialization\;
-	\While{Connected to valid module}
+	\While{connected to valid module}
 	{
 		determine arrow direction\;
-		\eIf{Flywheel plane is aligned with arrow}
+		\eIf{flywheel plane is aligned with arrow}
 		{
 			Move in direction of arrow\;
 		}
@@ -38,7 +38,7 @@ The goal of this behavior is guide mobile modules to follow paths described by f
 			Attempt to align flywheel with correct plane\;
 		}
 	}
-	\caption{This algorithm attempts to drive a cube in the direction of the embedded direction defined by the \tagNamePlural.}
+	\caption{This algorithm attempts to drive a module in the direction of the embedded "arrow" defined by the \tagNamePlural.}
 \end{algorithm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

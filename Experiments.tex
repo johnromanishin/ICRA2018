@@ -1,19 +1,19 @@
 \section{Experiments}
 \label{sec:Experiments}
 
-These algorithms and the resulting behaviors were implemented on a set of twelve 3D M-Block modules. The control system which is running the experiments is described in Figure~\ref{fig:electroncsChart}.
+The three behaviors were implemented on a set of twelve 3D M-Block modules. The control system which is running the experiments is described in Figure~\ref{fig:electroncsChart}.
 
 \begin{figure}[ht]
 
 	\input{electronicsChart.tex}
 	
-\caption{This figure illustrates the various avenues of information exchange between the different elements of the experimental setup. The \emph{orange} arrows represent bi-directional WiFi messages sent between the immobile \emph{Server Module} and the active modules, with the dashed line showing a potentially faulty connection. The \emph{blue} arrows show the simple light-based messages which active modules are able to send to neighbors that they are directly connected to. The \emph{purple} arrows represent the reading of \tagNamePlural~ between an active module and a valid and adjacently connected \tagName. Note that \tagNamePlural can be read from both passive modules, and from passive or even unresponsive modules.}
+\caption{This figure illustrates the various avenues of information exchange between the different elements of the experimental setup. The \emph{orange} arrows represent bi-directional WiFi messages sent between the immobile \emph{Server Module} and the active modules, with the dashed line showing a potentially faulty connection. The \emph{blue} arrows show the simple light-based messages which active modules are able to send to neighbors which they are directly connected to. The \emph{purple} arrows represent the reading of \tagNamePlural~ between an active module and a valid and properly connected \tagName. Note that \tagNamePlural~can be read from both passive or unresponsive modules.}
 	
 	\label{fig:electroncsChart}
 \end{figure}
 
 \begin{table}[h]
-	\caption{Experimental results for informal experiments testing the three behaviors. See the supplementary materials for the original videos of the experiments.}
+	\caption{Experimental results for informal experiments testing the three behaviors. See the supplementary materials for a sample of the videos of the experiments.}
 	
 	\begin{tabular}{ p{2.4cm}  p{1.8cm}  p{1.4cm} p{1.3cm} }
 		\hline
@@ -22,8 +22,8 @@ These algorithms and the resulting behaviors were implemented on a set of twelve
 		Experiments				&  15 			& 3				& 11 		\\
 		Successful moves		&  104			& -				& 81			\\
 		Failed moves			&  15			& -				& 10			\\
-		Failed tag Readings		&  3			& -				& 4			\\
-		Reach Goal				&  16/23		& 15 / 30		& 64/84		\\
+		Failed tag readings		&  3			& -				& 4			\\
+		Reached goal				&  16/23		& 15 / 30		& 64/84		\\
 
 		
 		
@@ -43,7 +43,7 @@ These algorithms and the resulting behaviors were implemented on a set of twelve
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This experiment tested the ability of the Modules to identify and follow the "arrows" embedded in in a set of passive and temporarily disabled active modules. The experiment consisted of a single module following the algorithm presented in Section~\ref{sec:algArrow}.
+This experiment tested the ability of the modules to identify and follow the "arrows" embedded in in a set of passive and temporarily disabled active modules. The experiment consisted of a single module following the algorithm presented in Section~\ref{sec:algArrow}.
 
 \begin{figure}[h]  
 	\centering
@@ -85,7 +85,7 @@ This experiment tested the ability of the Modules to identify and follow the "ar
 		\end{tikzpicture}
 	\end{subfigure}
 %	\caption{In this experiment the module moves according to \tagNamePlural~embedded in passive modules. The module performing the experiment is preloaded with the angles for the tags with unique ID numbers, and apply these offsets in order to follow the path to the goal location.}
-	\caption{In this experiment the module moves according to \tagNamePlural~embedded in passive modules. The module moves along the path until it connects to a module which has a LED turned on (the goal location).}
+	\caption{In this experiment a single module moves according to "arrows" embedded in the \tagNamePlural~ in passive modules. The module moves along this path until it reaches a goal location, which is implemented as a module with its face LED's turned on.}
 	
 	\label{fig:arrowExperiment}
 \end{figure}
@@ -97,7 +97,7 @@ This experiment tested the ability of the Modules to identify and follow the "ar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-These experiments aimed to arbitrary 3D structures with constraints (no holes, and no modules connected by three or more connection faces) into a single horizontal line involving between 5 and 12 modules. These experiments were run with the aid a centralized WiFi server - whose function is to identify which module is the "seed" for the line. The server receives WiFi  status messages from the modules which includes their neighbors. The server attempts to find the longest existing line in the structure, and then picks one of the module closest to the center of that line, and sends a message to that module indicating that it is part of the line. 
+These experiments aimed to transform 3D structures with several constraints: no holes, no modules connected by three or more connection faces, into a single horizontal line. These experiments were run with the aid a centralized WiFi server - whose function is to identify which module is the "seed" for the line. The server receives WiFi  status messages from the modules which includes information about their neighbors. The server attempts to find the longest existing line in the structure, and then picks one of the modules closest to the center of that line, and sends a message to that module indicating that it is the starting point for the line. 
 
 
 \begin{figure}[h]  
@@ -140,7 +140,7 @@ These experiments aimed to arbitrary 3D structures with constraints (no holes, a
 		\end{tikzpicture}
 	\end{subfigure}
 	
-	\caption{This experiment shows an arbitrary 3D configuration of M-Blocks reconfiguring into a line.}
+	\caption{This experiment shows a 3D configuration of six 3D M-Blocks reconfiguring into a line.}
 	
 	\label{fig:lineExperiment}
 \end{figure}
@@ -153,7 +153,7 @@ These experiments aimed to arbitrary 3D structures with constraints (no holes, a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-These experiments implement the photo-taxis Braitenberg behavior for a group of M-Blocks modules. There is a single light source, and a special target module, which when modules aggregate to it, the modules share its location through wireless and light signals for additional modules to connect to it - essentially forming a single "crystal" of aggregated modules. In these experiment modules are gradually released into a confined (0.5m x 0.5 m) bounded foam-padded location, and move until they either run out of battery or connect to the designated aggregate.
+These experiments implement the photo-taxis Braitenberg behavior for a group of 3D M-Block modules. The experiment includes a single light source and a special target module indicating a initial connection location. If a module connects to a valid connection point it joins the aggragate structure and then signals to other modules that it is now also part of the structure through wireless and light signals. This essentially forms a single "crystal" of aggregated modules which grows as more modules join. In these experiment the modules are gradually released into a confined environment (0.5~m x 0.5~m) which is bounded by foam padded walls. The modules move until they either exhaust their battery or connect to the designated aggregate structure.
 
 %\newcommand{\figureWidth}{0.32\linewidth}
 \begin{figure}[h]  
@@ -202,7 +202,7 @@ These experiments implement the photo-taxis Braitenberg behavior for a group of 
 		\end{tikzpicture}
 	\end{subfigure}
 	
-	\caption{This experiment illustrates the light guided aggregation behavior.}
+	\caption{This experiment illustrates the light guided aggregation behavior. The goal location and the light source are both in the upper left hand corner. If modules form aggregates that are not connected to the goal location (e.g. at t = 220s), they dissassemble and continue trying to reach the goal location.}
 	
 	\label{fig:LightExperiment}
 \end{figure}
